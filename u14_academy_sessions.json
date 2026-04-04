@@ -1,0 +1,1688 @@
+{
+  "meta": {
+    "title": "U14 Girls Academy — Individual Training Programme",
+    "version": "1.0.0",
+    "description": "Complete individual training programme for a U14 girls academy player. All sessions designed for individual practice. Includes shooting, passing, dribbling, FIFA 11+, strength, speed, rhythmic movement, and football intelligence.",
+    "target": "U14 female academy player",
+    "notes": [
+      "Sessions are designed for individual practice — no team or coach required for most drills",
+      "Knee alignment warning applies to all relevant exercises (ACL prevention priority for U14 females)",
+      "FIFA 11+ must be performed at least twice per week to be effective",
+      "Rest times should be respected — quality over quantity"
+    ]
+  },
+  "sessions": [
+    {
+      "id": "shooting",
+      "title": "Shooting Session",
+      "category": "technical",
+      "duration_min": 30,
+      "duration_max": 45,
+      "equipment": ["cones", "ball", "goal"],
+      "levels": [
+        {
+          "id": "easy",
+          "label": "Easy",
+          "day": 1,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings fwd/side × 10 each leg" },
+            { "name": "Hip openers", "detail": "Walking knee hug + hip circle × 8" },
+            { "name": "Ball mastery", "detail": "Inside/outside toe taps × 30 sec" },
+            { "name": "Light touch", "detail": "Soft passes against wall × 10 each foot" }
+          ],
+          "drills": [
+            {
+              "id": "easy_d1",
+              "name": "Top 5m box — centre",
+              "number": 1,
+              "sets": 3,
+              "reps": 6,
+              "rest_seconds": 90,
+              "feet": "both",
+              "setup": {
+                "location": "5m box",
+                "cones": [
+                  { "label": "Centre cone", "position": "middle of 5m box bottom line" }
+                ]
+              },
+              "execution": "Place cone on bottom line of 5m box centre. Push ball then alternate shooting left corner (left foot) and right corner (right foot).",
+              "cues": [
+                "Cone on the BOTTOM line of the 5m box — not floating inside",
+                "Small push of the ball first, then strike",
+                "Alternate left corner (L foot) and right corner (R foot)",
+                "Shot lines go INTO the goal corners — not outside the posts"
+              ],
+              "skill_moves": ["body feint", "step-over", "reverse step-over"]
+            },
+            {
+              "id": "easy_d2",
+              "name": "5m box — right cone",
+              "number": 2,
+              "sets": 3,
+              "reps": 6,
+              "rest_seconds": 90,
+              "feet": "right",
+              "setup": {
+                "location": "5m box",
+                "cones": [
+                  { "label": "Right corner cone", "position": "right corner of 5m box bottom line" }
+                ]
+              },
+              "execution": "Cone at right corner of 5m box. Right foot shoots into left corner.",
+              "cues": [
+                "Cone at the RIGHT corner of the 5m box bottom line",
+                "Strike with RIGHT foot into the LEFT corner",
+                "Drive through the ball — locked ankle"
+              ],
+              "skill_moves": ["body feint", "step-over", "reverse step-over"]
+            },
+            {
+              "id": "easy_d3",
+              "name": "5m box — left cone",
+              "number": 3,
+              "sets": 3,
+              "reps": 6,
+              "rest_seconds": 90,
+              "feet": "left",
+              "setup": {
+                "location": "5m box",
+                "cones": [
+                  { "label": "Left corner cone", "position": "left corner of 5m box bottom line" }
+                ]
+              },
+              "execution": "Cone at left corner of 5m box. Left foot shoots into right corner.",
+              "cues": [
+                "Cone at the LEFT corner of the 5m box bottom line",
+                "Strike with LEFT foot into the RIGHT corner",
+                "Drive through the ball — locked ankle"
+              ],
+              "skill_moves": ["body feint", "step-over", "reverse step-over"]
+            }
+          ]
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "day": 2,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings + hip openers × 10" },
+            { "name": "Ball mastery", "detail": "Inside/outside rolls × 30 sec" },
+            { "name": "Light finishing", "detail": "5 easy finishes from close range" }
+          ],
+          "drills": [
+            {
+              "id": "medium_d1",
+              "name": "Penalty spot V-shape",
+              "number": 1,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "both",
+              "setup": {
+                "location": "penalty area",
+                "cones": [
+                  { "label": "V-shape", "count": 3, "position": "V-shape at top of penalty spot", "spread": "penalty spot area" }
+                ]
+              },
+              "execution": "3 cones in V-shape at penalty spot. Player starts at 16m line. Perform skill move then alternate shots: left foot to left corner, right foot to right corner. Walk back between shots.",
+              "cues": [
+                "V-shape cones at penalty spot",
+                "Player starts at the 16m line",
+                "Shots from OUTSIDE edges of side cones",
+                "Alternate: left foot → left corner, right foot → right corner",
+                "Walk back to recover between shots"
+              ],
+              "skill_moves": ["body feint", "step-over", "reverse step-over"]
+            },
+            {
+              "id": "medium_d2",
+              "name": "Thierry Henry — left",
+              "number": 2,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "left",
+              "setup": {
+                "location": "penalty area",
+                "cones": [
+                  { "label": "Curve cones", "count": 4, "position": "curve shape 2–3m to the RIGHT of penalty spot, top cone one step BELOW spot level" }
+                ]
+              },
+              "execution": "4 cones in a curve to the RIGHT of the penalty spot. Push ball straight past inside of top cone, run OUTSIDE the curve, strike with LEFT foot to LEFT corner. Open hips on finish.",
+              "cues": [
+                "4 cones in a curve to the RIGHT of spot",
+                "Top cone is one step BELOW spot level",
+                "Push ball straight past the INSIDE of top cone",
+                "Run OUTSIDE the curve — not through it",
+                "Strike at intersection of ball line and run arc",
+                "LEFT foot → LEFT corner · open hips"
+              ],
+              "skill_moves": []
+            },
+            {
+              "id": "medium_d3",
+              "name": "Thierry Henry — right",
+              "number": 3,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "right",
+              "setup": {
+                "location": "penalty area",
+                "cones": [
+                  { "label": "Curve cones", "count": 4, "position": "curve shape 2–3m to the LEFT of penalty spot, top cone one step BELOW spot level" }
+                ]
+              },
+              "execution": "Mirror of D2. Cones to LEFT of spot. Push ball with left foot, run outside the curve, strike with RIGHT foot to RIGHT corner.",
+              "cues": [
+                "4 cones in a curve to the LEFT of spot",
+                "Push ball with LEFT foot past inside of top cone",
+                "Run OUTSIDE the curve",
+                "RIGHT foot → RIGHT corner · open hips"
+              ],
+              "skill_moves": []
+            }
+          ]
+        },
+        {
+          "id": "hard",
+          "label": "Hard",
+          "day": 3,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "High knees, heel flicks, hip openers × 15m" },
+            { "name": "Ball mastery", "detail": "Dribble + quick direction change × 30 sec" },
+            { "name": "Light finishing", "detail": "5 easy finishes to warm up shooting mechanics" }
+          ],
+          "drills": [
+            {
+              "id": "hard_d1",
+              "name": "16m box — defender wall",
+              "number": 1,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "both",
+              "setup": {
+                "location": "top of 16m box",
+                "cones": [
+                  { "label": "Defender/wall cones", "count": 3, "position": "horizontal line at top of 16m box" }
+                ]
+              },
+              "execution": "3 cones on 16m line simulating a wall/defender. Perform skill move then shoot from outside edges of cones. Alternate left and right foot.",
+              "cues": [
+                "3 cones on the 16m line — simulate a defensive wall",
+                "Shots from OUTSIDE edges of the side cones",
+                "Alternate: left foot → left corner, right foot → right corner",
+                "Strike with pace and accuracy"
+              ],
+              "skill_moves": ["body feint", "step-over", "reverse step-over"]
+            },
+            {
+              "id": "hard_d2",
+              "name": "Lamine Yamal — far post left",
+              "number": 2,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "left",
+              "setup": {
+                "location": "right side of 16m box",
+                "cones": [
+                  { "label": "Horizontal cones", "count": 3, "position": "horizontal line 1m OUTSIDE the 16m box on right side" },
+                  { "label": "Strike point", "position": "ON the 16m line at intersection" }
+                ]
+              },
+              "execution": "3 cones horizontal, 1m outside the 16m box on right side. Strike point is ON the 16m line. Perform skill move, approach, and curl LEFT foot to far post (left corner).",
+              "cues": [
+                "3 cones HORIZONTAL, 1m OUTSIDE the 16m box",
+                "Strike point is ON the 16m line",
+                "CURVED shot with LEFT foot to far post",
+                "Penalty spot visible as reference point in diagram",
+                "Open hips to generate curl"
+              ],
+              "skill_moves": ["body feint", "step-over"]
+            },
+            {
+              "id": "hard_d3",
+              "name": "Lamine Yamal — far post right",
+              "number": 3,
+              "sets": 3,
+              "reps": 5,
+              "rest_seconds": 90,
+              "feet": "right",
+              "setup": {
+                "location": "left side of 16m box",
+                "cones": [
+                  { "label": "Horizontal cones", "count": 3, "position": "horizontal line 1m OUTSIDE the 16m box on left side" },
+                  { "label": "Strike point", "position": "ON the 16m line at intersection" }
+                ]
+              },
+              "execution": "Mirror of D2. Left side. Curl RIGHT foot to far post (right corner).",
+              "cues": [
+                "Mirror of D2 — left side of box",
+                "CURVED shot with RIGHT foot to far post",
+                "Open hips to generate curl"
+              ],
+              "skill_moves": ["body feint", "step-over"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passing",
+      "title": "Passing Skills Session",
+      "category": "technical",
+      "duration_min": 30,
+      "duration_max": 45,
+      "equipment": ["cones", "ball", "wall or rebounder"],
+      "levels": [
+        {
+          "id": "easy",
+          "label": "Easy",
+          "day": 1,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings fwd/side × 10 each leg" },
+            { "name": "Hip openers", "detail": "Walking knee hug + hip circle × 8" },
+            { "name": "Ball mastery", "detail": "Inside/outside toe taps × 30 sec" },
+            { "name": "Light touch", "detail": "Soft passes against wall × 10 each foot" }
+          ],
+          "drills": [
+            {
+              "id": "easy_d1",
+              "name": "Close range passing",
+              "number": 1,
+              "sets": 3,
+              "reps": 175,
+              "rest_seconds": 90,
+              "feet": "both",
+              "distance_m": 2,
+              "view": "side",
+              "setup": { "wall_distance_m": 1.5, "target": "middle of wall" },
+              "execution": "Stand 1.5–2m from wall. Pass rhythmically to the middle target. 3 sets left foot, 3 sets right foot, 3 sets both feet alternating.",
+              "cues": [
+                "Stand 1.5–2m from rebounder or wall",
+                "Hit the middle target consistently — same spot every time",
+                "Find a rhythm — pass, receive, pass, receive",
+                "3 sets left foot · 3 sets right foot · 3 sets both feet"
+              ]
+            },
+            {
+              "id": "easy_d2",
+              "name": "Close range striking",
+              "number": 2,
+              "sets": 3,
+              "reps": 175,
+              "rest_seconds": 90,
+              "feet": "both",
+              "distance_m": 2,
+              "view": "side",
+              "setup": { "wall_distance_m": 1.5 },
+              "execution": "Stand 1.5–2m from wall. Strike with laces — locked ankle. 3 sets each foot.",
+              "cues": [
+                "Stand 1.5–2m from rebounder or wall",
+                "Lock ankle firm before contact — no floppy foot",
+                "Strike with laces, follow through toward the wall",
+                "3 sets left foot · 3 sets right foot · 3 sets both feet"
+              ]
+            },
+            {
+              "id": "easy_d3",
+              "name": "Medium range passing",
+              "number": 3,
+              "sets": 3,
+              "reps": 75,
+              "reps_unit": "makes",
+              "rest_seconds": 90,
+              "feet": "both",
+              "distance_m": 3,
+              "view": "side",
+              "setup": { "wall_distance_m": 3, "target": "middle of wall" },
+              "execution": "Stand 3m from wall. 1 touch to control, then pass immediately on second touch. Lean forward over the ball.",
+              "cues": [
+                "Stand 3m from rebounder or wall",
+                "1 touch to control, then pass immediately on the second touch",
+                "Lean body forward over the ball — no leaning back",
+                "Count only clean target touches as a make"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "day": 2,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings + hip openers × 10 each" },
+            { "name": "Ball mastery", "detail": "Inside/outside rolls × 30 sec" },
+            { "name": "Light passing", "detail": "10 soft passes each foot from 3m" },
+            { "name": "Light striking", "detail": "10 lace strikes each foot, low and controlled" }
+          ],
+          "note": "Wall in FRONT at 3m. No gates. Side-view drills.",
+          "drills": [
+            {
+              "id": "medium_d1",
+              "name": "Medium range one-touch passing",
+              "number": 1,
+              "sets": 3,
+              "reps": 125,
+              "rest_seconds": 90,
+              "feet": "both",
+              "distance_m": 3,
+              "view": "side",
+              "setup": { "wall_distance_m": 3, "wall_position": "in front", "target": "middle of wall" },
+              "execution": "3m from wall in front. One touch passing only — no control step. Lean slightly forward.",
+              "cues": [
+                "3m from wall — one touch only, no control step",
+                "Lean slightly forward, keep weight balanced over the ball",
+                "Laces side contact — instep/laces",
+                "3 sets left · 3 sets right · 3 sets both feet"
+              ]
+            },
+            {
+              "id": "medium_d2",
+              "name": "Medium range strikes",
+              "number": 2,
+              "sets": 3,
+              "reps": 100,
+              "rest_seconds": 90,
+              "feet": "both",
+              "distance_m": 3,
+              "view": "side",
+              "setup": { "wall_distance_m": 3, "wall_position": "in front" },
+              "execution": "3m from wall in front. Strike with pace — lean slightly back to keep ball low and driven.",
+              "cues": [
+                "3m from wall — strike with pace",
+                "Lean slightly back to keep the ball low and driven",
+                "Laces side contact — clean lace contact",
+                "3 sets left · 3 sets right · 3 sets both feet"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hard",
+          "label": "Hard",
+          "day": 3,
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "High knees, heel flicks, hip openers × 15m" },
+            { "name": "Ball mastery", "detail": "Dribble + quick direction change × 30 sec" },
+            { "name": "Light passing", "detail": "10 one-touch passes each foot from 3m" },
+            { "name": "Turn practice", "detail": "Pass to wall, 180° turn, open body × 8 each side" }
+          ],
+          "note": "Wall BEHIND player at 1.5–2m. 3 gates IN FRONT at 3m. Top-down view.",
+          "drills": [
+            {
+              "id": "hard_d1",
+              "name": "Pass through gates (180° turn)",
+              "number": 1,
+              "sets": 3,
+              "reps": 25,
+              "reps_unit": "makes",
+              "rest_seconds": 90,
+              "feet": "both",
+              "view": "top_down",
+              "setup": {
+                "wall_position": "behind player",
+                "wall_distance_m": 1.75,
+                "gates": [
+                  { "id": "G1", "position": "front left" },
+                  { "id": "G2", "position": "front centre" },
+                  { "id": "G3", "position": "front right" }
+                ],
+                "gate_distance_m": 3
+              },
+              "sequence": [
+                "① Pass BACK to wall",
+                "② Receive return",
+                "③ Turn 180°",
+                "④ Pass through a gate"
+              ],
+              "execution": "Wall 1.5–2m behind. 3 gates 3m in front. Pass back, receive return, 180° turn, pass through a gate. Alternate gates G1→G2→G3.",
+              "cues": [
+                "Wall 1.5–2m behind · 3 gates 3m in front",
+                "① Pass back to wall · ② receive return · ③ turn 180° · ④ pass through gate",
+                "Alternate gates each rep — don't repeat the same gate twice",
+                "Only clean passes between both cones count as a make"
+              ]
+            },
+            {
+              "id": "hard_d2",
+              "name": "Low driven pass through gates",
+              "number": 2,
+              "sets": 3,
+              "reps": 25,
+              "reps_unit": "makes",
+              "rest_seconds": 90,
+              "feet": "both",
+              "view": "top_down",
+              "setup": {
+                "wall_position": "behind player",
+                "wall_distance_m": 1.75,
+                "gates": [
+                  { "id": "G1", "position": "front left" },
+                  { "id": "G2", "position": "front centre" },
+                  { "id": "G3", "position": "front right" }
+                ],
+                "gate_distance_m": 3
+              },
+              "sequence": [
+                "① Pass BACK to wall",
+                "② Receive return",
+                "③ Turn 180°",
+                "④ Low driven laces strike through gate"
+              ],
+              "execution": "Same as D1 but final pass is a low driven laces strike. Ball must stay on ground through the gate.",
+              "cues": [
+                "Same setup as D1 — wall behind, 3 gates in front",
+                "④ Low driven laces — ball must stay on the ground",
+                "Alternate gates each rep — only grounded passes count"
+              ]
+            },
+            {
+              "id": "hard_d3",
+              "name": "Long passes into boxes",
+              "number": 3,
+              "sets": 2,
+              "reps": 10,
+              "reps_unit": "makes",
+              "rest_seconds": 90,
+              "feet": "both",
+              "view": "top_down",
+              "setup": {
+                "boxes": [
+                  { "id": "near", "distance_m": 10, "offset_x_m": 0, "offset_y_m": 0 },
+                  { "id": "far", "distance_m": 12, "offset_x_m": 1, "offset_y_m": 1 }
+                ]
+              },
+              "execution": "2 boxes on the ground. Near at 10m, far at 12m with +1m offset on both axes. Alternate near→far→near→far every rep.",
+              "cues": [
+                "Near box at 10m · far box at 12m",
+                "Far box offset +1m on both x and y axes",
+                "Alternate every rep: near → far → near → far",
+                "Ball must land and stay inside the box to count"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dribbling",
+      "title": "Dribbling Skills Session",
+      "category": "technical",
+      "duration_min": 30,
+      "duration_max": 45,
+      "equipment": ["cones", "ball"],
+      "note": "6 modules — pick one per training day. Each module has its own progress test.",
+      "modules": [
+        {
+          "id": "tight_control",
+          "label": "Tight Ball Control",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings + hip openers × 10" },
+            { "name": "Ball mastery", "detail": "Inside/outside toe taps × 30 sec" },
+            { "name": "Juggling", "detail": "10 juggles each foot, alternating" },
+            { "name": "Light dribble", "detail": "Slow walk through 10 cones, both feet" }
+          ],
+          "drills": [
+            {
+              "id": "tc_d1",
+              "name": "Straight 10",
+              "sets": 1,
+              "reps": 10,
+              "reps_unit": "reps",
+              "rest_seconds": 30,
+              "feet": "both",
+              "setup": { "cones": 10, "spacing_ft": 1, "pattern": "straight line" },
+              "variations": ["Left foot", "Right foot", "Both feet", "Inside-inside", "La Croqueta"],
+              "cues": [
+                "Body direction follows ball direction at all times",
+                "Head down OR head up scanning — practise both",
+                "If ball touches a cone — don't stop, keep going"
+              ]
+            },
+            {
+              "id": "tc_d2",
+              "name": "Zigzag",
+              "sets": 1,
+              "reps": 10,
+              "rest_seconds": 30,
+              "feet": "both",
+              "setup": {
+                "cones": 10,
+                "pattern": "two_offset_lines",
+                "line1_count": 5,
+                "line2_count": 5,
+                "vertical_spacing_ft": 2,
+                "horizontal_spacing_ft": 1,
+                "offset": "L2 cone at midpoint of L1 gaps"
+              },
+              "variations": ["Left foot", "Right foot", "Both feet", "Inside-inside", "La Croqueta"],
+              "cues": [
+                "10 cones — 2 offset parallel lines of 5",
+                "2 feet vertical · 1 foot horizontal · L2 at mid of L1 gaps",
+                "Touch don't stop — keep momentum through errors"
+              ]
+            },
+            {
+              "id": "tc_d3",
+              "name": "Ronaldinho",
+              "sets": 10,
+              "duration_work_sec": 15,
+              "duration_rest_sec": 25,
+              "feet": "both",
+              "setup": { "pattern": "random dense cones", "area": "freestyle" },
+              "cues": [
+                "Densely packed random cones — no fixed path",
+                "React and redirect — simulate tight space dribbling",
+                "Full intensity for 15s, complete rest for 25s"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "tc_t1",
+              "name": "Straight 10 — eyes on ball",
+              "type": "timed",
+              "feet": ["left", "right", "both"],
+              "cues": ["Eyes fixed on ball — no looking up", "Time each foot separately — record all three"]
+            },
+            {
+              "id": "tc_t2",
+              "name": "Straight 10 — scan",
+              "type": "timed",
+              "feet": ["left", "right", "both"],
+              "cues": ["Head up scanning throughout", "Goal: close gap vs T1 to under 1 second"]
+            }
+          ]
+        },
+        {
+          "id": "change_of_direction",
+          "label": "Change of Direction",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Lateral lunges + hip openers × 10" },
+            { "name": "Ankle mobility", "detail": "Ankle circles + calf raises × 10" },
+            { "name": "Light dribble", "detail": "Inside/outside cuts slow pace × 30 sec" },
+            { "name": "Chop practice", "detail": "5 inside chops each foot, standing" }
+          ],
+          "drills": [
+            {
+              "id": "cod_d1",
+              "name": "Wide Zigzag",
+              "sets": 1,
+              "reps": 10,
+              "rest_seconds": 45,
+              "feet": "both",
+              "setup": {
+                "cones": 5,
+                "pattern": "two_offset_lines",
+                "line1_count": 3,
+                "line2_count": 2,
+                "vertical_spacing_m": 2,
+                "horizontal_spacing_m": 1,
+                "offset": "L2 at midpoint of L1 gaps"
+              },
+              "variations": ["Left foot", "Right foot", "Both feet"],
+              "cues": [
+                "5 cones — line of 3 and offset line of 2",
+                "Wider spacing demands sharper directional cuts",
+                "Drive hard between cones, decelerate into each turn"
+              ]
+            },
+            {
+              "id": "cod_d2",
+              "name": "L-drill",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 45,
+              "feet": "both",
+              "setup": {
+                "cones": 3,
+                "pattern": "L_shape",
+                "spacing_m": 2,
+                "cones_labeled": ["A (top-left)", "B (bottom-left)", "C (bottom-right)"]
+              },
+              "variations": ["Inside chop L", "Outside chop L", "Inside chop R", "Outside chop R"],
+              "cues": [
+                "3 cones forming an L · 2m between each",
+                "Execute the chop cleanly at cone B",
+                "Accelerate hard out of the chop — don't slow into cone C"
+              ]
+            },
+            {
+              "id": "cod_d3",
+              "name": "Freestyle Square",
+              "sets": 10,
+              "duration_work_sec": 15,
+              "duration_rest_sec": 25,
+              "feet": "both",
+              "setup": { "cones": 4, "pattern": "square", "size_m": 2 },
+              "cues": [
+                "4 cones · 2m × 2m square · dribble inside",
+                "Go around corners using chops — high intensity",
+                "Accelerate into space · decelerate into chops"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "cod_t1",
+              "name": "L-drill timed",
+              "type": "timed",
+              "description": "Sprint A→B, chop at B, sprint to C — record total time",
+              "attempts": 3,
+              "feet": ["left", "right"],
+              "cues": [
+                "3 attempts per foot — best time counts",
+                "Note which chop type used — track improvement per chop"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "acceleration",
+          "label": "Straight Line Acceleration",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "High knees + heel flicks × 15m" },
+            { "name": "Sprints", "detail": "3 × 10m sprints without ball" },
+            { "name": "Ball control", "detail": "Push and chase drill × 3 each foot" },
+            { "name": "Turn practice", "detail": "Pull-back + inside turn × 5 each foot" }
+          ],
+          "drills": [
+            {
+              "id": "acc_d1",
+              "name": "Speed turns",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 60,
+              "feet": "both",
+              "setup": { "cones": 2, "spacing_m": 2.5, "cones_labeled": ["A", "B"] },
+              "variations": ["Pull back", "Fake shot", "Reverse step-over", "Inside turn", "Outside turn"],
+              "execution": "Sprint A→B, execute turn, sprint back. 1 set per turn type per foot.",
+              "cues": [
+                "Sprint to cone B · execute turn · sprint back",
+                "1 set per turn type per foot — rotate through all 5",
+                "Explode out of every turn"
+              ]
+            },
+            {
+              "id": "acc_d2",
+              "name": "L-turns",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 60,
+              "feet": "both",
+              "setup": {
+                "cones": 3,
+                "pattern": "L_shape",
+                "spacing_m": 2.5,
+                "cones_labeled": ["A", "B", "C"]
+              },
+              "variations": ["Inside chop L", "Outside chop L", "Inside chop R", "Outside chop R"],
+              "cues": [
+                "Sprint A→B · chop at B · accelerate hard to C",
+                "Focus: decelerate INTO B · explode OUT of B"
+              ]
+            },
+            {
+              "id": "acc_d3",
+              "name": "High Speed Train",
+              "sets": 1,
+              "reps": 4,
+              "rest_seconds": 120,
+              "feet": "both",
+              "setup": { "distance_m": 50 },
+              "cues": [
+                "50m sprint with ball — maximum speed",
+                "Keep ball exactly one stride ahead",
+                "Large touches, low body angle, drive through the ball"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "acc_t1",
+              "name": "3m shuttle test",
+              "type": "timed",
+              "description": "Sprint A→B (3m) and return — record total time",
+              "attempts": 3,
+              "feet": ["both"],
+              "cues": [
+                "3 attempts — best time counts",
+                "Track every 2–3 sessions to measure improvement"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "change_of_tempo",
+          "label": "Change of Tempo",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings + hip openers × 10" },
+            { "name": "Ball mastery", "detail": "Slow dribble + sudden burst × 5 each" },
+            { "name": "Acceleration", "detail": "3 × 10m ball sprints from standing" },
+            { "name": "Deceleration", "detail": "Sprint 10m → stop dead × 3" }
+          ],
+          "drills": [
+            {
+              "id": "tempo_d1",
+              "name": "Cones to acceleration",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 60,
+              "feet": "both",
+              "setup": {
+                "cones": 4,
+                "pattern": "3_tight_then_1_far",
+                "tight_spacing_ft": 1,
+                "far_distance_m": 3
+              },
+              "cues": [
+                "3 tight cones (1 foot apart) → 1 far cone at 3m",
+                "Dribble slowly through tight cones",
+                "Explode to far cone after last tight cone"
+              ]
+            },
+            {
+              "id": "tempo_d2",
+              "name": "Acceleration to cones",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 60,
+              "feet": "both",
+              "setup": {
+                "cones": 4,
+                "pattern": "1_far_then_3_tight",
+                "far_distance_m": 3,
+                "tight_spacing_ft": 1
+              },
+              "cues": [
+                "1 far cone at 3m → 3 tight cones (1 foot apart)",
+                "Sprint from start — decelerate into tight cones",
+                "Stay in control through tight section"
+              ]
+            },
+            {
+              "id": "tempo_d3",
+              "name": "Skill moves to acceleration",
+              "sets": 1,
+              "reps": 4,
+              "rest_seconds": 120,
+              "feet": "both",
+              "setup": { "distance_m": 50 },
+              "variations": ["Single step-over", "Double step-over", "Body feint"],
+              "cues": [
+                "Skill move at start, then sprint 50m immediately",
+                "Skill must look convincing — not a rushed flick",
+                "One skill per sprint — rotate through all three"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "tempo_t1",
+              "name": "Gear-change burst test",
+              "type": "timed",
+              "description": "Start timer at last tight cone, stop at far cone. Records burst phase only.",
+              "attempts": 3,
+              "feet": ["left", "right", "both"],
+              "cues": [
+                "3 attempts — best time counts",
+                "Tracks how quickly player shifts from slow to max speed"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "skill_moves",
+          "label": "Skill Moves",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Hip openers + ankle mobility × 10" },
+            { "name": "Skill walk-through", "detail": "Step-over slow motion × 5 each" },
+            { "name": "Body feint", "detail": "Standing feint left/right × 8" },
+            { "name": "Light dribble", "detail": "Step-over at half pace × 5" }
+          ],
+          "skill_move_cues": {
+            "single_stepover": "Shoulder drops in fake direction — plant foot beside ball, step over, explode the other way",
+            "double_stepover": "First step-over goes in the direction you'll actually take",
+            "body_feint": "Drop the glute, commit weight convincingly to the fake side",
+            "reverse_stepover": "Step over then roll back — misdirection then acceleration"
+          },
+          "drills": [
+            {
+              "id": "skill_d1",
+              "name": "Skill zigzags",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 45,
+              "feet": "both",
+              "setup": {
+                "cones": 5,
+                "pattern": "two_offset_lines",
+                "line1_count": 3,
+                "line2_count": 2,
+                "vertical_spacing_m": 2,
+                "horizontal_spacing_m": 1
+              },
+              "variations": ["Single step-over", "Double step-over", "Body feint", "Reverse step-over"],
+              "cues": [
+                "Execute skill move at each cone before changing direction",
+                "Skill must be explosive — slow skill = no separation"
+              ]
+            },
+            {
+              "id": "skill_d2",
+              "name": "3 Explosive skills — Y-drill",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 45,
+              "feet": "both",
+              "setup": {
+                "cones": 4,
+                "pattern": "Y_shape",
+                "spacing_m": 2,
+                "cones_labeled": ["A (stem)", "B (left branch)", "C (centre branch)", "D (right branch)"]
+              },
+              "variations": ["Single step-over", "Double step-over", "Body feint"],
+              "execution": "Dribble A to junction. Execute skill. Explode to B, C or D — vary direction each rep.",
+              "cues": [
+                "Dribble from A to junction · execute skill · explode to B, C or D",
+                "Vary exit direction each rep — keep it unpredictable"
+              ]
+            },
+            {
+              "id": "skill_d3",
+              "name": "Freestyle Square",
+              "sets": 10,
+              "duration_work_sec": 15,
+              "duration_rest_sec": 25,
+              "feet": "both",
+              "setup": { "cones": 4, "pattern": "square", "size_m": 2 },
+              "variations": ["Single step-over", "Double step-over", "Body feint"],
+              "cues": [
+                "Use all three trained skills throughout each round",
+                "Imagine defenders approaching — react and use skills"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "skill_t1",
+              "name": "Y-drill timed per skill",
+              "type": "timed",
+              "description": "Dribble A to junction, execute skill, explode to B — record time A to B",
+              "attempts": 3,
+              "feet": ["left", "right"],
+              "per_skill": true,
+              "cues": [
+                "3 attempts per skill per foot — best time counts",
+                "Track each skill separately — shows which skill is fastest/slowest"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "anticipation",
+          "label": "Anticipation Dribbling",
+          "app_recommendation": "Seconds Pro (iOS/Android) — random beep intervals 3–8 seconds",
+          "activation": [
+            { "name": "Dynamic stretch", "detail": "Leg swings + hip openers × 10" },
+            { "name": "Ball mastery", "detail": "Inside/outside rolls × 30 sec" },
+            { "name": "Reaction", "detail": "Clap → burst sprint × 5 each foot" },
+            { "name": "Visualisation", "detail": "Eyes closed, imagine defenders × 30 sec" }
+          ],
+          "chime_rule": "Random chime sounds → burst faster for next 3 cones. React instantly.",
+          "drills": [
+            {
+              "id": "ant_d1",
+              "name": "Elite 10 straight",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 30,
+              "feet": "both",
+              "setup": { "cones": 10, "spacing_ft": 1, "pattern": "straight line" },
+              "chime_action": "On chime: burst faster for next 3 cones, then return to normal pace",
+              "cues": [
+                "10 cones · 1 foot apart · dribble at normal pace",
+                "Random chime → burst faster for next 3 cones",
+                "React instantly — no hesitation between chime and burst"
+              ]
+            },
+            {
+              "id": "ant_d2",
+              "name": "Anticipation zigzag",
+              "sets": 1,
+              "reps": 8,
+              "rest_seconds": 30,
+              "feet": "both",
+              "setup": {
+                "cones": 10,
+                "pattern": "two_offset_lines",
+                "line1_count": 5,
+                "line2_count": 5,
+                "vertical_spacing_ft": 2,
+                "horizontal_spacing_ft": 1
+              },
+              "chime_action": "On chime: burst faster for next 3 cones",
+              "cues": [
+                "Same zigzag — 2 offset lines of 5 cones",
+                "Both feet — don't favour dominant foot in the burst"
+              ]
+            },
+            {
+              "id": "ant_d3",
+              "name": "Anticipation freestyle",
+              "sets": 10,
+              "duration_work_sec": 15,
+              "duration_rest_sec": 25,
+              "feet": "both",
+              "setup": { "cones": 4, "pattern": "square", "size_m": 2 },
+              "chime_action": "On chime: increase dribbling intensity inside the box",
+              "cues": [
+                "Freestyle dribble at moderate intensity",
+                "Chime → increase intensity immediately",
+                "Visualise defenders approaching — name them out loud"
+              ]
+            }
+          ],
+          "tests": [
+            {
+              "id": "ant_t1",
+              "name": "Reaction burst test",
+              "type": "timed",
+              "description": "Record time from chime to passing the 3rd burst cone",
+              "attempts": 5,
+              "scoring": "Average the middle 3 times (discard fastest and slowest)",
+              "cues": [
+                "5 attempts · average the 3 middle times",
+                "Tracks reaction speed week over week"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fifa_11plus",
+      "title": "FIFA 11+ Injury Prevention Session",
+      "category": "injury_prevention",
+      "duration_min": 20,
+      "equipment": ["cones", "ball", "partner (required for some exercises)"],
+      "frequency": "At least 2× per week",
+      "pre_match_protocol": "Parts 1 and 3 only — skip Part 2",
+      "evidence": {
+        "injury_reduction_percent": 50,
+        "acl_reduction_percent": 39,
+        "population": "Female players aged 13–18"
+      },
+      "key_cue": "Knees must NEVER buckle inward — primary ACL risk factor for teenage female players",
+      "parts": [
+        {
+          "id": "part1",
+          "label": "Part 1 — Running",
+          "description": "Slow-speed running with active stretching. Players run in pairs.",
+          "setup": "6–10 pairs of parallel cones, 5–6m apart",
+          "exercises": [
+            { "number": 1, "name": "Jogging straight ahead", "sets": 2, "cues": ["Jog together to last cones", "Return progressively faster", "Relaxed stride"] },
+            { "number": 2, "name": "Hip out", "sets": 2, "cues": ["Jog to cone · stop · lift knee outward · rotate forward · alternate legs"] },
+            { "number": 3, "name": "Hip in", "sets": 2, "cues": ["Jog to cone · stop · lift knee inward across body · rotate forward · alternate legs"] },
+            { "number": 4, "name": "Circle your partner", "sets": 2, "cues": ["Shuffle toward partner · full circle around each other", "Do NOT change direction you are facing"] },
+            { "number": 5, "name": "Shoulder contact jump", "sets": 2, "cues": ["Shuffle in · jump to shoulder contact · land BOTH feet · hips and knees bent", "Do NOT let knees buckle inward on landing"], "acl_warning": true }
+          ]
+        },
+        {
+          "id": "part2",
+          "label": "Part 2 — Strength",
+          "description": "6 exercises each with 3 levels of increasing difficulty",
+          "exercises": [
+            {
+              "number": 6, "name": "Plank", "sets": 3, "duration_sec": 30,
+              "levels": [
+                { "level": 1, "name": "Static hold", "duration_sec": 30 },
+                { "level": 2, "name": "Alternating leg lift", "hold_sec": 2 },
+                { "level": 3, "name": "One arm + opposite leg", "duration_sec": 30 }
+              ],
+              "cues": ["Body straight head to foot", "Pull stomach and glutes in", "Do NOT sway back or lift buttocks"]
+            },
+            {
+              "number": 7, "name": "Side plank", "sets": 3, "duration_sec": 30, "each_side": true,
+              "levels": [
+                { "level": 1, "name": "Static hold" },
+                { "level": 2, "name": "Hip dips" },
+                { "level": 3, "name": "Top leg raise" }
+              ],
+              "cues": ["Straight line shoulder to foot", "Do not tilt shoulders or pelvis", "Keep pelvis stable"]
+            },
+            {
+              "number": 8, "name": "Hamstring curls (Nordic)", "sets": 3, "reps": 5,
+              "requires_partner": true,
+              "levels": [
+                { "level": 1, "name": "Small lean forward" },
+                { "level": 2, "name": "Mid lean forward" },
+                { "level": 3, "name": "Full Nordic — catch with hands" }
+              ],
+              "cues": ["Partner holds ankles", "Slowly lean forward — hamstrings control the descent", "Do exercise slowly at first"]
+            },
+            {
+              "number": 9, "name": "Single leg balance", "sets": 3, "duration_sec": 30, "each_leg": true,
+              "levels": [
+                { "level": 1, "name": "Hold ball steady" },
+                { "level": 2, "name": "Throw to partner" },
+                { "level": 3, "name": "Resist partner push" }
+              ],
+              "cues": ["Weight on ball of foot", "Standing knee must not buckle inward", "Trunk stable throughout"]
+            },
+            {
+              "number": 10, "name": "Squats", "sets": 3, "duration_sec": 30,
+              "levels": [
+                { "level": 1, "name": "Two-leg squat" },
+                { "level": 2, "name": "One-leg squat" },
+                { "level": 3, "name": "One-leg squat + rise to toes" }
+              ],
+              "cues": ["Lean upper body forward with straight back", "Do NOT let knee buckle inward"],
+              "acl_warning": true
+            },
+            {
+              "number": 11, "name": "Jumping", "sets": 3, "duration_sec": 30,
+              "levels": [
+                { "level": 1, "name": "Two-leg vertical jump" },
+                { "level": 2, "name": "Bounding forward" },
+                { "level": 3, "name": "One-leg jump + 180° turn" }
+              ],
+              "cues": ["Land on ball of foot · knees bent", "Do NOT let knees buckle inward on landing"],
+              "acl_warning": true
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "label": "Part 3 — High Speed Running",
+          "description": "4 exercises at moderate to fast pace. Use same cone corridor as Part 1.",
+          "exercises": [
+            { "number": 12, "name": "Forward-backward running", "sets": 2, "cues": ["Run 2 cone pairs forward · run 1 backward", "Small quick steps on backward phase", "Hips and knees slightly bent when running backward"] },
+            { "number": 13, "name": "Bounding", "sets": 2, "high_steps": 8, "cues": ["6–8 high bounding steps then jog", "Land on ball of foot with knee bent · spring off", "Do NOT let knee buckle inward"], "acl_warning": true },
+            { "number": 14, "name": "Plant and cut", "sets": 2, "cues": ["Jog 4–5 steps · plant on right · cut left · alternate", "Plant foot beside body — not behind it"] },
+            { "number": 15, "name": "Sprinting", "sets": 2, "intensity": "full speed", "cues": ["Sprint at full speed to last cones", "Jog back easily to recover"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upper_body_strength",
+      "title": "Upper Body Strength",
+      "category": "strength",
+      "duration_min": 25,
+      "equipment": ["pull-up bar", "elevated surface (box or bench)", "medicine ball", "floor"],
+      "exercises": [
+        {
+          "id": "ub_e1",
+          "number": 1,
+          "name": "Iso hold chin-up",
+          "sets": 3,
+          "reps": 5,
+          "reps_range": [3, 5],
+          "rest_seconds": 90,
+          "tempo": "0-10-0",
+          "tempo_description": "Jump to top position (0s) · hold chin above bar for 10 seconds · lower under control (0s)",
+          "muscles": ["biceps", "lats"],
+          "cues": [
+            "Jump or step to get chin above bar — don't kip up",
+            "Hold: elbows bent, shoulders down and back, chest up",
+            "Body straight — no swinging or arching",
+            "If can't hold 10s, reduce to 5s and build up"
+          ]
+        },
+        {
+          "id": "ub_e2",
+          "number": 2,
+          "name": "Elevated push-ups",
+          "sets": 3,
+          "reps": 10,
+          "reps_range": [5, 10],
+          "rest_seconds": 30,
+          "tempo": "explosive",
+          "tempo_description": "Lower chest to box slowly (2–3s) · pause 1s at bottom · push up EXPLOSIVELY",
+          "muscles": ["chest", "triceps"],
+          "setup": { "surface": "box or bench", "hand_position": "elevated" },
+          "cues": [
+            "Hands on elevated surface · body straight head to heels",
+            "Lower chest under control · push up with maximum power",
+            "Elbows at ~45° — not flared wide",
+            "Body must stay rigid — no sagging hips"
+          ]
+        },
+        {
+          "id": "ub_e3",
+          "number": 3,
+          "name": "Med ball chest pass",
+          "sets": 3,
+          "reps": 6,
+          "rest_seconds": 90,
+          "tempo": "controlled",
+          "tempo_description": "Ball to chest (1s) · push from chest controlled (1s) · partner catches and absorbs (1s)",
+          "muscles": ["chest"],
+          "requires_partner": true,
+          "distance_m": 2.5,
+          "cues": [
+            "Hold ball at chest height before each pass",
+            "Push from chest · extend arms fully · step into the pass",
+            "Catch with soft hands — absorb the ball",
+            "Feet shoulder width · slight knee bend throughout"
+          ]
+        },
+        {
+          "id": "ub_e4",
+          "number": 4,
+          "name": "Plank",
+          "sets": 3,
+          "duration_sec": 60,
+          "duration_range_sec": [30, 60],
+          "rest_seconds": 60,
+          "tempo": "controlled hold",
+          "tempo_description": "Get into position slowly · hold for 30–60s · release with control. Progress: add 5s each session.",
+          "muscles": ["core", "shoulders"],
+          "cues": [
+            "Elbows directly under shoulders · forearms flat",
+            "Straight line from head to heel — pull stomach and glutes in",
+            "Breathe normally — don't hold breath",
+            "No sagging hips · no raised buttocks · stop if form breaks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower_body_strength",
+      "title": "Lower Body Strength",
+      "category": "strength",
+      "duration_min": 25,
+      "equipment": ["floor", "open space"],
+      "exercises": [
+        {
+          "id": "lb_e1",
+          "number": 1,
+          "name": "Bodyweight squat",
+          "sets": 3,
+          "reps": 10,
+          "reps_range": [8, 10],
+          "rest_seconds": 90,
+          "tempo": "3-2-0",
+          "tempo_description": "Lower for 3 seconds · hold at bottom for 2 seconds · stand up fast (0 = no pause at top)",
+          "muscles": ["quads", "glutes", "hamstrings"],
+          "cues": [
+            "Feet shoulder width · toes slightly out",
+            "Chest up · back straight · lean torso slightly forward",
+            "Lower until thighs parallel to floor (90°) · drive through heels to rise",
+            "Knees must track over toes — never buckle inward"
+          ],
+          "acl_warning": true
+        },
+        {
+          "id": "lb_e2",
+          "number": 2,
+          "name": "Lunge",
+          "sets": 3,
+          "reps_scheme": "5/3/3",
+          "reps_per_leg": [5, 3, 3],
+          "rest_seconds": 30,
+          "tempo": "controlled",
+          "tempo_description": "Step forward (1s) · lower back knee toward floor (2s) · drive up through front heel (1s) · return (1s)",
+          "muscles": ["quads", "glutes", "hamstrings"],
+          "cues": [
+            "Step forward — front foot flat · back heel raised",
+            "Lower back knee toward floor — stop 2–3cm short of touching",
+            "Front knee stays above ankle — not past the toes",
+            "Torso stays upright — don't lean forward"
+          ]
+        },
+        {
+          "id": "lb_e3",
+          "number": 3,
+          "name": "Sidelying leg raises",
+          "sets": 3,
+          "reps": 10,
+          "reps_per_side": true,
+          "rest_seconds": 60,
+          "tempo": "controlled",
+          "tempo_description": "Raise top leg slowly (2s) · hold 1s at top · lower slowly (2s)",
+          "muscles": ["glute_med", "hip_abductors"],
+          "cues": [
+            "Lie on side · body in straight line · support head on lower arm",
+            "Raise top leg to 30–45° · toes pointing forward, not ceiling",
+            "Keep pelvis still — don't let hips rotate backward",
+            "No swinging — controlled up AND down equally"
+          ]
+        },
+        {
+          "id": "lb_e4",
+          "number": 4,
+          "name": "Lateral lunge hold",
+          "sets": 3,
+          "duration_sec": 20,
+          "duration_range_sec": [10, 20],
+          "each_side": true,
+          "rest_seconds": 30,
+          "tempo": "controlled hold",
+          "tempo_description": "Step wide (1s) · lower into lateral lunge slowly (2s) · hold 10–20s · return (1s)",
+          "muscles": ["adductors", "quads"],
+          "cues": [
+            "Wide step to the side · bend stepping knee · other leg stays straight",
+            "Toes of straight leg point forward · heel stays on floor",
+            "Chest up · push hips back and down — not forward",
+            "Bent knee must track over toes — not caving inward"
+          ],
+          "acl_warning": true
+        }
+      ]
+    },
+    {
+      "id": "speed_training",
+      "title": "Speed Training",
+      "category": "athletic",
+      "duration_min": 30,
+      "equipment": ["wall", "cones", "ball"],
+      "note": "Always do Block 1 → Block 2 → Block 3 in order. Never sprint cold.",
+      "blocks": [
+        {
+          "id": "block1",
+          "label": "Block 1 — Wall Mechanics",
+          "description": "All exercises use a wall at ~45° lean. Same body angle throughout, increasing speed.",
+          "progression": "position → spring → march → switch → run",
+          "exercises": [
+            {
+              "id": "sp_b1e1", "number": 1, "name": "Speed mechanic position",
+              "sets": 2, "duration_sec": 20, "rest_seconds": 30,
+              "setup": { "lean_angle_deg": 45, "wall_distance": "arm's length" },
+              "cues": ["Arms-length from wall · hands flat · lean at ~45°", "Rigid straight line from head to heel", "Drive knee up to 90° · foot dorsiflexed", "Hold position — this is the sprint start position", "No sagging hips — glutes and core tight"]
+            },
+            {
+              "id": "sp_b1e2", "number": 2, "name": "Wall ISO spring hold",
+              "sets": 2, "duration_sec": 10, "rest_seconds": 30,
+              "cues": ["Same 45° wall position · raise onto ball of support foot", "Feel the spring tension in calf and foot", "Drive knee high · body rigid · hold 10 seconds"]
+            },
+            {
+              "id": "sp_b1e3", "number": 3, "name": "Wall march",
+              "sets": 2, "reps": 10, "rest_seconds": 30,
+              "cues": ["Alternate legs in marching action", "Drive knee up to 90° then stomp down as other rises", "Controlled rhythm — focus on position, not speed", "Foot lands under the hip — not in front"]
+            },
+            {
+              "id": "sp_b1e4", "number": 4, "name": "Wall hip switch",
+              "sets": 2, "reps": 10, "rest_seconds": 30,
+              "cues": ["Start from march position", "Quickly switch: up leg down, down leg up", "Faster than the march — speed mechanics begin here", "Both legs pass through same 90° knee position"]
+            },
+            {
+              "id": "sp_b1e5", "number": 5, "name": "Wall run",
+              "sets": 2, "reps": 20, "reps_range": [10, 20], "rest_seconds": 30,
+              "cues": ["Same 45° position — run in place at maximum speed", "Drive knees up hard and switch as fast as possible", "Land on ball of foot — no flat-footed slap", "Body position must NOT change at high speed"]
+            }
+          ]
+        },
+        {
+          "id": "block2",
+          "label": "Block 2 — Plyometrics",
+          "description": "All 5 exercises train ground contact stiffness and reactive power. Land on ball of foot, minimum ground contact time.",
+          "key_cue": "Minimum ground contact time — not maximum height. Ball of foot. Stiff ankle.",
+          "exercises": [
+            {
+              "id": "sp_b2e1", "number": 1, "name": "Pogo jumps",
+              "sets": 2, "reps": 20, "rest_seconds": 30,
+              "direction": "vertical",
+              "cues": ["Jump straight up and down — no forward movement", "Ankles stiff like springs — minimal knee bend", "Arms loose — no big swing", "Land on ball of foot · bounce off immediately"]
+            },
+            {
+              "id": "sp_b2e2", "number": 2, "name": "Forward / back jumps",
+              "sets": 2, "reps": 20, "rest_seconds": 30,
+              "direction": "sagittal",
+              "setup": { "line": true },
+              "cues": ["Jump forward over line · land · immediately jump back", "Reactive — loading for next jump on landing", "Same ankle stiffness as pogo"]
+            },
+            {
+              "id": "sp_b2e3", "number": 3, "name": "Lateral jumps",
+              "sets": 2, "reps": 20, "rest_seconds": 30,
+              "direction": "lateral",
+              "setup": { "line": true },
+              "cues": ["Jump side to side over line — both feet together", "Land softly · immediately rebound", "Knees must not buckle inward on landing"],
+              "acl_warning": true
+            },
+            {
+              "id": "sp_b2e4", "number": 4, "name": "In-out jumps",
+              "sets": 2, "reps": 20, "rest_seconds": 30,
+              "pattern": "bilateral_in_out",
+              "cues": ["Feet together (IN) then feet wide (OUT) — alternate", "Quick and rhythmic — same ankle spring", "Land softly on wide position"]
+            },
+            {
+              "id": "sp_b2e5", "number": 5, "name": "Split stance quick switch",
+              "sets": 2, "reps": 20, "rest_seconds": 30,
+              "pattern": "alternating_split",
+              "cues": ["Start in split stance · jump · switch feet in air", "Arms opposite to legs — running arm action", "Land with soft knees — no straight-leg landings"]
+            }
+          ]
+        },
+        {
+          "id": "block3",
+          "label": "Block 3 — Sprints",
+          "description": "Apply everything from Blocks 1 and 2. Full recovery between sprints — this is speed work, not conditioning.",
+          "sprints": {
+            "count": 5,
+            "distance_m": 20,
+            "recovery": "full — walk back to start",
+            "intensity": "100% — maximum intent every sprint"
+          },
+          "start_variations": [
+            "Standing start — feet staggered, lean forward on go signal",
+            "Athletic stance — slight crouch, weight on balls of feet",
+            "Lateral start — facing sideways, turn and sprint on signal",
+            "Back-pedal start — jog backward 2m then accelerate forward",
+            "Fall start — lean forward until falling, then sprint"
+          ],
+          "test": {
+            "name": "Sprint consistency test",
+            "description": "Record all 5 sprint times individually",
+            "scoring": "Best = peak speed · Average = consistency · S4/S5 significantly slower = insufficient recovery"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rhythmic_movement",
+      "title": "Sport Rhythmic Movement Training",
+      "category": "coordination",
+      "duration_min": 30,
+      "duration_max": 45,
+      "equipment": ["metronome app or music", "cones", "agility ladder (optional)", "ball"],
+      "app_recommendation": "Metronome Beats (free, iOS/Android)",
+      "bpm_guide": {
+        "blocks_1_2": "80–100 BPM",
+        "blocks_3_4": "110–130 BPM"
+      },
+      "blocks": [
+        {
+          "id": "rhythm_b1",
+          "label": "Block 1 — Footwork & Beat",
+          "bpm": "80–100",
+          "description": "Synchronise foot contacts with a musical beat. Land on ball of foot.",
+          "exercises": [
+            {
+              "id": "rh_b1e1", "number": 1, "name": "Two-foot ankle bounce",
+              "sets": 2, "duration_sec": 30, "rest_seconds": 30, "bpm": "80–100",
+              "beat_pattern": "1 bounce = 1 beat",
+              "cues": ["Bounce lightly in place, both feet together, one contact per beat", "Ball of foot contact only", "Arms loose, shoulders relaxed"]
+            },
+            {
+              "id": "rh_b1e2", "number": 2, "name": "Alternating foot tap",
+              "sets": 2, "duration_sec": 30, "rest_seconds": 30, "bpm": "80–100",
+              "beat_pattern": "L–R–L–R, each foot = 1 beat",
+              "cues": ["Left tap beat 1 · right tap beat 2 · repeat", "Lifted foot already loading for next tap", "Stay on balls of both feet throughout"]
+            },
+            {
+              "id": "rh_b1e3", "number": 3, "name": "Ladder 2-in 2-out",
+              "sets": 2, "duration_sec": 30, "rest_seconds": 30, "bpm": "90–100",
+              "beat_pattern": "in-L · in-R · out-L · out-R (4 beats = 1 rung)",
+              "setup": { "equipment": "agility ladder" },
+              "cues": ["Both feet step inside (in-L, in-R) then outside (out-L, out-R)", "4 contacts = 1 cycle · move up one rung per cycle", "Quick and light"]
+            },
+            {
+              "id": "rh_b1e4", "number": 4, "name": "Lateral shuffle step",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30, "bpm": "90",
+              "beat_pattern": "step · step · ACCENT · step · step · ACCENT",
+              "setup": { "cones": 3, "pattern": "straight line", "spacing_m": 2 },
+              "cues": ["3 cones in a line 2m apart", "Shuffle A→B (3 steps) · accent on arrival", "Accent = sharp weight shift, not a jump"]
+            },
+            {
+              "id": "rh_b1e5", "number": 5, "name": "Skip pattern",
+              "sets": 2, "distance_m": 20, "rest_seconds": 30, "bpm": "100",
+              "beat_pattern": "BIG (hop) · small (step) — 2-beat cycle",
+              "cues": ["HOP (accent, high knee) + step (quiet) alternating", "Opposite arm drives up with each high knee", "Feel the BIG-small · BIG-small pattern"]
+            }
+          ]
+        },
+        {
+          "id": "rhythm_b2",
+          "label": "Block 2 — Body Rhythm",
+          "bpm": "80–90",
+          "description": "Add upper body, hip and whole-body coordination. Fluid connected movement.",
+          "exercises": [
+            {
+              "id": "rh_b2e1", "number": 1, "name": "Hip sway bounce",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30, "bpm": "80–90",
+              "beat_pattern": "L · ctr · R · ctr (hips on beats 1 and 3)",
+              "cues": ["Bounce lightly · shift hips left on beat 1, right on beat 3", "Let hip shift happen naturally — follow the beat", "Shoulders stay relaxed and level"]
+            },
+            {
+              "id": "rh_b2e2", "number": 2, "name": "Arm-leg cross bounce",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30, "bpm": "80–90",
+              "beat_pattern": "L-knee/R-arm · R-knee/L-arm · repeat",
+              "cues": ["Drive left knee up + right arm up simultaneously", "Switch: right knee up + left arm up", "This is the natural running pattern — feel the cross-body connection"]
+            },
+            {
+              "id": "rh_b2e3", "number": 3, "name": "360° bounce turn",
+              "sets": 2, "reps": 8, "reps_unit": "full turns", "rest_seconds": 30, "bpm": "80",
+              "beat_pattern": "Turn 90° per beat. 4 beats = 360°. Switch direction every 4 beats.",
+              "cues": ["Bounce and rotate 90° per beat", "4 beats clockwise · 4 beats anticlockwise", "Eyes track forward — feel the rotation"]
+            },
+            {
+              "id": "rh_b2e4", "number": 4, "name": "Wave arms walk",
+              "sets": 2, "distance_m": 20, "rest_seconds": 30, "bpm": "80",
+              "beat_pattern": "walk-walk-WAVE · walk-walk-WAVE",
+              "cues": ["Walk forward at beat pace", "Every 2 steps, one arm makes a full wave (forward→up→behind→down)", "Alternate arms · loose fluid movement"]
+            }
+          ]
+        },
+        {
+          "id": "rhythm_b3",
+          "label": "Block 3 — Tempo Change",
+          "bpm": "110–130",
+          "description": "Switch between slow, medium and fast movement patterns on demand. Most game-relevant block.",
+          "exercises": [
+            {
+              "id": "rh_b3e1", "number": 1, "name": "Slow-fast bounce",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30,
+              "bpm_slow": 80, "bpm_fast": 160,
+              "beat_pattern": "SLOW × 8 → FAST × 8 → SLOW × 8. Instant gear change.",
+              "cues": ["8 beats slow → 8 beats fast → repeat", "Switch must be instant — not gradual", "Same ankle stiffness at both speeds"]
+            },
+            {
+              "id": "rh_b3e2", "number": 2, "name": "Freeze and burst",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30,
+              "beat_pattern": "move · move · FREEZE (pause) · BURST → repeat",
+              "trigger": "musical accent or coach signal",
+              "cues": ["Move freely · accent = freeze", "Hold freeze 2–3 beats · then burst in any direction", "The pause IS the rhythm — silence is a beat too"]
+            },
+            {
+              "id": "rh_b3e3", "number": 3, "name": "Call and respond",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30,
+              "calls": ["slow", "fast", "left", "right", "freeze", "turn", "burst"],
+              "cues": ["Player dribbles to background music", "Coach calls a word · player responds immediately", "Reaction must be on the next beat — not several beats later"]
+            },
+            {
+              "id": "rh_b3e4", "number": 4, "name": "3-tempo cone run",
+              "sets": 2, "reps": 6, "rest_seconds": 30,
+              "zones": [
+                { "color": "green", "label": "slow" },
+                { "color": "amber", "label": "medium" },
+                { "color": "red", "label": "fast" }
+              ],
+              "cues": ["3 zones with colour-coded cones", "Dribble through — change foot speed as you enter each zone", "Transition must be instant — 2 steps in, already at new tempo"]
+            }
+          ]
+        },
+        {
+          "id": "rhythm_b4",
+          "label": "Block 4 — Ball & Rhythm",
+          "bpm": "90–110",
+          "description": "Ball as extension of rhythmic body movement. Eyes up, feel the ball.",
+          "exercises": [
+            {
+              "id": "rh_b4e1", "number": 1, "name": "Ball tap bounce",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30, "bpm": "80–90",
+              "beat_pattern": "bounce · bounce · TAP · bounce · bounce · TAP",
+              "cues": ["Ball on floor · bounce in place to the beat", "Tap ball with inside of foot on every 3rd beat", "Alternate feet · don't break bounce rhythm"]
+            },
+            {
+              "id": "rh_b4e2", "number": 2, "name": "Dribble to freeze",
+              "sets": 2, "duration_sec": 40, "rest_seconds": 30,
+              "beat_pattern": "dribble · dribble · FREEZE (2 beats) · dribble · FREEZE",
+              "setup": { "cones": 4, "pattern": "square", "size_m": 2 },
+              "trigger": "musical accent",
+              "cues": ["Dribble freely inside 2m square", "Musical accent = freeze with ball under control", "Head up — feel the music, don't watch the ball"]
+            },
+            {
+              "id": "rh_b4e3", "number": 3, "name": "Tempo dribble",
+              "sets": 2, "reps": 6, "rest_seconds": 30,
+              "beat_pattern": "slow (×8) → skill (accent) → BURST",
+              "cues": ["Slow dribble 8 beats → skill move → burst away", "Slow phase = lure the defender in", "This is Messi's pattern: slow · slow · BOOM"]
+            },
+            {
+              "id": "rh_b4e4", "number": 4, "name": "Partner mirror dribble",
+              "sets": 2, "duration_sec": 60, "rest_seconds": 30, "bpm": "90–110",
+              "requires_partner": true,
+              "setup": { "cones": 4, "pattern": "square", "size_m": 4 },
+              "roles": ["Leader (P1) dribbles freely", "Follower (P2) mirrors every movement without ball"],
+              "role_swap_sec": 10,
+              "cues": ["Swap roles every 10 seconds — call the swap on a beat", "P1 challenge: use rhythm changes to lose P2"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "football_intelligence",
+      "title": "Football Intelligence — Match Watching Session",
+      "category": "tactical",
+      "duration_min": 90,
+      "equipment": ["notepad", "pen", "TV or device for match"],
+      "structure": [
+        { "phase": "before", "duration_min": 10 },
+        { "phase": "first_half", "duration_min": 45 },
+        { "phase": "half_time", "duration_min": 10 },
+        { "phase": "second_half", "duration_min": 45 },
+        { "phase": "after", "duration_min": 15 }
+      ],
+      "focal_points": [
+        {
+          "id": "A",
+          "label": "Movement off the ball",
+          "questions": [
+            "Where does the player move when her teammate has the ball?",
+            "Does she create space for others or run into space for herself?",
+            "How many steps does it take her to get into position?"
+          ],
+          "insight": "The best players spend 85% of the game without the ball. Watch what they do in that 85%.",
+          "recommended_players": ["Alexia Putellas", "Sam Kerr", "Aitana Bonmatí"]
+        },
+        {
+          "id": "B",
+          "label": "First touch & body position",
+          "questions": [
+            "Is the player's body open or closed before she receives?",
+            "Does her first touch take her forward, sideways or backward?",
+            "How quickly can she play after her first touch?"
+          ],
+          "insight": "Count how many times per half a player's first touch goes forward vs backward. Elite players: mostly forward.",
+          "recommended_players": ["Caroline Graham Hansen", "Lena Oberdorf", "Fridolina Rolfö"]
+        },
+        {
+          "id": "C",
+          "label": "Pressing & defensive shape",
+          "questions": [
+            "When does the team start pressing — immediately or on a signal?",
+            "How compact is the defensive shape between players?",
+            "Do they force the opponent inside or outside?"
+          ],
+          "insight": "Defending is a team shape, not individual battles. Watch the spaces between players, not just the ball.",
+          "recommended_players": ["Harder", "Lena Oberdorf", "Keira Walsh"]
+        },
+        {
+          "id": "D",
+          "label": "Transitions",
+          "questions": [
+            "When the team loses the ball, how fast do they react as a unit?",
+            "When they win the ball, do they play fast or slow?",
+            "Who reacts first in transition — and who reacts last?"
+          ],
+          "insight": "The 3 seconds after possession changes are the most dangerous moments. The best teams react as a unit, instantly.",
+          "recommended_players": ["Aitana Bonmatí", "Keira Walsh", "Lena Oberdorf"]
+        }
+      ],
+      "during_tasks": [
+        {
+          "id": "tally_task",
+          "name": "The tally task",
+          "description": "Count one specific action every time it happens in both halves",
+          "options": ["forward runs into box", "pressing triggers", "overlapping runs", "shoulder checks before receiving"]
+        },
+        {
+          "id": "shadow_player",
+          "name": "Shadow one player",
+          "duration": "5 min blocks",
+          "cues": ["Watch ONLY chosen player for 5 full minutes", "Count how many times she moves when ball is elsewhere", "What does she do between touches?"]
+        },
+        {
+          "id": "pause_rewind",
+          "name": "Pause and rewind",
+          "triggers": ["goal — rewind 10s to see build-up", "chance — how did space open?", "tackle — body position?"],
+          "cues": ["Pause → look at all 22 players' positions → unpause"]
+        },
+        {
+          "id": "find_space",
+          "name": "Find the space",
+          "frequency": "every 10 minutes",
+          "cues": ["Look away from ball — where is empty space?", "Is anyone running into that space?", "How did a player create space?"]
+        }
+      ],
+      "half_time_questions": [
+        "What formation is each team playing? Has it changed?",
+        "Which team dominates possession — is that helping them?",
+        "Where are chances coming from — left, right, centre, set pieces?",
+        "Which player has been most influential — why?",
+        "One thing to practise from what you saw in the first half",
+        "One mistake you saw that you also make — what caused it?",
+        "If you were coach, what one thing would you change?"
+      ],
+      "after_stages": [
+        {
+          "id": "what_you_saw",
+          "label": "What did you see?",
+          "duration_min": 5,
+          "focus": "facts only",
+          "questions": [
+            "Describe the match in 3 sentences — without mentioning the score",
+            "What tactical pattern did the winning team use most effectively?",
+            "Which player stood out — describe one specific action",
+            "How many times did your tally-task action happen each half?"
+          ]
+        },
+        {
+          "id": "what_you_learned",
+          "label": "What did you learn?",
+          "duration_min": 5,
+          "focus": "interpretation",
+          "questions": [
+            "What did the shadowed player do that surprised you?",
+            "One thing you saw that you currently cannot do — want to learn",
+            "Did the match go as you predicted at half time?",
+            "One thing the losing team could have done differently"
+          ]
+        },
+        {
+          "id": "what_you_will_do",
+          "label": "What will you do?",
+          "duration_min": 5,
+          "focus": "action",
+          "questions": [
+            "One specific thing to practise in next training session",
+            "Which training session would develop the quality you most admired today?",
+            "Which player do you want to watch again — what will you focus on?"
+          ]
+        }
+      ],
+      "recommended_matches": [
+        "Barcelona Femení vs any top WSL club (movement, pressing, rhythm)",
+        "USWNT vs Germany (physical + tactical contrast)",
+        "Chelsea Women vs Arsenal Women (pressing and defensive shape)",
+        "Any Champions League women's quarter-final or semi-final",
+        "Any Lamine Yamal match (dribbling rhythm and tempo change)"
+      ]
+    }
+  ]
+}
