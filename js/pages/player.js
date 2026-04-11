@@ -1,12 +1,13 @@
 import { navigate, state } from '../app.js';
 import { getSessionType }  from '../constants.js';
+import { renderMatchWatch } from './match_watch.js';
 
 // ─── Module state ─────────────────────────────────────────────────────────
-let _jsonCache  = null;
-let _steps      = [];
-let _idx        = 0;
-let _container  = null;
-let _params     = {};
+let _jsonCache   = null;
+let _steps       = [];
+let _idx         = 0;
+let _container   = null;
+let _params      = {};
 let _timerHandle = null;
 
 // ─── JSON loading ─────────────────────────────────────────────────────────
@@ -171,12 +172,14 @@ function htmlActivation(step) {
 function htmlDrill(step, stepIdx) {
   const d    = step.drill;
   const reps = fmtReps(d);
+  const svg  = d.diagram?.svg || '';
   return `
     ${step.sectionName ? `<div class="player-section-chip">${step.sectionName}</div>` : ''}
     ${d.acl_warning ? `<div class="player-acl">⚠️ ACL Warning — knees track over toes, never buckle inward</div>` : ''}
     ${d.requires_partner ? `<div class="player-partner-note">👥 Partner needed</div>` : ''}
     <h2 class="player-title">${d.name}</h2>
     ${reps ? `<div class="player-reps">${reps}</div>` : ''}
+    ${svg ? `<div class="player-diagram">${svg}</div>` : ''}
     ${d.tempo_description ? `<div class="player-tempo">⏱ <strong>${d.tempo}</strong> — ${d.tempo_description}</div>` : ''}
     ${d.muscles?.length ? `<div class="player-muscles">💪 ${d.muscles.join(' · ')}</div>` : ''}
     ${d.beat_pattern ? `<div class="player-beat">🎵 ${d.beat_pattern}${d.bpm ? ` @ ${d.bpm} BPM` : ''}</div>` : ''}
@@ -189,6 +192,12 @@ function htmlDrill(step, stepIdx) {
       <div class="player-rest-zone" id="rz-${stepIdx}">
         <button class="player-rest-btn" data-secs="${d.rest_seconds}">
           ⏱ Start rest timer · ${d.rest_seconds}s
+        </button>
+      </div>` : ''}
+    ${d.duration_work_sec ? `
+      <div class="player-interval-zone" id="iz-${stepIdx}">
+        <button class="player-interval-btn" data-work="${d.duration_work_sec}" data-rest="${d.duration_rest_sec}">
+          ⏱ Start · ${d.duration_work_sec}s work / ${d.duration_rest_sec}s rest
         </button>
       </div>` : ''}`;
 }
@@ -208,21 +217,25 @@ function htmlSprint(step) {
 }
 
 function htmlTest(step) {
-  const t = step.test;
+  const t   = step.test;
+  const svg = t.diagram?.svg || '';
   return `
     <div class="player-tag">🧪 Timed Test</div>
     <h2 class="player-title">${t.name}</h2>
     ${t.description ? `<p class="player-hint">${t.description}</p>` : ''}
     ${t.attempts    ? `<div class="player-reps">${t.attempts} attempts</div>` : ''}
+    ${svg ? `<div class="player-diagram">${svg}</div>` : ''}
     ${t.cues?.length ? `<ul class="player-cues">${t.cues.map(c => `<li>${c}</li>`).join('')}</ul>` : ''}
     <div class="player-note">📝 Note your times to track progress week to week</div>`;
 }
 
 function htmlFocalPoint(step) {
-  const fp = step.data;
+  const fp  = step.data;
+  const svg = fp.diagram?.svg || '';
   return `
     <div class="player-tag">📺 Focus Point ${fp.id}</div>
     <h2 class="player-title">${fp.label}</h2>
+    ${svg ? `<div class="player-diagram">${svg}</div>` : ''}
     ${fp.insight ? `<div class="player-insight">"${fp.insight}"</div>` : ''}
     ${fp.questions?.length ? `
       <div class="player-cues-label">Watch for:</div>
@@ -278,7 +291,7 @@ function htmlDone(step) {
     </div>`;
 }
 
-// ─── Rest timer ───────────────────────────────────────────────────────────
+// ─── Timers ───────────────────────────────────────────────────────────────
 function clearTimer() {
   if (_timerHandle) { clearInterval(_timerHandle); _timerHandle = null; }
 }
@@ -309,6 +322,41 @@ function startRestTimer(secs, zoneEl) {
       zoneEl.innerHTML = '<div class="rest-done-msg">✅ Rest complete!</div>';
     }
   }, 1000);
+}
+
+function startIntervalTimer(workSecs, restSecs, zoneEl) {
+  clearTimer();
+
+  function runPhase(phase, secs, onDone) {
+    const isWork = phase === 'work';
+    let remaining = secs;
+
+    zoneEl.innerHTML = `
+      <div class="interval-timer-box interval-${phase}">
+        <div class="interval-phase-label">${isWork ? 'WORK' : 'REST'}</div>
+        <div class="interval-count" id="it-count">${remaining}</div>
+        <div class="interval-sub">seconds</div>
+        <button class="rest-skip-btn" id="it-skip">Skip →</button>
+      </div>`;
+
+    zoneEl.querySelector('#it-skip').addEventListener('click', () => {
+      clearTimer();
+      onDone();
+    });
+
+    _timerHandle = setInterval(() => {
+      remaining--;
+      const el = zoneEl.querySelector('#it-count');
+      if (el) el.textContent = remaining;
+      if (remaining <= 0) { clearTimer(); onDone(); }
+    }, 1000);
+  }
+
+  runPhase('work', workSecs, () => {
+    runPhase('rest', restSecs, () => {
+      zoneEl.innerHTML = '<div class="rest-done-msg">✅ Set complete — go again!</div>';
+    });
+  });
 }
 
 // ─── Main step renderer ───────────────────────────────────────────────────
@@ -352,6 +400,16 @@ function renderStep() {
   card.querySelector('.player-rest-btn')?.addEventListener('click', e => {
     const zone = card.querySelector(`#rz-${_idx}`);
     if (zone) startRestTimer(parseInt(e.currentTarget.dataset.secs, 10), zone);
+  });
+
+  // Bind interval timer
+  card.querySelector('.player-interval-btn')?.addEventListener('click', e => {
+    const zone = card.querySelector(`#iz-${_idx}`);
+    if (zone) startIntervalTimer(
+      parseInt(e.currentTarget.dataset.work, 10),
+      parseInt(e.currentTarget.dataset.rest, 10),
+      zone
+    );
   });
 
   // Bind done-screen buttons
@@ -426,13 +484,18 @@ function renderModuleSelector(data) {
 
 // ─── Entry point ─────────────────────────────────────────────────────────
 export async function renderPlayer(container, params = {}) {
+  const type = params.type || '';
+
+  // Football Intelligence has its own dedicated UI
+  if (type === 'match_watch') {
+    return renderMatchWatch(container, params);
+  }
+
   _container = container;
   _params    = params;
   _steps     = [];
   _idx       = 0;
   clearTimer();
-
-  const type = params.type || '';
 
   container.innerHTML = `
     <div class="player-loading">

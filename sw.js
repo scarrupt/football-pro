@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fpip-v2';
+const CACHE_NAME = 'fpip-v5';
 
 const STATIC_ASSETS = [
   './index.html',
@@ -17,6 +17,7 @@ const STATIC_ASSETS = [
   './js/pages/progress.js',
   './js/pages/badges_page.js',
   './js/pages/player.js',
+  './js/pages/match_watch.js',
   './icons/icon.svg',
   './u14_academy_sessions.json',
 ];

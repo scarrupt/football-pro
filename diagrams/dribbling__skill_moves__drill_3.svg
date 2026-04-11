@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100%"
+   viewBox="0 0 220 110"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="dribbling__skill_moves__drill_3.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4"
+     inkscape:cx="110"
+     inkscape:cy="54.875"
+     inkscape:window-width="2560"
+     inkscape:window-height="1382"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <text
+     x="110"
+     y="10"
+     text-anchor="middle"
+     font-size="7"
+     fill="#aaa"
+     id="text1">Top-down view · 2m × 2m square</text>
+  <polygon
+     points="65,20 60,30 70,30 "
+     fill="#f2a623"
+     id="polygon1"
+     transform="translate(-12)" />
+  <polygon
+     points="155,20 150,30 160,30 "
+     fill="#f2a623"
+     id="polygon2"
+     transform="translate(-12)" />
+  <polygon
+     points="65,78 60,88 70,88 "
+     fill="#f2a623"
+     id="polygon3"
+     transform="translate(-12)" />
+  <polygon
+     points="155,78 150,88 160,88 "
+     fill="#f2a623"
+     id="polygon4"
+     transform="translate(-12)" />
+  <rect
+     x="53"
+     y="25"
+     width="90"
+     height="58"
+     rx="2"
+     fill="none"
+     stroke="#aaaaaa"
+     stroke-width="0.8"
+     stroke-dasharray="3, 2"
+     id="rect4" />
+  <text
+     x="98"
+     y="57"
+     text-anchor="middle"
+     font-size="7px"
+     fill="#aaaaaa"
+     id="text4">2m × 2m</text>
+  <path
+     d="m 73,40 q 25,-12 50,2 20,16 -3,28 Q 98,82 76,70 54,58 73,40 Z"
+     fill="none"
+     stroke="#3b8bd4"
+     stroke-width="1.2"
+     stroke-dasharray="4, 2"
+     id="path4" />
+  <text
+     x="98"
+     y="44"
+     text-anchor="middle"
+     font-size="8px"
+     fill="#d85a30"
+     id="text5">↻ step-over</text>
+  <text
+     x="128"
+     y="67"
+     text-anchor="middle"
+     font-size="8px"
+     fill="#d85a30"
+     id="text6">↻ feint</text>
+  <rect
+     x="154"
+     y="14"
+     width="62"
+     height="22"
+     rx="3"
+     fill="none"
+     stroke="#f2a623"
+     stroke-width="0.8"
+     id="rect6" />
+  <text
+     x="185"
+     y="23"
+     text-anchor="middle"
+     font-size="7px"
+     fill="#f2a623"
+     id="text7">15s work</text>
+  <text
+     x="185"
+     y="33"
+     text-anchor="middle"
+     font-size="7px"
+     fill="#f2a623"
+     id="text8">25s rest</text>
+  <text
+     x="88"
+     y="102"
+     text-anchor="middle"
+     font-size="7"
+     fill="#3B8BD4"
+     id="text9">Use all skills · imagine defenders</text>
+</svg>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        width="100%"
+        viewBox="0 0 220 205"
+        version="1.1"
+        id="svg8"
+        sodipodi:docname="shooting_hard_drill_3.svg"
+        inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+    <sodipodi:namedview
+            id="namedview8"
+            pagecolor="#ffffff"
+            bordercolor="#000000"
+            borderopacity="0.25"
+            inkscape:showpageshadow="2"
+            inkscape:pageopacity="0.0"
+            inkscape:pagecheckerboard="0"
+            inkscape:deskcolor="#d1d1d1"
+            inkscape:zoom="4"
+            inkscape:cx="70"
+            inkscape:cy="102.375"
+            inkscape:window-width="2560"
+            inkscape:window-height="1382"
+            inkscape:window-x="0"
+            inkscape:window-y="30"
+            inkscape:window-maximized="1"
+            inkscape:current-layer="svg8" />
+    <defs
+            id="defs1">
+        <marker
+                id="arr"
+                viewBox="0 0 10 10"
+                refX="8"
+                refY="5"
+                markerWidth="5"
+                markerHeight="5"
+                orient="auto-start-reverse">
+            <path
+                    d="M2 1L8 5L2 9"
+                    fill="none"
+                    stroke="context-stroke"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    id="path1" />
+        </marker>
+    </defs>
+    <text
+            x="110"
+            y="12"
+            text-anchor="middle"
+            font-size="7"
+            fill="#aaa"
+            id="text1">Top-down view · left side of box</text>
+    <rect
+            x="50"
+            y="18"
+            width="120"
+            height="55"
+            rx="2"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="1"
+            id="rect1" />
+    <text
+            x="110"
+            y="48"
+            text-anchor="middle"
+            font-size="6px"
+            fill="#aaaaaa"
+            id="text2">Goal</text>
+    <rect
+            x="20"
+            y="73"
+            width="180"
+            height="72"
+            rx="2"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="0.8"
+            stroke-dasharray="3 2"
+            id="rect2" />
+    <circle
+            cx="110"
+            cy="112"
+            r="3"
+            fill="#aaa"
+            id="circle2" />
+    <text
+            x="1.75"
+            y="112"
+            font-size="6px"
+            fill="#aaaaaa"
+            id="text3">16m</text>
+    <polygon
+            points="42,148 37,158 47,158"
+            fill="#F2A623"
+            id="polygon3" />
+    <polygon
+            points="57,148 52,158 62,158"
+            fill="#F2A623"
+            id="polygon4" />
+    <polygon
+            points="72,148 67,158 77,158"
+            fill="#F2A623"
+            id="polygon5" />
+    <polygon
+            points="77,158 72,148 67,158 "
+            fill="#f2a623"
+            id="polygon5-0"
+            transform="translate(81.25,-85.5)" />
+    <polygon
+            points="67,158 77,158 72,148 "
+            fill="#f2a623"
+            id="polygon5-3"
+            transform="translate(-7,-85.5)" />
+    <text
+            x="8"
+            y="155"
+            font-size="6px"
+            fill="#f2a623"
+            id="text5">3 cones</text>
+    <circle
+            cx="57"
+            cy="190"
+            r="8"
+            fill="none"
+            stroke="#d85a30"
+            stroke-width="1.2"
+            id="circle5" />
+    <text
+            x="57"
+            y="194"
+            text-anchor="middle"
+            font-size="7px"
+            fill="#d85a30"
+            id="text6">P</text>
+    <circle
+            cx="86"
+            cy="159"
+            r="5"
+            fill="none"
+            stroke="#1d9e75"
+            stroke-width="1.5"
+            id="circle6" />
+    <text
+            x="96"
+            y="162"
+            font-size="6px"
+            fill="#1d9e75"
+            id="text7">strike</text>
+    <path
+            d="M 92.860128,154.86281 C 134.68701,140.50063 156.96602,109.76849 163.63834,70.382679"
+            fill="none"
+            stroke="#d85a30"
+            stroke-width="2"
+            marker-end="url(#arr)"
+            id="path7"
+            sodipodi:nodetypes="cc" />
+    <text
+            x="150"
+            y="122"
+            font-size="7px"
+            fill="#d85a30"
+            id="text8">R foot → R corner</text>
+    <text
+            xml:space="preserve"
+            style="writing-mode:lr-tb;direction:ltr;fill:#000000"
+            x="123.5"
+            y="160.5"
+            id="text9"><tspan
+       sodipodi:role="line"
+       id="tspan8"></tspan></text>
+    <text
+            x="62.458008"
+            y="113.55859"
+            font-size="6px"
+            fill="#aaaaaa"
+            id="text3-9">penalty spot</text>
+    <text
+            x="38.75"
+            y="174.75"
+            font-size="7px"
+            fill="#d85a30"
+            id="text10">Skill move</text>
+</svg>

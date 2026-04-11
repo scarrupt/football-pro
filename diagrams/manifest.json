@@ -1,0 +1,290 @@
+{
+  "shooting__easy__drill_1": {
+    "label": "5m box \u2014 centre cone, alternate corners"
+  },
+  "shooting__easy__drill_2": {
+    "label": "5m box \u2014 right corner cone, R foot to L corner"
+  },
+  "shooting__easy__drill_3": {
+    "label": "5m box \u2014 left corner cone, L foot to R corner"
+  },
+  "shooting__medium__drill_1": {
+    "label": "Penalty spot V-shape"
+  },
+  "shooting__medium__drill_2": {
+    "label": "Thierry Henry \u2014 left (L foot to L corner)"
+  },
+  "shooting__medium__drill_3": {
+    "label": "Thierry Henry \u2014 right (R foot to R corner)"
+  },
+  "shooting__hard__drill_1": {
+    "label": "16m box \u2014 3 wall cones, alternate feet"
+  },
+  "shooting__hard__drill_2": {
+    "label": "Lamine Yamal \u2014 far post left (L foot curl from right side)"
+  },
+  "shooting__hard__drill_3": {
+    "label": "Lamine Yamal \u2014 far post right (R foot curl from left side)"
+  },
+  "passing__easy__drill_1": {
+    "label": "Close range passing \u2014 side view"
+  },
+  "passing__easy__drill_2": {
+    "label": "Close range striking \u2014 locked ankle"
+  },
+  "passing__easy__drill_3": {
+    "label": "Medium range passing \u2014 3m, lean forward, 1 touch then pass"
+  },
+  "passing__medium__drill_1": {
+    "label": "One-touch passing \u2014 wall in front 3m, slight lean forward"
+  },
+  "passing__medium__drill_2": {
+    "label": "Medium range strikes \u2014 wall in front 3m, slight lean back"
+  },
+  "passing__hard__drill_1": {
+    "label": "Pass through 3 gates \u2014 wall behind 1.5\u20132m, gates in front 3m"
+  },
+  "passing__hard__drill_2": {
+    "label": "Low driven pass through 3 gates \u2014 same layout, laces strike"
+  },
+  "passing__hard__drill_3": {
+    "label": "Long passes into boxes \u2014 near 10m, far 12m offset"
+  },
+  "dribbling__tight_control__drill_1": {
+    "label": "Straight 10 \u2014 weave through 10 cones 1 foot apart"
+  },
+  "dribbling__tight_control__drill_2": {
+    "label": "Zigzag \u2014 2 offset lines of 5 cones"
+  },
+  "dribbling__tight_control__drill_3": {
+    "label": "Ronaldinho \u2014 densely packed random cones, freestyle"
+  },
+  "dribbling__tight_control__test_1": {
+    "label": "Straight 10 \u2014 eyes on ball"
+  },
+  "dribbling__tight_control__test_2": {
+    "label": "Straight 10 \u2014 scan"
+  },
+  "dribbling__change_of_direction__drill_1": {
+    "label": "Wide zigzag \u2014 3 + 2 offset cones, 2m vertical, 1m horizontal"
+  },
+  "dribbling__change_of_direction__drill_2": {
+    "label": "L-drill \u2014 sprint A\u2192B, chop at B, sprint to C"
+  },
+  "dribbling__change_of_direction__drill_3": {
+    "label": "Freestyle square \u2014 2m \u00d7 2m, chop at corners"
+  },
+  "dribbling__change_of_direction__test_1": {
+    "label": "L-drill timed"
+  },
+  "dribbling__acceleration__drill_1": {
+    "label": "Speed turns \u2014 sprint A\u2192B, execute turn, return"
+  },
+  "dribbling__acceleration__drill_2": {
+    "label": "L-turns \u2014 sprint A\u2192B, chop at B, sprint to C (2\u20133m each)"
+  },
+  "dribbling__acceleration__drill_3": {
+    "label": "High speed train \u2014 50m sprint, ball one stride ahead"
+  },
+  "dribbling__acceleration__test_1": {
+    "label": "3m shuttle test"
+  },
+  "dribbling__change_of_tempo__drill_1": {
+    "label": "Cones to acceleration \u2014 3 tight then burst to far cone"
+  },
+  "dribbling__change_of_tempo__drill_2": {
+    "label": "Acceleration to cones \u2014 burst then decelerate into 3 tight"
+  },
+  "dribbling__change_of_tempo__drill_3": {
+    "label": "Skill moves to acceleration \u2014 execute skill then 50m sprint"
+  },
+  "dribbling__change_of_tempo__test_1": {
+    "label": "Gear-change burst test"
+  },
+  "dribbling__skill_moves__drill_1": {
+    "label": "Skill zigzags \u2014 execute skill move at each cone"
+  },
+  "dribbling__skill_moves__drill_2": {
+    "label": "3 explosive skills \u2014 Y-shape, skill at junction then explode to B/C/D"
+  },
+  "dribbling__skill_moves__drill_3": {
+    "label": "Freestyle square \u2014 use all skills, imagine defenders"
+  },
+  "dribbling__skill_moves__test_1": {
+    "label": "Y-drill timed per skill"
+  },
+  "dribbling__anticipation__drill_1": {
+    "label": "Elite 10 straight \u2014 random chime triggers 3-cone burst"
+  },
+  "dribbling__anticipation__drill_2": {
+    "label": "Anticipation zigzag \u2014 chime triggers burst for 3 cones"
+  },
+  "dribbling__anticipation__drill_3": {
+    "label": "Anticipation freestyle \u2014 chime = intensity burst in square"
+  },
+  "dribbling__anticipation__test_1": {
+    "label": "Reaction burst test"
+  },
+  "fifa_11plus__block_1__exercise_1": {
+    "label": "Jogging straight ahead"
+  },
+  "fifa_11plus__block_1__exercise_2": {
+    "label": "Hip out"
+  },
+  "fifa_11plus__block_1__exercise_3": {
+    "label": "Hip in"
+  },
+  "fifa_11plus__block_1__exercise_4": {
+    "label": "Circle your partner"
+  },
+  "fifa_11plus__block_1__exercise_5": {
+    "label": "Shoulder contact jump"
+  },
+  "fifa_11plus__block_2__exercise_6": {
+    "label": "Plank \u2014 3 levels"
+  },
+  "fifa_11plus__block_2__exercise_7": {
+    "label": "Side plank \u2014 3 levels"
+  },
+  "fifa_11plus__block_2__exercise_8": {
+    "label": "Nordic hamstring curls \u2014 3 levels"
+  },
+  "fifa_11plus__block_2__exercise_9": {
+    "label": "Single leg balance \u2014 3 levels"
+  },
+  "fifa_11plus__block_2__exercise_10": {
+    "label": "Squats \u2014 3 levels"
+  },
+  "fifa_11plus__block_2__exercise_11": {
+    "label": "Jumping \u2014 3 levels"
+  },
+  "fifa_11plus__block_3__exercise_12": {
+    "label": "Forward-backward running"
+  },
+  "fifa_11plus__block_3__exercise_13": {
+    "label": "Bounding"
+  },
+  "fifa_11plus__block_3__exercise_14": {
+    "label": "Plant and cut"
+  },
+  "fifa_11plus__block_3__exercise_15": {
+    "label": "Sprinting"
+  },
+  "upper_body_strength__exercise_1": {
+    "label": "Iso hold chin-up \u2014 jump to top, hold 10s, lower"
+  },
+  "upper_body_strength__exercise_2": {
+    "label": "Elevated push-ups \u2014 explosive concentric, slow eccentric"
+  },
+  "upper_body_strength__exercise_3": {
+    "label": "Med ball chest pass \u2014 controlled push and catch"
+  },
+  "upper_body_strength__exercise_4": {
+    "label": "Plank \u2014 30\u201360s hold, progress 5s per session"
+  },
+  "lower_body_strength__exercise_1": {
+    "label": "Bodyweight squat \u2014 3-2-0 tempo, 90\u00b0 at bottom"
+  },
+  "lower_body_strength__exercise_2": {
+    "label": "Lunge \u2014 5/3/3 reps, front knee above ankle"
+  },
+  "lower_body_strength__exercise_3": {
+    "label": "Sidelying leg raises \u2014 2s up, 1s hold, 2s down"
+  },
+  "lower_body_strength__exercise_4": {
+    "label": "Lateral lunge hold \u2014 10\u201320s each side"
+  },
+  "speed_training__block_1__exercise_1": {
+    "label": "Wall mechanics \u2014 speed position hold 20s"
+  },
+  "speed_training__block_1__exercise_2": {
+    "label": "Wall ISO spring hold \u2014 ball of foot, 10s"
+  },
+  "speed_training__block_1__exercise_3": {
+    "label": "Wall march \u2014 controlled alternating leg drive"
+  },
+  "speed_training__block_1__exercise_4": {
+    "label": "Wall hip switch \u2014 quick alternating leg switch"
+  },
+  "speed_training__block_1__exercise_5": {
+    "label": "Wall run \u2014 maximum speed in place, maintain 45\u00b0 position"
+  },
+  "speed_training__block_2__exercise_1": {
+    "label": "Pogo jumps \u2014 straight up and down, stiff ankles"
+  },
+  "speed_training__block_2__exercise_2": {
+    "label": "Forward / back jumps \u2014 over a line, reactive"
+  },
+  "speed_training__block_2__exercise_3": {
+    "label": "Lateral jumps \u2014 side to side over line, two feet"
+  },
+  "speed_training__block_2__exercise_4": {
+    "label": "In-out jumps \u2014 feet together then wide, alternating"
+  },
+  "speed_training__block_2__exercise_5": {
+    "label": "Split stance quick switch \u2014 scissor feet in air"
+  },
+  "rhythmic_movement__block_1__exercise_1": {
+    "label": "Two-foot ankle bounce \u2014 one contact per beat"
+  },
+  "rhythmic_movement__block_1__exercise_2": {
+    "label": "Alternating foot tap \u2014 L-R-L-R each beat"
+  },
+  "rhythmic_movement__block_1__exercise_3": {
+    "label": "Ladder 2-in 2-out \u2014 4 beats per rung"
+  },
+  "rhythmic_movement__block_1__exercise_4": {
+    "label": "Lateral shuffle step \u2014 accent on arrival at cone"
+  },
+  "rhythmic_movement__block_1__exercise_5": {
+    "label": "Skip pattern \u2014 BIG hop + small step, 2-beat cycle"
+  },
+  "rhythmic_movement__block_2__exercise_1": {
+    "label": "Hip sway bounce \u2014 hips L/R on beats 1 and 3"
+  },
+  "rhythmic_movement__block_2__exercise_2": {
+    "label": "Arm-leg cross bounce \u2014 contralateral L-knee/R-arm"
+  },
+  "rhythmic_movement__block_2__exercise_3": {
+    "label": "360\u00b0 bounce turn \u2014 90\u00b0 per beat, 4 beats = full circle"
+  },
+  "rhythmic_movement__block_2__exercise_4": {
+    "label": "Wave arms walk \u2014 full arm wave every 2 steps"
+  },
+  "rhythmic_movement__block_3__exercise_1": {
+    "label": "Slow-fast bounce \u2014 instant gear change every 8 beats"
+  },
+  "rhythmic_movement__block_3__exercise_2": {
+    "label": "Freeze and burst \u2014 musical accent = freeze then burst"
+  },
+  "rhythmic_movement__block_3__exercise_3": {
+    "label": "Call and respond"
+  },
+  "rhythmic_movement__block_3__exercise_4": {
+    "label": "3-tempo cone run \u2014 slow/medium/fast zones"
+  },
+  "rhythmic_movement__block_4__exercise_1": {
+    "label": "Ball tap bounce \u2014 tap on every 3rd beat"
+  },
+  "rhythmic_movement__block_4__exercise_2": {
+    "label": "Dribble to freeze \u2014 accent = freeze with ball under control"
+  },
+  "rhythmic_movement__block_4__exercise_3": {
+    "label": "Tempo dribble \u2014 slow \u00d7 8 \u2192 skill \u2192 burst (Messi pattern)"
+  },
+  "rhythmic_movement__block_4__exercise_4": {
+    "label": "Partner mirror dribble \u2014 leader dribbles, partner mirrors"
+  },
+  "football_intelligence__A": {
+    "label": "Focal point A \u2014 movement off the ball"
+  },
+  "football_intelligence__B": {
+    "label": "Focal point B \u2014 first touch and body position"
+  },
+  "football_intelligence__C": {
+    "label": "Focal point C \u2014 pressing and defensive shape"
+  },
+  "football_intelligence__D": {
+    "label": "Focal point D \u2014 transitions (3 seconds after possession change)"
+  }
+}
