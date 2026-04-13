@@ -14,7 +14,6 @@ import { initNotifications }   from './notifications.js';
 
 export const state = {
   currentPage:  'home',
-  previousPage: 'home',
   sessions:     [],
   plannerItems: [],
   earnedBadges: [],
@@ -22,6 +21,10 @@ export const state = {
   streak:       0,
   routeParams:  {},
 };
+
+// Navigation history stack (module-private)
+const _navHistory = [];
+let _bypassHistory = false;
 
 // ─── Page Titles ──────────────────────────────────────────────────────────────
 
@@ -37,9 +40,12 @@ const PAGE_TITLES = {
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
 export async function navigate(page, params = {}) {
-  state.previousPage = state.currentPage;
-  state.currentPage  = page;
-  state.routeParams  = params;
+  if (!_bypassHistory) {
+    _navHistory.push({ page: state.currentPage, params: { ...state.routeParams } });
+  }
+  _bypassHistory    = false;
+  state.currentPage = page;
+  state.routeParams = params;
 
   // Update nav active states (only main tabs, not log)
   document.querySelectorAll('.nav-item').forEach(btn => {
@@ -75,6 +81,12 @@ export async function navigate(page, params = {}) {
 
   // Animate in
   content.classList.add('fade-in');
+}
+
+export async function navigateBack() {
+  const prev = _navHistory.pop();
+  _bypassHistory = true;
+  await navigate(prev?.page || 'home', prev?.params || {});
 }
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
@@ -243,9 +255,7 @@ async function init() {
     });
 
     // Back button
-    document.getElementById('back-btn').addEventListener('click', () => {
-      navigate(state.previousPage || 'home');
-    });
+    document.getElementById('back-btn').addEventListener('click', navigateBack);
 
     // Modal overlay click to close
     document.getElementById('modal-overlay').addEventListener('click', e => {

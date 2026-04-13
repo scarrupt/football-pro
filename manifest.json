@@ -2,7 +2,7 @@
   "name": "Football Pro Training",
   "short_name": "FootPro",
   "description": "Your personal football training companion",
-  "start_url": "./index.html",
+  "start_url": "/football-pro",
   "display": "standalone",
   "background_color": "#7C3AED",
   "theme_color": "#7C3AED",

@@ -1,4 +1,4 @@
-import { navigate, saveSessionAndCheckBadges, showToast, state } from '../app.js';
+import { navigate, navigateBack, saveSessionAndCheckBadges, showToast } from '../app.js';
 import { genId } from '../utils.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -16,6 +16,21 @@ const TRAINING_SESSIONS = [
   'Shooting', 'Passing', 'Dribbling', 'Speed Training',
   'Rhythmic Movement', 'Upper Body', 'Lower Body', 'FIFA 11+',
 ];
+
+// ─── Wake lock ────────────────────────────────────────────────────────────────
+let _wakeLock = null;
+
+async function acquireWakeLock() {
+  if (!('wakeLock' in navigator) || _wakeLock) return;
+  try {
+    _wakeLock = await navigator.wakeLock.request('screen');
+    _wakeLock.addEventListener('release', () => { _wakeLock = null; });
+  } catch (_) {}
+}
+
+function releaseWakeLock() {
+  if (_wakeLock) { _wakeLock.release().catch(() => {}); _wakeLock = null; }
+}
 
 // ─── Module state ─────────────────────────────────────────────────────────────
 let _c              = null;
@@ -222,7 +237,10 @@ function renderBefore() {
 
   // Start button
   _c.querySelector('#fi-start')?.addEventListener('click', () => {
-    if (_fi.focalId && _fi.tallyAction) advanceTo('first_half');
+    if (_fi.focalId && _fi.tallyAction) {
+      acquireWakeLock();
+      advanceTo('first_half');
+    }
   });
 }
 
@@ -716,8 +734,9 @@ function renderSummary() {
     renderAfter();
   });
   _c.querySelector('#fi-discard')?.addEventListener('click', () => {
+    releaseWakeLock();
     clearFi();
-    navigate(state.previousPage || 'home');
+    navigateBack();
   });
 }
 
@@ -749,6 +768,7 @@ async function saveSession() {
   };
 
   try {
+    releaseWakeLock();
     await saveSessionAndCheckBadges(session);
     clearFi();
     showToast('Match session saved! 📺', 'success');

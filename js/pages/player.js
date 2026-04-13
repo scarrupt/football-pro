@@ -1,4 +1,4 @@
-import { navigate, state } from '../app.js';
+import { navigate, navigateBack, state } from '../app.js';
 import { getSessionType }  from '../constants.js';
 import { renderMatchWatch } from './match_watch.js';
 
@@ -183,6 +183,11 @@ function htmlDrill(step, stepIdx) {
     ${d.tempo_description ? `<div class="player-tempo">⏱ <strong>${d.tempo}</strong> — ${d.tempo_description}</div>` : ''}
     ${d.muscles?.length ? `<div class="player-muscles">💪 ${d.muscles.join(' · ')}</div>` : ''}
     ${d.beat_pattern ? `<div class="player-beat">🎵 ${d.beat_pattern}${d.bpm ? ` @ ${d.bpm} BPM` : ''}</div>` : ''}
+    ${d.variations?.length ? `
+      <div class="player-cues-label">Rotate through all ${d.variations.length}:</div>
+      <ol class="player-cues">
+        ${d.variations.map(v => `<li>${v}</li>`).join('')}
+      </ol>` : ''}
     ${d.cues?.length ? `
       <div class="player-cues-label">Coaching cues:</div>
       <ul class="player-cues">
@@ -291,13 +296,56 @@ function htmlDone(step) {
     </div>`;
 }
 
+// ─── Wake lock ────────────────────────────────────────────────────────────
+let _wakeLock = null;
+
+async function acquireWakeLock() {
+  if (!('wakeLock' in navigator) || _wakeLock) return;
+  try {
+    _wakeLock = await navigator.wakeLock.request('screen');
+    _wakeLock.addEventListener('release', () => { _wakeLock = null; });
+  } catch (_) {}
+}
+
+function releaseWakeLock() {
+  if (_wakeLock) { _wakeLock.release().catch(() => {}); _wakeLock = null; }
+}
+
+// ─── Sound ────────────────────────────────────────────────────────────────
+function beep(freq = 880, startOffset = 0, duration = 0.3, volume = 0.25) {
+  try {
+    const ctx  = new (window.AudioContext || window.webkitAudioContext)();
+    const osc  = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(volume, ctx.currentTime + startOffset);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + startOffset + duration);
+    osc.start(ctx.currentTime + startOffset);
+    osc.stop(ctx.currentTime + startOffset + duration);
+    osc.onended = () => ctx.close();
+  } catch (_) {}
+}
+
+function beepDone() {
+  beep(660, 0,    0.12);
+  beep(880, 0.18, 0.35);
+}
+
+function beepTick() {
+  beep(660, 0, 0.08, 0.12);
+}
+
 // ─── Timers ───────────────────────────────────────────────────────────────
 function clearTimer() {
   if (_timerHandle) { clearInterval(_timerHandle); _timerHandle = null; }
+  releaseWakeLock();
 }
 
 function startRestTimer(secs, zoneEl) {
   clearTimer();
+  acquireWakeLock();
   let remaining = secs;
 
   zoneEl.innerHTML = `
@@ -317,15 +365,21 @@ function startRestTimer(secs, zoneEl) {
     remaining--;
     const el = zoneEl.querySelector('#rt-count');
     if (el) el.textContent = remaining;
+    if (remaining <= 3 && remaining > 0) beepTick();
     if (remaining <= 0) {
       clearTimer();
-      zoneEl.innerHTML = '<div class="rest-done-msg">✅ Rest complete!</div>';
+      beepDone();
+      zoneEl.innerHTML = `
+        <div class="rest-done-msg">✅ Rest complete!</div>
+        <button class="rest-again-btn" id="rt-again">↺ Start again · ${secs}s</button>`;
+      zoneEl.querySelector('#rt-again').addEventListener('click', () => startRestTimer(secs, zoneEl));
     }
   }, 1000);
 }
 
 function startIntervalTimer(workSecs, restSecs, zoneEl) {
   clearTimer();
+  acquireWakeLock();
 
   function runPhase(phase, secs, onDone) {
     const isWork = phase === 'work';
@@ -348,13 +402,18 @@ function startIntervalTimer(workSecs, restSecs, zoneEl) {
       remaining--;
       const el = zoneEl.querySelector('#it-count');
       if (el) el.textContent = remaining;
-      if (remaining <= 0) { clearTimer(); onDone(); }
+      if (remaining <= 3 && remaining > 0) beepTick();
+      if (remaining <= 0) { clearTimer(); beepDone(); onDone(); }
     }, 1000);
   }
 
   runPhase('work', workSecs, () => {
+    acquireWakeLock();
     runPhase('rest', restSecs, () => {
-      zoneEl.innerHTML = '<div class="rest-done-msg">✅ Set complete — go again!</div>';
+      zoneEl.innerHTML = `
+        <div class="rest-done-msg">✅ Set complete — go again!</div>
+        <button class="rest-again-btn" id="it-again">↺ Start again</button>`;
+      zoneEl.querySelector('#it-again').addEventListener('click', () => startIntervalTimer(workSecs, restSecs, zoneEl));
     });
   });
 }
@@ -419,7 +478,7 @@ function renderStep() {
   });
   card.querySelector('#pdone-exit')?.addEventListener('click', () => {
     clearTimer();
-    navigate(state.previousPage || 'home');
+    navigateBack();
   });
 
   // Navigation
