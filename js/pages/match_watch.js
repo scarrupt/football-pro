@@ -1,5 +1,5 @@
 import { navigate, navigateBack, saveSessionAndCheckBadges, showToast, loadState } from '../app.js';
-import { genId } from '../utils.js';
+import { genId, getTodayKey } from '../utils.js';
 import { db } from '../db.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -765,7 +765,7 @@ async function saveSession() {
   const isEdit = !!_editSession;
   const session = {
     id:        _editSession?.id    || genId(),
-    date:      _editSession?.date  || new Date().toISOString().slice(0, 10),
+    date:      _editSession?.date  || getTodayKey(),
     type:      'match_watch',
     duration:  _editSession?.duration   ?? 90,
     difficulty:_editSession?.difficulty ?? 3,

@@ -1,4 +1,5 @@
 import { state, navigate, showModal, closeModal, showToast, loadState, deleteSession } from '../app.js';
+import { db } from '../db.js';
 import { SESSION_TYPES, MOODS, DAYS_SHORT } from '../constants.js';
 import {
   getTodayKey, getWeekKeys, formatDuration, formatDayFull, isToday, isPast, keyToDate,
@@ -329,50 +330,74 @@ function renderPersonalBests(container) {
 // ─── Duplicate cleanup ────────────────────────────────────────────────────
 
 function findDuplicates(sessions) {
-  // Group by date+type
-  const groups = {};
+  // Group by date+type (same day duplicates)
+  const byDateType = {};
   sessions.forEach(s => {
     const key = `${s.date}|${s.type}`;
-    (groups[key] = groups[key] || []).push(s);
+    (byDateType[key] = byDateType[key] || []).push(s);
   });
 
-  const toDelete = [];
-  Object.values(groups).forEach(group => {
+  const toDelete  = new Set();
+  const toFix     = []; // sessions with wrong date field (UTC vs local mismatch)
+
+  // Case 1: same date + same type, one linked one not
+  Object.values(byDateType).forEach(group => {
     if (group.length < 2) return;
     const withPlanner    = group.filter(s => s.plannerId);
     const withoutPlanner = group.filter(s => !s.plannerId);
     if (!withPlanner.length || !withoutPlanner.length) return;
-
-    // Flag unlinked sessions as duplicates of their planner-linked counterpart
-    // (same date + same type is already specific enough)
-    withoutPlanner.forEach(orphan => toDelete.push(orphan));
+    withoutPlanner.forEach(orphan => toDelete.add(orphan));
   });
-  return toDelete;
+
+  // Case 2: cross-date duplicates from UTC vs local date mismatch
+  // A planner-linked session whose date field differs from its timestamp's date
+  // paired with an unlinked session on the timestamp's actual date (same type)
+  sessions.forEach(linked => {
+    if (!linked.plannerId || !linked.timestamp) return;
+    const tsDate = linked.timestamp.slice(0, 10);
+    if (tsDate === linked.date) return; // no mismatch
+    sessions.forEach(orphan => {
+      if (orphan.plannerId || toDelete.has(orphan)) return;
+      if (orphan.type === linked.type && orphan.date === tsDate) {
+        toDelete.add(orphan);
+        toFix.push({ session: linked, correctDate: tsDate });
+      }
+    });
+  });
+
+  return { toDelete: [...toDelete], toFix };
 }
 
 // ─── Recent Sessions ──────────────────────────────────────────────────────
 
 function renderRecentSessions(container) {
-  const sorted = [...state.sessions]
-    .sort((a, b) => (b.timestamp || b.date) > (a.timestamp || a.date) ? 1 : -1);
+  const sorted = [...state.sessions].sort((a, b) => {
+    if (b.date !== a.date) return b.date > a.date ? 1 : -1;
+    const bts = b.timestamp || b.date;
+    const ats = a.timestamp || a.date;
+    return bts > ats ? 1 : bts < ats ? -1 : 0;
+  });
   if (!sorted.length) return;
 
   const section = document.createElement('div');
   section.innerHTML = `<div class="section-title">Session History 📋</div>`;
 
-  const dupes = findDuplicates(sorted);
-  if (dupes.length) {
+  const { toDelete, toFix } = findDuplicates(sorted);
+  if (toDelete.length) {
     const banner = document.createElement('div');
     banner.style.cssText = 'margin:0 16px 10px;padding:10px 14px;background:var(--color-primary-pale);border-radius:10px;display:flex;align-items:center;gap:10px;';
     banner.innerHTML = `
       <span style="font-size:1.2rem;">⚠️</span>
-      <span style="flex:1;font-size:.85rem;color:var(--color-text);">${dupes.length} duplicate session${dupes.length > 1 ? 's' : ''} found</span>
+      <span style="flex:1;font-size:.85rem;color:var(--color-text);">${toDelete.length} duplicate session${toDelete.length > 1 ? 's' : ''} found</span>
       <button id="dedup-btn" class="btn btn-secondary" style="padding:6px 12px;font-size:.8rem;">Clean up</button>`;
     banner.querySelector('#dedup-btn').addEventListener('click', async () => {
-      if (!confirm(`Remove ${dupes.length} duplicate session${dupes.length > 1 ? 's' : ''}? The planner-linked copies are kept.`)) return;
-      for (const s of dupes) await deleteSession(s.id);
+      if (!confirm(`Remove ${toDelete.length} duplicate session${toDelete.length > 1 ? 's' : ''}? The planner-linked copies are kept.`)) return;
+      for (const s of toDelete) await deleteSession(s.id);
+      for (const { session, correctDate } of toFix) {
+        await db.put('sessions', { ...session, date: correctDate });
+      }
       await loadState();
-      showToast(`Removed ${dupes.length} duplicate${dupes.length > 1 ? 's' : ''}`, 'success');
+      showToast(`Removed ${toDelete.length} duplicate${toDelete.length > 1 ? 's' : ''}`, 'success');
       await navigate('progress');
     });
     section.appendChild(banner);
