@@ -510,6 +510,7 @@ function renderStep() {
       moduleSelection: _selectedModule,
       testAttempts:    Object.keys(_testAttempts).length ? _testAttempts : null,
       fromPlayer:      _params.fromLog  || false,
+      ...(_params.editSession && { editSession: _params.editSession }),
     });
   });
   card.querySelector('#pdone-exit')?.addEventListener('click', () => {

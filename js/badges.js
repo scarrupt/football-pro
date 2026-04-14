@@ -27,8 +27,11 @@ export function checkAndAwardBadges(sessions, earnedBadges, streak) {
     }
   }
 
+  // Exclude rest days from training session counts
+  const trainingSessions = sessions.filter(s => s.type !== 'rest');
+
   // first_session
-  check('first_session', sessions.length >= 1);
+  check('first_session', trainingSessions.length >= 1);
 
   // streak badges
   check('streak_3',  streak >= 3);
@@ -36,9 +39,9 @@ export function checkAndAwardBadges(sessions, earnedBadges, streak) {
   check('streak_14', streak >= 14);
 
   // session count badges
-  check('sessions_10', sessions.length >= 10);
-  check('sessions_25', sessions.length >= 25);
-  check('sessions_50', sessions.length >= 50);
+  check('sessions_10', trainingSessions.length >= 10);
+  check('sessions_25', trainingSessions.length >= 25);
+  check('sessions_50', trainingSessions.length >= 50);
 
   // matches_5
   const matchCount = sessions.filter(s => s.type === 'match').length;

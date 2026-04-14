@@ -252,12 +252,31 @@ function renderTrainingMix(container) {
 
 // ─── Personal Bests ───────────────────────────────────────────────────────
 
-function renderPersonalBests(container) {
+async function renderPersonalBests(container) {
+  // Load raw attempts from DB as fallback for sessions missing testResults
+  const rawAttempts = await db.getAll('testAttempts');
+  const attemptMap  = {};
+  rawAttempts.forEach(a => {
+    if (!attemptMap[a.sessionId]) attemptMap[a.sessionId] = {};
+    attemptMap[a.sessionId][a.testName] = { unit: a.unit, values: a.values };
+  });
+
   const allResults = [];
   state.sessions.forEach(s => {
-    (s.testResults || []).forEach(r => {
-      if (r.name && r.value > 0) allResults.push({ ...r, date: s.date });
-    });
+    if (s.testResults?.length) {
+      s.testResults.forEach(r => {
+        if (r.name && r.value > 0) allResults.push({ ...r, date: s.date });
+      });
+    } else if (attemptMap[s.id]) {
+      // No testResults on session — derive best from raw attempts
+      Object.entries(attemptMap[s.id]).forEach(([testName, data]) => {
+        const valid = (data.values || []).filter(v => v != null && v > 0);
+        if (!valid.length) return;
+        const unit = data.unit || 's';
+        const best = unit === 's' ? Math.min(...valid) : Math.max(...valid);
+        allResults.push({ name: testName, value: best, unit, date: s.date });
+      });
+    }
   });
   if (!allResults.length) return;
 
@@ -463,7 +482,7 @@ export async function renderProgress(container) {
   renderWeeklyChart(container);
   renderStreakCard(container);
   renderTrainingMix(container);
-  renderPersonalBests(container);
+  await renderPersonalBests(container);
   renderRecentSessions(container);
 
   const pad = document.createElement('div'); pad.style.height = '8px';

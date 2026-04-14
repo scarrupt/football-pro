@@ -1,5 +1,5 @@
 import { navigate, navigateBack, state, showToast, saveSessionAndCheckBadges, loadState, deleteSession } from '../app.js';
-import { SESSION_TYPES, MOODS } from '../constants.js';
+import { SESSION_TYPES, MOODS, TRAINING_TYPES } from '../constants.js';
 import { getTodayKey, genId, formatDayFull } from '../utils.js';
 import { db } from '../db.js';
 
@@ -191,7 +191,7 @@ function renderDetailsForm(container, params) {
       </div>
       ${isEdit
         ? `<div class="edit-badge">✏️ Editing</div>
-           ${typeId === 'match_watch' ? `<button class="guide-chip-btn" id="open-guide-btn">✏️ Guide</button>` : ''}`
+           ${TRAINING_TYPES.some(t => t.id === typeId) ? `<button class="guide-chip-btn" id="open-guide-btn">▶ Guide</button>` : ''}`
         : `<button class="guide-chip-btn" id="open-guide-btn">▶ Guide</button>`}
     </div>`;
 
@@ -340,9 +340,10 @@ function renderDetailsForm(container, params) {
     } else {
       navigate('player', {
         type:      typeId,
-        plannerId: params.plannerId || null,
+        plannerId: (isEdit ? editSession?.plannerId : params.plannerId) || null,
         date:      dateKey,
         fromLog:   true,
+        ...(isEdit && { editSession }),
       });
     }
   });
