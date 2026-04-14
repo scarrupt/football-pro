@@ -1,8 +1,8 @@
 import { navigate, state, showModal, closeModal, showToast, loadState } from '../app.js';
-import { SESSION_TYPES, DAYS_SHORT, DAYS_FULL }                         from '../constants.js';
+import { SESSION_TYPES, MOODS, DAYS_SHORT, DAYS_FULL }                  from '../constants.js';
 import {
   getTodayKey, getWeekKeys, getWeekStart, keyToDate, dateToKey,
-  formatDayShort, isToday, isPast, genId,
+  formatDayShort, isToday, isPast, genId, formatDuration,
 } from '../utils.js';
 import { db } from '../db.js';
 
@@ -56,26 +56,48 @@ export function showAddToPlannerModal(dateKey, onAdded) {
 
 // ─── Show Planner Item Options Modal ─────────────────────────────────────────
 
+const DIFF_STARS = ['', '⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
+
 function showItemOptionsModal(item, onChanged) {
-  const type = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
+  const type    = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
+  const session = state.sessions.find(s => s.plannerId === item.id)
+               ?? (item.sessionId ? state.sessions.find(s => s.id === item.sessionId) : null);
+  const done    = item.done || !!session;
+
+  let sessionHtml = '';
+  if (done && session) {
+    const moodObj = MOODS.find(m => m.id === session.mood);
+    const stars   = DIFF_STARS[session.difficulty] || '';
+    sessionHtml = `
+      <div class="modal-session-summary">
+        <div class="detail-stats-row">
+          <span class="detail-stat-chip">⏱️ ${formatDuration(session.duration)}</span>
+          ${stars ? `<span class="detail-stat-chip">${stars}</span>` : ''}
+          ${moodObj ? `<span class="detail-stat-chip">${moodObj.emoji} ${moodObj.label}</span>` : ''}
+        </div>
+        ${session.modules?.length ? `
+          <div class="detail-guided">
+            <div class="detail-guided-label">📚 Module / Level</div>
+            <div class="detail-stats-row">
+              ${session.modules.map(m => `<span class="detail-stat-chip">${m.label}</span>`).join('')}
+            </div>
+          </div>` : ''}
+        ${session.notes ? `<div class="detail-notes">${session.notes}</div>` : ''}
+      </div>`;
+  }
 
   showModal(`
     <div class="modal-title">${type.icon} ${type.label}</div>
-    <div class="modal-subtitle">${formatDayShort(item.date)}</div>
+    <div class="modal-subtitle">${formatDayShort(item.date)}${done ? ' · ✅ Logged' : ''}</div>
+    ${sessionHtml}
     <div class="modal-actions">
-      ${!item.done ? `
-        <button id="modal-log-btn" class="btn btn-primary btn-full">
-          ⚡ Log as Done
-        </button>
-      ` : `
-        <p style="color:var(--color-green);font-weight:700;text-align:center;">✅ Already done!</p>
-      `}
-      <button id="modal-delete-btn" class="btn btn-danger btn-full">
-        🗑️ Remove from plan
-      </button>
-      <button id="modal-cancel-btn" class="btn btn-ghost btn-full">
-        Cancel
-      </button>
+      ${!done ? `
+        <button id="modal-log-btn" class="btn btn-primary btn-full">⚡ Log as Done</button>
+      ` : session ? `
+        <button id="modal-edit-btn" class="btn btn-secondary btn-full">✏️ Edit session</button>
+      ` : ''}
+      <button id="modal-delete-btn" class="btn btn-danger btn-full">🗑️ Remove from plan</button>
+      <button id="modal-cancel-btn" class="btn btn-ghost btn-full">Cancel</button>
     </div>
   `, {});
 
@@ -83,6 +105,11 @@ function showItemOptionsModal(item, onChanged) {
     document.getElementById('modal-log-btn')?.addEventListener('click', () => {
       closeModal();
       navigate('log', { type: item.type, plannerId: item.id, date: item.date });
+    });
+
+    document.getElementById('modal-edit-btn')?.addEventListener('click', () => {
+      closeModal();
+      navigate('log', { editSession: session });
     });
 
     document.getElementById('modal-delete-btn')?.addEventListener('click', async () => {

@@ -1,5 +1,5 @@
 const DB_NAME    = 'fpip_db';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
 export const db = {
   _db: null,
@@ -35,6 +35,13 @@ export const db = {
         // settings store
         if (!database.objectStoreNames.contains('settings')) {
           database.createObjectStore('settings', { keyPath: 'key' });
+        }
+
+        // testAttempts store — all raw attempt values, linked to a session
+        if (!database.objectStoreNames.contains('testAttempts')) {
+          const ta = database.createObjectStore('testAttempts', { keyPath: 'id' });
+          ta.createIndex('sessionId', 'sessionId', { unique: false });
+          ta.createIndex('date',      'date',      { unique: false });
         }
       };
 

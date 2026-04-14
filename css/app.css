@@ -1726,6 +1726,37 @@ textarea {
   font-size: 0.8rem; color: var(--color-text-muted); margin-top: 8px;
   padding: 6px 0; border-top: 1px dashed var(--color-border);
 }
+/* ── Player test attempt inputs ─────────────────────────────────── */
+.test-attempts-section {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 14px 14px 10px;
+}
+.test-attempts-label {
+  font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px;
+}
+.test-attempt-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.test-attempt-label {
+  font-size: 0.82rem; color: var(--color-text-muted); width: 74px; flex-shrink: 0;
+}
+.test-attempt-input {
+  flex: 1; background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.18); border-radius: var(--radius-sm);
+  color: var(--color-text); font-size: 1.05rem; font-weight: 700;
+  padding: 8px 10px; text-align: right; min-width: 0;
+}
+.test-attempt-input:focus {
+  outline: none; border-color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.14);
+}
+.test-attempt-unit {
+  font-size: 0.85rem; color: var(--color-text-muted); width: 14px; flex-shrink: 0;
+}
 .player-insight {
   font-style: italic; font-size: 0.85rem;
   color: var(--color-text-muted); margin-bottom: 12px;
@@ -1887,6 +1918,29 @@ textarea {
 .mod-label { font-size: 0.95rem; font-weight: 700; }
 .mod-meta  { font-size: 0.78rem; color: var(--color-primary); font-weight: 600; }
 
+/* Guided sessions multi-select in log form */
+.guide-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.guide-chip {
+  padding: 5px 11px; border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border); background: var(--color-card);
+  font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  transition: all 0.15s;
+}
+.guide-chip.selected {
+  border-color: var(--chip-color);
+  color: var(--chip-color);
+  background: var(--color-bg);
+  font-weight: 700;
+}
+
+/* Guided sessions in detail views */
+.detail-guided { margin: 10px 0 4px; }
+.detail-guided-label {
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--color-text-muted); margin-bottom: 6px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+
 /* Guide chip in log type banner */
 .guide-chip-btn {
   padding: 6px 12px; border-radius: var(--radius-pill);
@@ -1962,6 +2016,103 @@ textarea {
 .session-list-notes-preview {
   opacity: 0.6; font-style: italic; max-width: 140px;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.modal-session-summary {
+  padding: 0 16px 12px;
+}
+.modal-session-summary .detail-stats-row { margin-bottom: 8px; }
+.modal-session-summary .detail-notes { margin: 0; font-size: 0.83rem; }
+
+/* ── Test result rows in log form ───────────────────────────────── */
+.test-rows { display: flex; flex-direction: column; gap: 2px; }
+.test-result-row {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.test-result-row:last-child { border-bottom: none; }
+.test-score-row { display: flex; gap: 6px; align-items: center; }
+.test-value-input {
+  width: 80px; padding: 8px 10px;
+  border: 1.5px solid var(--color-border); border-radius: var(--radius-sm);
+  font-size: 0.9rem; background: var(--color-card); color: var(--color-text);
+}
+.test-unit-select {
+  padding: 8px 6px; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm); font-size: 0.85rem;
+  background: var(--color-card); color: var(--color-text); cursor: pointer;
+}
+.test-remove-btn {
+  margin-left: auto; padding: 6px 10px; border-radius: var(--radius-sm);
+  border: none; background: transparent; color: var(--color-text-muted);
+  font-size: 0.9rem; cursor: pointer;
+}
+.test-add-btn { margin-top: 4px; }
+
+/* ── Test attempts summary in log form ──────────────────────────── */
+.test-attempts-summary {
+  background: rgba(234,179,8,0.07);
+  border: 1.5px solid rgba(234,179,8,0.25);
+  border-radius: var(--radius); padding: 12px 14px;
+}
+.test-summary-block { margin-bottom: 12px; }
+.test-summary-block:last-child { margin-bottom: 0; }
+.test-summary-name {
+  font-weight: 600; font-size: 0.88rem; margin-bottom: 4px;
+}
+.test-summary-values {
+  font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 3px;
+}
+.test-summary-best {
+  font-size: 0.9rem; font-weight: 700; color: rgba(234,179,8,0.95);
+}
+
+/* ── Personal Bests section in progress ─────────────────────────── */
+.pb-block { padding: 14px 0; }
+.pb-block--border { border-top: 1px solid var(--color-border); }
+.pb-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 4px;
+}
+.pb-name { font-size: 0.9rem; font-weight: 700; color: var(--color-text); }
+.pb-best-chip {
+  padding: 3px 10px; border-radius: var(--radius-pill);
+  background: rgba(234,179,8,0.15); color: #b45309;
+  font-size: 0.8rem; font-weight: 800;
+  border: 1px solid rgba(234,179,8,0.3); white-space: nowrap;
+}
+.pb-trend {
+  font-size: 0.78rem; font-weight: 600;
+  margin-bottom: 8px;
+}
+.pb-history { display: flex; flex-direction: column; gap: 2px; }
+.pb-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 8px; border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+}
+.pb-row--pb { background: rgba(234,179,8,0.1); }
+.pb-row-date { color: var(--color-text-muted); flex: 1; }
+.pb-row-val { font-weight: 700; color: var(--color-text); }
+.pb-row-badge {
+  font-size: 0.65rem; font-weight: 800; padding: 2px 6px;
+  background: rgba(234,179,8,0.3); color: #92400e;
+  border-radius: var(--radius-pill); text-transform: uppercase;
+}
+
+.session-list-date-header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 16px 4px;
+  border-top: 1px solid var(--color-border);
+}
+.session-list-date-header:first-child {
+  border-top: none;
+  padding-top: 4px;
 }
 
 /* ═══════════════════════════════════════════════════════════════

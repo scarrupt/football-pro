@@ -3,12 +3,14 @@ import { getSessionType }  from '../constants.js';
 import { renderMatchWatch } from './match_watch.js';
 
 // ─── Module state ─────────────────────────────────────────────────────────
-let _jsonCache   = null;
-let _steps       = [];
-let _idx         = 0;
-let _container   = null;
-let _params      = {};
-let _timerHandle = null;
+let _jsonCache      = null;
+let _steps          = [];
+let _idx            = 0;
+let _container      = null;
+let _params         = {};
+let _timerHandle    = null;
+let _selectedModule = null;  // { id, label } of the chosen module/level
+let _testAttempts   = {};    // { [testName]: { unit:'s', values:(number|null)[] } }
 
 // ─── JSON loading ─────────────────────────────────────────────────────────
 async function getSessionData() {
@@ -221,17 +223,33 @@ function htmlSprint(step) {
     </ul>`;
 }
 
-function htmlTest(step) {
+function htmlTest(step, testAttempts) {
   const t   = step.test;
   const svg = t.diagram?.svg || '';
+  const numAttempts = t.attempts || 3;
+  const existing    = testAttempts?.[t.name]?.values || [];
+
+  const attemptRows = Array.from({ length: numAttempts }, (_, i) => `
+    <div class="test-attempt-row">
+      <span class="test-attempt-label">Attempt ${i + 1}</span>
+      <input class="test-attempt-input" type="number" inputmode="decimal"
+        data-test="${t.name}" data-idx="${i}"
+        min="0" step="0.01" placeholder="—"
+        value="${(existing[i] != null && existing[i] > 0) ? existing[i] : ''}">
+      <span class="test-attempt-unit">s</span>
+    </div>`).join('');
+
   return `
     <div class="player-tag">🧪 Timed Test</div>
     <h2 class="player-title">${t.name}</h2>
     ${t.description ? `<p class="player-hint">${t.description}</p>` : ''}
-    ${t.attempts    ? `<div class="player-reps">${t.attempts} attempts</div>` : ''}
     ${svg ? `<div class="player-diagram">${svg}</div>` : ''}
     ${t.cues?.length ? `<ul class="player-cues">${t.cues.map(c => `<li>${c}</li>`).join('')}</ul>` : ''}
-    <div class="player-note">📝 Note your times to track progress week to week</div>`;
+    <div class="test-attempts-section">
+      <div class="test-attempts-label">⏱ Record your attempts</div>
+      ${attemptRows}
+      <div class="player-note">🏆 Best time saved automatically when you log the session</div>
+    </div>`;
 }
 
 function htmlFocalPoint(step) {
@@ -446,7 +464,18 @@ function renderStep() {
     case 'activation':  card.innerHTML = htmlActivation(step);       break;
     case 'drill':       card.innerHTML = htmlDrill(step, _idx);      break;
     case 'sprint':      card.innerHTML = htmlSprint(step);           break;
-    case 'test':        card.innerHTML = htmlTest(step);             break;
+    case 'test':
+      card.innerHTML = htmlTest(step, _testAttempts);
+      card.querySelectorAll('.test-attempt-input').forEach(inp => {
+        inp.addEventListener('input', () => {
+          const testName = inp.dataset.test;
+          if (!_testAttempts[testName]) _testAttempts[testName] = { unit: 's', values: [] };
+          const idx = +inp.dataset.idx;
+          const val = parseFloat(inp.value);
+          _testAttempts[testName].values[idx] = (val > 0) ? val : null;
+        });
+      });
+      break;
     case 'focal_point': card.innerHTML = htmlFocalPoint(step);       break;
     case 'during_task': card.innerHTML = htmlDuringTask(step);       break;
     case 'halftime':    card.innerHTML = htmlHalftime(step);         break;
@@ -474,7 +503,11 @@ function renderStep() {
   // Bind done-screen buttons
   card.querySelector('#pdone-log')?.addEventListener('click', () => {
     clearTimer();
-    navigate('log', { type: _params.type });
+    navigate('log', {
+      type:            _params.type,
+      moduleSelection: _selectedModule,
+      testAttempts:    Object.keys(_testAttempts).length ? _testAttempts : null,
+    });
   });
   card.querySelector('#pdone-exit')?.addEventListener('click', () => {
     clearTimer();
@@ -502,7 +535,7 @@ function renderLevelSelector(type, data) {
       <p class="player-sel-sub">${s.title}</p>
       <div class="player-level-grid">
         ${s.levels.map((lv, i) => `
-          <button class="player-level-btn" data-idx="${i}">
+          <button class="player-level-btn" data-idx="${i}" data-id="${lv.id}" data-label="${lv.label}">
             <span class="lvl-label">${lv.label}</span>
             <span class="lvl-meta">${lv.drills?.length || 0} drills</span>
           </button>`).join('')}
@@ -510,6 +543,7 @@ function renderLevelSelector(type, data) {
     </div>`;
   _container.querySelectorAll('.player-level-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      _selectedModule = { id: btn.dataset.id, label: btn.dataset.label };
       _steps = buildSteps(type, data, { levelIdx: +btn.dataset.idx });
       _idx = 0; renderStep();
     });
@@ -527,7 +561,7 @@ function renderModuleSelector(data) {
       <p class="player-sel-sub">Pick one for today — focus beats variety!</p>
       <div class="player-module-list">
         ${s.modules.map((mod, i) => `
-          <button class="player-module-btn" data-idx="${i}">
+          <button class="player-module-btn" data-idx="${i}" data-id="${mod.id}" data-label="${mod.label}">
             <span class="mod-label">${mod.label}</span>
             <span class="mod-meta">${mod.drills?.length || 0} drills →</span>
           </button>`).join('')}
@@ -535,6 +569,7 @@ function renderModuleSelector(data) {
     </div>`;
   _container.querySelectorAll('.player-module-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      _selectedModule = { id: btn.dataset.id, label: btn.dataset.label };
       _steps = buildSteps('dribbling', data, { moduleIdx: +btn.dataset.idx });
       _idx = 0; renderStep();
     });
@@ -550,10 +585,12 @@ export async function renderPlayer(container, params = {}) {
     return renderMatchWatch(container, params);
   }
 
-  _container = container;
-  _params    = params;
-  _steps     = [];
-  _idx       = 0;
+  _container      = container;
+  _params         = params;
+  _steps          = [];
+  _idx            = 0;
+  _selectedModule = null;
+  _testAttempts   = {};
   clearTimer();
 
   container.innerHTML = `

@@ -1,4 +1,4 @@
-import { navigate, state, showToast, saveSessionAndCheckBadges, loadState } from '../app.js';
+import { navigate, navigateBack, state, showToast, saveSessionAndCheckBadges, loadState } from '../app.js';
 import { SESSION_TYPES, MOODS } from '../constants.js';
 import { getTodayKey, genId, formatDayFull } from '../utils.js';
 import { db } from '../db.js';
@@ -152,6 +152,9 @@ function renderDetailsForm(container, params) {
   let showCustom         = false;
   let selectedDifficulty = editSession?.difficulty ?? 3;
   let selectedMood       = editSession?.mood        ?? 3;
+  // From player: pre-populated module and attempt scores
+  const moduleSelection = params.moduleSelection || null;
+  const testAttempts    = params.testAttempts    || null;
 
   // Extra-field state objects (mutated by extra-field renderers)
   const teamState  = {
@@ -233,6 +236,58 @@ function renderDetailsForm(container, params) {
   if (typeId === 'team_training') renderTeamExtras(form, teamState);
   if (typeId === 'match')         renderMatchExtras(form, matchState);
 
+  // ── Module (read-only, from player or edit) ───────────────────────────
+  const modulesToShow = moduleSelection ? [moduleSelection] : (editSession?.modules || null);
+  if (modulesToShow?.length) {
+    const modSec = document.createElement('div');
+    modSec.className = 'form-section';
+    modSec.innerHTML = `
+      <label class="form-label">📚 Module</label>
+      <div class="detail-stats-row">
+        ${modulesToShow.map(m => `
+          <span class="detail-stat-chip" style="border-left:3px solid ${typeObj.color};">${m.label}</span>
+        `).join('')}
+      </div>`;
+    form.appendChild(modSec);
+  }
+
+  // ── Test Results (read-only, from player or edit) ─────────────────────
+  const attemptEntries = testAttempts
+    ? Object.entries(testAttempts).filter(([, d]) => d.values?.some(v => v > 0))
+    : [];
+  if (attemptEntries.length) {
+    const testSec = document.createElement('div');
+    testSec.className = 'form-section';
+    testSec.innerHTML = `
+      <label class="form-label">🧪 Test Results</label>
+      <div class="test-attempts-summary">
+        ${attemptEntries.map(([name, d]) => {
+          const valid = d.values.filter(v => v != null && v > 0);
+          const best  = Math.min(...valid);
+          return `
+            <div class="test-summary-block">
+              <div class="test-summary-name">${name}</div>
+              <div class="test-summary-values">Attempts: ${valid.map(v => v.toFixed(2) + 's').join(' · ')}</div>
+              <div class="test-summary-best">🏆 Best: ${best.toFixed(2)}s</div>
+            </div>`;
+        }).join('')}
+      </div>`;
+    form.appendChild(testSec);
+  } else if (editSession?.testResults?.length) {
+    const testSec = document.createElement('div');
+    testSec.className = 'form-section';
+    testSec.innerHTML = `
+      <label class="form-label">🧪 Test Results</label>
+      <div class="test-attempts-summary">
+        ${editSession.testResults.map(r => `
+          <div class="test-summary-block">
+            <div class="test-summary-name">${r.name}</div>
+            <div class="test-summary-best">🏆 Best: ${Number(r.value).toFixed(2)}${r.unit}</div>
+          </div>`).join('')}
+      </div>`;
+    form.appendChild(testSec);
+  }
+
   // ── Notes ─────────────────────────────────────────────────────────────
   const notesSec = document.createElement('div');
   notesSec.className = 'form-section';
@@ -300,9 +355,24 @@ function renderDetailsForm(container, params) {
   });
 
   // ── Bind Save ─────────────────────────────────────────────────────────
-  form.querySelector('#save-btn').addEventListener('click', async () => {
+  form.querySelector('#save-btn').addEventListener('click', async (e) => {
+    e.currentTarget.disabled = true;
+
     const duration  = showCustom ? (customDuration || 45) : (selectedDuration || 45);
     const notesVal  = form.querySelector('#session-notes').value.trim();
+
+    // Compute modules and test results to save
+    const modulesToSave = moduleSelection ? [moduleSelection]
+                        : (editSession?.modules?.length ? editSession.modules : null);
+
+    const finalTestResults = testAttempts
+      ? attemptEntries.map(([name, d]) => {
+          const valid = d.values.filter(v => v != null && v > 0);
+          const unit  = d.unit || 's';
+          const best  = unit === 's' ? Math.min(...valid) : Math.max(...valid);
+          return { name, value: best, unit };
+        })
+      : (editSession?.testResults || []);
 
     const session = {
       id:         editSession?.id || genId(),
@@ -328,9 +398,28 @@ function renderDetailsForm(container, params) {
         goalsScored: matchState.goalsScored,
         position:    matchState.position,
       }),
+      ...(modulesToSave?.length      && { modules:     modulesToSave     }),
+      ...(finalTestResults.length    && { testResults: finalTestResults  }),
     };
 
     await saveSessionAndCheckBadges(session);
+
+    // Persist all raw attempt values to the testAttempts store
+    if (testAttempts) {
+      for (const [testName, d] of Object.entries(testAttempts)) {
+        const valid = (d.values || []).filter(v => v != null && v > 0);
+        if (valid.length) {
+          await db.put('testAttempts', {
+            id:        genId(),
+            sessionId: session.id,
+            date:      dateKey,
+            testName,
+            unit:      d.unit || 's',
+            values:    valid,
+          });
+        }
+      }
+    }
 
     if (params.plannerId && !editSession) {
       const item = await db.get('planner', params.plannerId);
@@ -342,7 +431,7 @@ function renderDetailsForm(container, params) {
     }
 
     showToast(isEdit ? 'Session updated! ✏️' : 'Session logged! 🎉', 'success');
-    navigate(state.previousPage || 'home');
+    navigateBack();
   });
 }
 

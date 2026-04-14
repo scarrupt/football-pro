@@ -17,6 +17,7 @@ export const TRAINING_TYPES = SESSION_TYPES.filter(
   t => !['match', 'team_training', 'rest'].includes(t.id)
 );
 
+
 export const MOODS = [
   { id: 1, emoji: '😴', label: 'Tired'   },
   { id: 2, emoji: '😐', label: 'Okay'    },

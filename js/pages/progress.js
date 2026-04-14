@@ -35,6 +35,24 @@ function showSessionDetailModal(session) {
       <div class="detail-notes"><strong>Coach:</strong> ${session.coachFeedback}</div>` : ''}
   ` : '';
 
+  const testExtras = session.testResults?.length ? `
+    <div class="detail-guided">
+      <div class="detail-guided-label">🧪 Test results</div>
+      ${session.testResults.map(r => `
+        <div class="pb-row">
+          <span class="pb-row-date">${r.name}</span>
+          <span class="pb-row-val">${r.unit === 's' ? r.value.toFixed(2) : r.value}${r.unit}</span>
+        </div>`).join('')}
+    </div>` : '';
+
+  const guideExtras = session.modules?.length ? `
+    <div class="detail-guided">
+      <div class="detail-guided-label">📚 Module / Level</div>
+      <div class="detail-stats-row">
+        ${session.modules.map(m => `<span class="detail-stat-chip">${m.label}</span>`).join('')}
+      </div>
+    </div>` : '';
+
   showModal(`
     <div class="session-detail-header" style="background:${type.color};">
       <span class="session-detail-icon">${type.icon}</span>
@@ -52,6 +70,8 @@ function showSessionDetailModal(session) {
       ${session.notes ? `<div class="detail-notes">${session.notes}</div>` : ''}
       ${matchExtras}
       ${teamExtras}
+      ${testExtras}
+      ${guideExtras}
     </div>
     <div class="detail-actions">
       <button class="btn btn-secondary" id="detail-edit-btn" style="flex:1;">✏️ Edit</button>
@@ -229,24 +249,109 @@ function renderTrainingMix(container) {
   card.appendChild(body); section.appendChild(card); container.appendChild(section);
 }
 
+// ─── Personal Bests ───────────────────────────────────────────────────────
+
+function renderPersonalBests(container) {
+  const allResults = [];
+  state.sessions.forEach(s => {
+    (s.testResults || []).forEach(r => {
+      if (r.name && r.value > 0) allResults.push({ ...r, date: s.date });
+    });
+  });
+  if (!allResults.length) return;
+
+  // Group by test name, sort each group chronologically
+  const byName = {};
+  allResults.forEach(r => { (byName[r.name] = byName[r.name] || []).push(r); });
+  Object.values(byName).forEach(arr => arr.sort((a, b) => a.date.localeCompare(b.date)));
+
+  // Order tests by most recent activity
+  const testNames = Object.keys(byName).sort(
+    (a, b) => byName[b].at(-1).date.localeCompare(byName[a].at(-1).date)
+  );
+
+  const section = document.createElement('div');
+  section.innerHTML = `<div class="section-title">Personal Bests 🏆</div>`;
+  const card = document.createElement('div');
+  card.className = 'card'; card.style.margin = '0 16px 16px';
+  const body = document.createElement('div'); body.className = 'card-body';
+
+  testNames.forEach((name, idx) => {
+    const entries  = byName[name];
+    const unit     = entries[0].unit || 's';
+    const isTimed  = unit === 's';
+    const pb       = entries.reduce(
+      (best, r) => (isTimed ? r.value < best.value : r.value > best.value) ? r : best,
+      entries[0]
+    );
+    const delta    = isTimed
+      ? entries[0].value - entries.at(-1).value   // positive = faster (better)
+      : entries.at(-1).value - entries[0].value;  // positive = more reps (better)
+    const improving = delta > 0.005;
+    const trendColor = improving ? 'var(--color-green)' : delta < -0.005 ? '#EF4444' : 'var(--color-text-muted)';
+    const trendText  = entries.length < 2
+      ? 'First attempt — keep going! 💪'
+      : improving
+        ? `↑ ${Math.abs(delta).toFixed(2)}${unit} better than first`
+        : delta < -0.005
+          ? `↓ ${Math.abs(delta).toFixed(2)}${unit} from first`
+          : 'Consistent — holding steady';
+
+    const block = document.createElement('div');
+    block.className = idx > 0 ? 'pb-block pb-block--border' : 'pb-block';
+
+    const recent = entries.slice(-5).reverse();
+    block.innerHTML = `
+      <div class="pb-header">
+        <span class="pb-name">🧪 ${name}</span>
+        <span class="pb-best-chip">🏆 ${isTimed ? pb.value.toFixed(2) : pb.value}${unit}</span>
+      </div>
+      <div class="pb-trend" style="color:${trendColor};">${trendText}</div>
+      <div class="pb-history">
+        ${recent.map(r => {
+          const isPB = r.value === pb.value;
+          const d    = keyToDate(r.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+          return `<div class="pb-row${isPB ? ' pb-row--pb' : ''}">
+            <span class="pb-row-date">${d}</span>
+            <span class="pb-row-val">${isTimed ? r.value.toFixed(2) : r.value}${unit}</span>
+            ${isPB ? `<span class="pb-row-badge">PB</span>` : ''}
+          </div>`;
+        }).join('')}
+      </div>`;
+    body.appendChild(block);
+  });
+
+  card.appendChild(body);
+  section.appendChild(card);
+  container.appendChild(section);
+}
+
 // ─── Recent Sessions ──────────────────────────────────────────────────────
 
 function renderRecentSessions(container) {
-  const recent = [...state.sessions]
-    .sort((a, b) => (b.timestamp || b.date) > (a.timestamp || a.date) ? 1 : -1)
-    .slice(0, 10);
-  if (!recent.length) return;
+  const sorted = [...state.sessions]
+    .sort((a, b) => (b.timestamp || b.date) > (a.timestamp || a.date) ? 1 : -1);
+  if (!sorted.length) return;
 
   const section = document.createElement('div');
-  section.innerHTML = `<div class="section-title">Recent Sessions 📋 <span style="font-size:0.72rem;color:var(--color-text-muted);font-weight:400;">(tap to view)</span></div>`;
+  section.innerHTML = `<div class="section-title">Session History 📋</div>`;
   const card = document.createElement('div');
   card.className = 'card'; card.style.margin = '0 16px 16px';
 
-  recent.forEach(session => {
-    const type    = SESSION_TYPES.find(t => t.id === session.type) || SESSION_TYPES[0];
-    const dateStr = keyToDate(session.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    const mood    = session.mood ? (MOODS.find(m => m.id === session.mood)?.emoji || '') : '';
-    const stars   = DIFF_STARS[session.difficulty] || '';
+  let lastDate = null;
+
+  sorted.forEach(session => {
+    const type = SESSION_TYPES.find(t => t.id === session.type) || SESSION_TYPES[0];
+    const mood = session.mood ? (MOODS.find(m => m.id === session.mood)?.emoji || '') : '';
+    const stars = DIFF_STARS[session.difficulty] || '';
+
+    if (session.date !== lastDate) {
+      lastDate = session.date;
+      const header = document.createElement('div');
+      header.className = 'session-list-date-header';
+      header.textContent = isToday(session.date) ? 'Today' : formatDayFull(session.date);
+      card.appendChild(header);
+    }
 
     const item = document.createElement('div');
     item.className = 'session-list-item session-list-item--clickable';
@@ -262,7 +367,6 @@ function renderRecentSessions(container) {
         </div>
       </div>
       <div class="session-list-right">
-        <div class="session-list-date">${dateStr}</div>
         <div class="session-list-mood">${mood}</div>
       </div>`;
 
@@ -291,6 +395,7 @@ export async function renderProgress(container) {
   renderWeeklyChart(container);
   renderStreakCard(container);
   renderTrainingMix(container);
+  renderPersonalBests(container);
   renderRecentSessions(container);
 
   const pad = document.createElement('div'); pad.style.height = '8px';
