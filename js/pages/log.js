@@ -1,4 +1,4 @@
-import { navigate, navigateBack, state, showToast, saveSessionAndCheckBadges, loadState } from '../app.js';
+import { navigate, navigateBack, state, showToast, saveSessionAndCheckBadges, loadState, deleteSession } from '../app.js';
 import { SESSION_TYPES, MOODS } from '../constants.js';
 import { getTodayKey, genId, formatDayFull } from '../utils.js';
 import { db } from '../db.js';
@@ -156,6 +156,13 @@ function renderDetailsForm(container, params) {
   const moduleSelection = params.moduleSelection || null;
   const testAttempts    = params.testAttempts    || null;
 
+  // Planner "mark as complete" — only for edits where the linked item isn't done yet
+  const plannerItem     = editSession?.plannerId
+    ? (state.plannerItems || []).find(p => p.id === editSession.plannerId)
+    : null;
+  const canMarkComplete = isEdit && plannerItem && !plannerItem.done;
+  let markComplete = false;
+
   // Extra-field state objects (mutated by extra-field renderers)
   const teamState  = {
     position:     editSession?.position     || null,
@@ -182,8 +189,10 @@ function renderDetailsForm(container, params) {
         <div>${typeObj.label}</div>
         <div style="font-size:0.78rem;opacity:0.85;font-weight:500;">${formatDayFull(dateKey)}</div>
       </div>
-      ${isEdit ? '<div class="edit-badge">✏️ Editing</div>'
-               : `<button class="guide-chip-btn" id="open-guide-btn">▶ Guide</button>`}
+      ${isEdit
+        ? `<div class="edit-badge">✏️ Editing</div>
+           ${typeId === 'match_watch' ? `<button class="guide-chip-btn" id="open-guide-btn">✏️ Guide</button>` : ''}`
+        : `<button class="guide-chip-btn" id="open-guide-btn">▶ Guide</button>`}
     </div>`;
 
   // ── Duration ─────────────────────────────────────────────────────────
@@ -297,24 +306,45 @@ function renderDetailsForm(container, params) {
       placeholder="What went well? What to improve? Coach feedback…">${editSession?.notes || ''}</textarea>`;
   form.appendChild(notesSec);
 
-  // ── Save button ───────────────────────────────────────────────────────
+  // ── Mark as Complete (edit mode, unlinked planner item) ──────────────
+  if (canMarkComplete) {
+    const completeSec = document.createElement('div');
+    completeSec.className = 'form-section';
+    completeSec.innerHTML = `
+      <label class="form-label">📋 Planner</label>
+      <button id="mark-complete-btn" class="btn btn-secondary btn-full">☐ Mark planner item as done</button>`;
+    form.appendChild(completeSec);
+    form.querySelector('#mark-complete-btn').addEventListener('click', function() {
+      markComplete = !markComplete;
+      this.textContent = markComplete ? '✅ Marked as done' : '☐ Mark planner item as done';
+      this.classList.toggle('btn-primary', markComplete);
+      this.classList.toggle('btn-secondary', !markComplete);
+    });
+  }
+
+  // ── Save / Delete buttons ─────────────────────────────────────────────
   const saveSec = document.createElement('div');
   saveSec.style.cssText = 'padding:24px 16px 8px;';
   saveSec.innerHTML = `
     <button id="save-btn" class="btn btn-primary btn-full">
       ${isEdit ? 'Update Session ✏️' : 'Save Session 🎉'}
-    </button>`;
+    </button>
+    ${isEdit ? `<button id="delete-btn" class="btn btn-danger btn-full" style="margin-top:10px;">🗑️ Delete Session</button>` : ''}`;
   form.appendChild(saveSec);
   container.appendChild(form);
 
   // ── Bind Guide button ─────────────────────────────────────────────────
   form.querySelector('#open-guide-btn')?.addEventListener('click', () => {
-    navigate('player', {
-      type:      typeId,
-      plannerId: params.plannerId || null,
-      date:      dateKey,
-      fromLog:   true,
-    });
+    if (isEdit && typeId === 'match_watch') {
+      navigate('player', { type: 'match_watch', editSession });
+    } else {
+      navigate('player', {
+        type:      typeId,
+        plannerId: params.plannerId || null,
+        date:      dateKey,
+        fromLog:   true,
+      });
+    }
   });
 
   // ── Bind Duration ─────────────────────────────────────────────────────
@@ -405,6 +435,7 @@ function renderDetailsForm(container, params) {
       }),
       ...(modulesToSave?.length      && { modules:     modulesToSave     }),
       ...(finalTestResults.length    && { testResults: finalTestResults  }),
+      ...(typeId === 'match_watch' && editSession?.fiData && { fiData: editSession.fiData }),
     };
 
     await saveSessionAndCheckBadges(session);
@@ -435,12 +466,38 @@ function renderDetailsForm(container, params) {
       }
     }
 
+    if (markComplete && editSession?.plannerId) {
+      const item = await db.get('planner', editSession.plannerId);
+      if (item) {
+        item.done = true; item.sessionId = session.id;
+        await db.put('planner', item);
+        await loadState();
+      }
+    }
+
     showToast(isEdit ? 'Session updated! ✏️' : 'Session logged! 🎉', 'success');
     if (params.fromPlayer && params.plannerId) {
       navigate('planner');
     } else {
       navigateBack();
     }
+  });
+
+  // ── Bind Delete (edit mode only) ──────────────────────────────────────
+  form.querySelector('#delete-btn')?.addEventListener('click', async () => {
+    if (!confirm('Delete this session? This cannot be undone.')) return;
+    await deleteSession(editSession.id);
+    if (editSession.plannerId) {
+      const item = await db.get('planner', editSession.plannerId);
+      if (item) {
+        item.done = false;
+        delete item.sessionId;
+        await db.put('planner', item);
+      }
+    }
+    await loadState();
+    showToast('Session deleted 🗑️', 'info');
+    navigateBack();
   });
 }
 

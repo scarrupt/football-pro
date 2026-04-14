@@ -1,5 +1,6 @@
-import { navigate, navigateBack, saveSessionAndCheckBadges, showToast } from '../app.js';
+import { navigate, navigateBack, saveSessionAndCheckBadges, showToast, loadState } from '../app.js';
 import { genId } from '../utils.js';
+import { db } from '../db.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const FI_KEY = 'fi_session';
@@ -36,6 +37,8 @@ function releaseWakeLock() {
 let _c              = null;
 let _sess           = null;
 let _fi             = null;
+let _plannerId      = null;
+let _editSession    = null;
 let _spaceIv        = null;
 let _shadowIv       = null;
 let _shadowRemain   = 0;
@@ -60,6 +63,23 @@ function freshFi() {
     spaceOn: false,
     expandedCard: 'tally_task',
     showSummary: false,
+  };
+}
+
+function fiFromEditSession(es) {
+  const fd = es.fiData || {};
+  return {
+    ...freshFi(),
+    focalId:      fd.focalPointId || null,
+    tallyAction:  fd.tallyAction  || null,
+    shadowPlayer: fd.shadowPlayer || '',
+    tally:        fd.tally        || { first: 0, second: 0 },
+    pauses:       fd.pauses       || { first: 0, second: 0 },
+    htAnswers:    fd.htAnswers    || {},
+    afterAnswers: fd.afterAnswers || { saw: {}, learned: {}, will: {} },
+    afterStage:   2,
+    phase:        'after',
+    showSummary:  true,
   };
 }
 
@@ -742,20 +762,22 @@ function renderSummary() {
 
 async function saveSession() {
   const fp = focalPoint();
+  const isEdit = !!_editSession;
   const session = {
-    id:        genId(),
-    date:      new Date().toISOString().slice(0, 10),
+    id:        _editSession?.id    || genId(),
+    date:      _editSession?.date  || new Date().toISOString().slice(0, 10),
     type:      'match_watch',
-    duration:  90,
-    difficulty: 3,
-    mood:      null,
+    duration:  _editSession?.duration   ?? 90,
+    difficulty:_editSession?.difficulty ?? 3,
+    mood:      _editSession?.mood  ?? null,
     notes: [
       `Focal point: ${fp ? fp.label : '—'}`,
       `Tally (${_fi.tallyAction}): ${_fi.tally.first + _fi.tally.second} total (1st: ${_fi.tally.first}, 2nd: ${_fi.tally.second})`,
       _fi.shadowPlayer ? `Shadowed: ${_fi.shadowPlayer}` : '',
       _fi.afterAnswers.will[0] ? `Next session: ${_fi.afterAnswers.will[0]}` : '',
     ].filter(Boolean).join('\n'),
-    timestamp: Date.now(),
+    timestamp: _editSession?.timestamp || Date.now(),
+    plannerId: _editSession?.plannerId || _plannerId || null,
     fiData: {
       focalPointId: _fi.focalId,
       tallyAction:  _fi.tallyAction,
@@ -770,8 +792,19 @@ async function saveSession() {
   try {
     releaseWakeLock();
     await saveSessionAndCheckBadges(session);
+
+    if (!isEdit && _plannerId) {
+      const item = await db.get('planner', _plannerId);
+      if (item) {
+        item.done = true;
+        item.sessionId = session.id;
+        await db.put('planner', item);
+        await loadState();
+      }
+    }
+
     clearFi();
-    showToast('Match session saved! 📺', 'success');
+    showToast(isEdit ? 'Match session updated! 📺' : 'Match session saved! 📺', 'success');
     navigate('home');
   } catch {
     showToast('Could not save session', 'error');
@@ -793,8 +826,10 @@ function render() {
 }
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
-export async function renderMatchWatch(container, _params = {}) {
+export async function renderMatchWatch(container, params = {}) {
   _c = container;
+  _plannerId   = params.plannerId   || null;
+  _editSession = params.editSession || null;
   stopIntervals();
 
   container.innerHTML = `
@@ -825,8 +860,12 @@ export async function renderMatchWatch(container, _params = {}) {
     return;
   }
 
-  try { _fi = JSON.parse(localStorage.getItem(FI_KEY)) || freshFi(); }
-  catch { _fi = freshFi(); }
+  if (_editSession?.fiData) {
+    _fi = fiFromEditSession(_editSession);
+  } else {
+    try { _fi = JSON.parse(localStorage.getItem(FI_KEY)) || freshFi(); }
+    catch { _fi = freshFi(); }
+  }
 
   render();
 }

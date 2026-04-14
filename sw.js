@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fpip-v8';
+const CACHE_NAME = 'fpip-v9';
 
 const STATIC_ASSETS = [
   './index.html',
