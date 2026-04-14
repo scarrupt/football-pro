@@ -505,8 +505,11 @@ function renderStep() {
     clearTimer();
     navigate('log', {
       type:            _params.type,
+      plannerId:       _params.plannerId || null,
+      date:            _params.date     || null,
       moduleSelection: _selectedModule,
       testAttempts:    Object.keys(_testAttempts).length ? _testAttempts : null,
+      fromPlayer:      _params.fromLog  || false,
     });
   });
   card.querySelector('#pdone-exit')?.addEventListener('click', () => {

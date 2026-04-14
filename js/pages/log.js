@@ -309,7 +309,12 @@ function renderDetailsForm(container, params) {
 
   // ── Bind Guide button ─────────────────────────────────────────────────
   form.querySelector('#open-guide-btn')?.addEventListener('click', () => {
-    navigate('player', { type: typeId });
+    navigate('player', {
+      type:      typeId,
+      plannerId: params.plannerId || null,
+      date:      dateKey,
+      fromLog:   true,
+    });
   });
 
   // ── Bind Duration ─────────────────────────────────────────────────────
@@ -431,7 +436,11 @@ function renderDetailsForm(container, params) {
     }
 
     showToast(isEdit ? 'Session updated! ✏️' : 'Session logged! 🎉', 'success');
-    navigateBack();
+    if (params.fromPlayer && params.plannerId) {
+      navigate('planner');
+    } else {
+      navigateBack();
+    }
   });
 }
 

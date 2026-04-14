@@ -12,7 +12,7 @@ export async function exportData() {
   ]);
 
   const payload = {
-    appVersion: '1.1',
+    appVersion: '1.2',
     exportedAt: new Date().toISOString(),
     sessions,
     planner,

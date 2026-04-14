@@ -326,6 +326,36 @@ function renderPersonalBests(container) {
   container.appendChild(section);
 }
 
+// ─── Duplicate cleanup ────────────────────────────────────────────────────
+
+function findDuplicates(sessions) {
+  // Group by date+type
+  const groups = {};
+  sessions.forEach(s => {
+    const key = `${s.date}|${s.type}`;
+    (groups[key] = groups[key] || []).push(s);
+  });
+
+  const toDelete = [];
+  Object.values(groups).forEach(group => {
+    if (group.length < 2) return;
+    const withPlanner    = group.filter(s => s.plannerId);
+    const withoutPlanner = group.filter(s => !s.plannerId);
+    if (!withPlanner.length || !withoutPlanner.length) return;
+
+    // Only flag orphans logged within 2 hours of their linked counterpart
+    withoutPlanner.forEach(orphan => {
+      const orphanTs = orphan.timestamp ? new Date(orphan.timestamp).getTime() : 0;
+      const nearby = withPlanner.some(linked => {
+        const linkedTs = linked.timestamp ? new Date(linked.timestamp).getTime() : 0;
+        return Math.abs(orphanTs - linkedTs) < 2 * 60 * 60 * 1000;
+      });
+      if (nearby) toDelete.push(orphan);
+    });
+  });
+  return toDelete;
+}
+
 // ─── Recent Sessions ──────────────────────────────────────────────────────
 
 function renderRecentSessions(container) {
@@ -335,6 +365,25 @@ function renderRecentSessions(container) {
 
   const section = document.createElement('div');
   section.innerHTML = `<div class="section-title">Session History 📋</div>`;
+
+  const dupes = findDuplicates(sorted);
+  if (dupes.length) {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'margin:0 16px 10px;padding:10px 14px;background:var(--color-primary-pale);border-radius:10px;display:flex;align-items:center;gap:10px;';
+    banner.innerHTML = `
+      <span style="font-size:1.2rem;">⚠️</span>
+      <span style="flex:1;font-size:.85rem;color:var(--color-text);">${dupes.length} duplicate session${dupes.length > 1 ? 's' : ''} found</span>
+      <button id="dedup-btn" class="btn btn-secondary" style="padding:6px 12px;font-size:.8rem;">Clean up</button>`;
+    banner.querySelector('#dedup-btn').addEventListener('click', async () => {
+      if (!confirm(`Remove ${dupes.length} duplicate session${dupes.length > 1 ? 's' : ''}? The planner-linked copies are kept.`)) return;
+      for (const s of dupes) await deleteSession(s.id);
+      await loadState();
+      showToast(`Removed ${dupes.length} duplicate${dupes.length > 1 ? 's' : ''}`, 'success');
+      await navigate('progress');
+    });
+    section.appendChild(banner);
+  }
+
   const card = document.createElement('div');
   card.className = 'card'; card.style.margin = '0 16px 16px';
 
