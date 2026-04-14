@@ -343,15 +343,9 @@ function findDuplicates(sessions) {
     const withoutPlanner = group.filter(s => !s.plannerId);
     if (!withPlanner.length || !withoutPlanner.length) return;
 
-    // Only flag orphans logged within 2 hours of their linked counterpart
-    withoutPlanner.forEach(orphan => {
-      const orphanTs = orphan.timestamp ? new Date(orphan.timestamp).getTime() : 0;
-      const nearby = withPlanner.some(linked => {
-        const linkedTs = linked.timestamp ? new Date(linked.timestamp).getTime() : 0;
-        return Math.abs(orphanTs - linkedTs) < 2 * 60 * 60 * 1000;
-      });
-      if (nearby) toDelete.push(orphan);
-    });
+    // Flag unlinked sessions as duplicates of their planner-linked counterpart
+    // (same date + same type is already specific enough)
+    withoutPlanner.forEach(orphan => toDelete.push(orphan));
   });
   return toDelete;
 }

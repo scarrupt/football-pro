@@ -44,6 +44,8 @@ export const BADGE_DEFINITIONS = [
   { id: 'early_bird',    name: 'Early Bird',       icon: '🌅', desc: 'Logged a session before 8am'         },
 ];
 
+export const APP_VERSION = 'v1.4';
+
 export const MOTIVATIONAL_QUOTES = [
   "Every practice brings you one step closer to your dream! ⚽",
   "Champions aren't born, they're made — one training at a time! 🌟",

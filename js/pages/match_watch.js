@@ -776,7 +776,7 @@ async function saveSession() {
       _fi.shadowPlayer ? `Shadowed: ${_fi.shadowPlayer}` : '',
       _fi.afterAnswers.will[0] ? `Next session: ${_fi.afterAnswers.will[0]}` : '',
     ].filter(Boolean).join('\n'),
-    timestamp: _editSession?.timestamp || Date.now(),
+    timestamp: _editSession?.timestamp || new Date().toISOString(),
     plannerId: _editSession?.plannerId || _plannerId || null,
     fiData: {
       focalPointId: _fi.focalId,

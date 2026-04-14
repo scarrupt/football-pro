@@ -1,5 +1,5 @@
 import { navigate, state, loadState } from '../app.js';
-import { SESSION_TYPES, MOTIVATIONAL_QUOTES } from '../constants.js';
+import { SESSION_TYPES, MOTIVATIONAL_QUOTES, APP_VERSION } from '../constants.js';
 import { getTodayKey, formatDayFull }          from '../utils.js';
 import { showAddToPlannerModal }               from './planner.js';
 
@@ -149,4 +149,9 @@ export async function renderHome(container) {
   quoteCard.className = 'quote-card';
   quoteCard.innerHTML = `<p class="quote-text">${quote}</p>`;
   container.appendChild(quoteCard);
+
+  const versionFooter = document.createElement('div');
+  versionFooter.style.cssText = 'text-align:center;padding:8px 0 20px;font-size:0.72rem;color:var(--color-text-muted);opacity:0.6;';
+  versionFooter.textContent = APP_VERSION;
+  container.appendChild(versionFooter);
 }
