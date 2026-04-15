@@ -508,7 +508,17 @@ export async function renderLog(container, params = {}) {
   params = params || {};
 
   if (params.editSession) {
-    // Edit mode — skip type selection
+    // Edit mode — load raw attempt values from DB so all attempts are shown, not just the best
+    if (!params.testAttempts && params.editSession.testResults?.length) {
+      const records = await db.getByIndex('testAttempts', 'sessionId', params.editSession.id);
+      if (records?.length) {
+        const testAttempts = {};
+        for (const r of records) {
+          testAttempts[r.testName] = { values: r.values, unit: r.unit };
+        }
+        params = { ...params, testAttempts };
+      }
+    }
     renderDetailsForm(container, params);
   } else if (params.type) {
     renderDetailsForm(container, params);

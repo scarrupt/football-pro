@@ -1,6 +1,7 @@
 import { navigate, navigateBack, state } from '../app.js';
 import { getSessionType }  from '../constants.js';
 import { renderMatchWatch } from './match_watch.js';
+import { db } from '../db.js';
 
 // ─── Module state ─────────────────────────────────────────────────────────
 let _jsonCache      = null;
@@ -599,9 +600,17 @@ export async function renderPlayer(container, params = {}) {
 
   // Pre-populate test attempts from a previously saved session
   if (params.editSession?.testResults?.length) {
-    params.editSession.testResults.forEach(r => {
-      _testAttempts[r.name] = { unit: r.unit || 's', values: [r.value] };
-    });
+    const stored = await db.getByIndex('testAttempts', 'sessionId', params.editSession.id);
+    if (stored?.length) {
+      stored.forEach(r => {
+        _testAttempts[r.testName] = { unit: r.unit || 's', values: r.values };
+      });
+    } else {
+      // Fallback for old sessions: just pre-fill attempt 1 with the best value
+      params.editSession.testResults.forEach(r => {
+        _testAttempts[r.name] = { unit: r.unit || 's', values: [r.value] };
+      });
+    }
   }
 
   container.innerHTML = `
