@@ -26,9 +26,11 @@ function getTodayQuote() {
  * Renders the Today's Plan section
  */
 function renderTodayPlan(container) {
-  const todayKey     = getTodayKey();
-  const todayItems   = state.plannerItems.filter(p => p.date === todayKey);
-  const doneIds      = new Set(state.sessions.filter(s => s.plannerId).map(s => s.plannerId));
+  const todayKey       = getTodayKey();
+  const todayItems     = state.plannerItems.filter(p => p.date === todayKey);
+  const doneIds        = new Set(state.sessions.filter(s => s.plannerId).map(s => s.plannerId));
+  const adHocSessions  = state.sessions.filter(s => s.date === todayKey && !s.plannerId);
+  const hasAnything    = todayItems.length > 0 || adHocSessions.length > 0;
 
   const section = document.createElement('div');
   section.innerHTML = `
@@ -43,7 +45,7 @@ function renderTodayPlan(container) {
 
   const list = section.querySelector('#today-plan-list');
 
-  if (todayItems.length === 0) {
+  if (!hasAnything) {
     list.innerHTML = `
       <div class="empty-state" style="padding:20px;">
         <span class="empty-state-icon">📋</span>
@@ -82,6 +84,29 @@ function renderTodayPlan(container) {
           navigate('log', { type: item.type, plannerId: item.id, date: item.date });
         });
       }
+      list.appendChild(row);
+    });
+
+    adHocSessions.forEach(session => {
+      const type = SESSION_TYPES.find(t => t.id === session.type) || SESSION_TYPES[0];
+      const row  = document.createElement('div');
+      row.className = 'plan-item-card';
+      row.style.cursor = 'pointer';
+      const moduleSubtitle = session.modules?.length
+        ? `<div class="plan-item-subtitle">${session.modules.map(m => m.label).join(' · ')}</div>`
+        : '';
+      row.innerHTML = `
+        <span class="plan-dot" style="background:${type.color};"></span>
+        <span class="plan-item-icon">${type.icon}</span>
+        <div class="plan-item-text">
+          <span class="plan-item-name" style="text-decoration:line-through;color:var(--color-text-muted);">${type.label}</span>
+          ${moduleSubtitle}
+        </div>
+        <span class="plan-item-done-check" style="cursor:pointer;">✅</span>
+      `;
+      row.addEventListener('click', () => {
+        navigate('log', { editSession: session });
+      });
       list.appendChild(row);
     });
   }

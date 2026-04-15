@@ -136,8 +136,9 @@ function renderDayCard(container, dateKey, plannerItems, sessions, onChanged) {
   const today     = isToday(dateKey);
   const past      = isPast(dateKey);
 
-  const doneIds   = new Set(sessions.filter(s => s.plannerId).map(s => s.plannerId));
-  const items     = plannerItems.filter(p => p.date === dateKey);
+  const doneIds      = new Set(sessions.filter(s => s.plannerId).map(s => s.plannerId));
+  const items        = plannerItems.filter(p => p.date === dateKey);
+  const adHocSessions = sessions.filter(s => s.date === dateKey && !s.plannerId);
 
   const card = document.createElement('div');
   card.className = `day-card${today ? ' today' : ''}${past ? ' past' : ''}`;
@@ -156,7 +157,7 @@ function renderDayCard(container, dateKey, plannerItems, sessions, onChanged) {
   `;
 
   let bodyHtml = '';
-  if (items.length === 0) {
+  if (items.length === 0 && adHocSessions.length === 0) {
     bodyHtml = `<p class="day-empty">😴 Rest day</p>`;
   } else {
     bodyHtml = items.map(item => {
@@ -179,6 +180,25 @@ function renderDayCard(container, dateKey, plannerItems, sessions, onChanged) {
         </div>
       `;
     }).join('');
+
+    bodyHtml += adHocSessions.map(session => {
+      const type = SESSION_TYPES.find(t => t.id === session.type) || SESSION_TYPES[0];
+      const moduleSub = session.modules?.length
+        ? `<div class="pill-subtitle">${session.modules.map(m => m.label).join(' · ')}</div>`
+        : '';
+      return `
+        <div class="session-pill done adhoc"
+             style="--pill-color:${type.color};"
+             data-session-id="${session.id}">
+          <span class="pill-icon">${type.icon}</span>
+          <div class="pill-text">
+            <span class="pill-name">${type.label}</span>
+            ${moduleSub}
+          </div>
+          <span class="pill-check">✅</span>
+        </div>
+      `;
+    }).join('');
   }
 
   card.innerHTML = headerHtml + `<div class="day-card-body">${bodyHtml}</div>`;
@@ -191,9 +211,14 @@ function renderDayCard(container, dateKey, plannerItems, sessions, onChanged) {
     });
   });
 
-  // Pill click → options
+  // Pill click → options (planned items) or edit (ad-hoc sessions)
   card.querySelectorAll('.session-pill').forEach(pill => {
     pill.addEventListener('click', () => {
+      if (pill.dataset.sessionId) {
+        const session = sessions.find(s => s.id === pill.dataset.sessionId);
+        if (session) navigate('log', { editSession: session });
+        return;
+      }
       const itemId   = pill.dataset.itemId;
       const itemData = plannerItems.find(p => p.id === itemId);
       if (itemData) {
