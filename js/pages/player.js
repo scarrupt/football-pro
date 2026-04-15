@@ -597,6 +597,13 @@ export async function renderPlayer(container, params = {}) {
   _testAttempts   = {};
   clearTimer();
 
+  // Pre-populate test attempts from a previously saved session
+  if (params.editSession?.testResults?.length) {
+    params.editSession.testResults.forEach(r => {
+      _testAttempts[r.name] = { unit: r.unit || 's', values: [r.value] };
+    });
+  }
+
   container.innerHTML = `
     <div class="player-loading">
       <div class="player-load-ball">⚽</div>
@@ -616,9 +623,27 @@ export async function renderPlayer(container, params = {}) {
   }
 
   if (type === 'shooting' || type === 'passing') {
-    renderLevelSelector(type, data);
+    const editModule = params.editSession?.modules?.[0];
+    if (editModule) {
+      const s = data.sessions.find(x => x.id === type);
+      const levelIdx = Math.max(0, s?.levels?.findIndex(l => l.id === editModule.id) ?? 0);
+      _selectedModule = editModule;
+      _steps = buildSteps(type, data, { levelIdx });
+      _idx = 0; renderStep();
+    } else {
+      renderLevelSelector(type, data);
+    }
   } else if (type === 'dribbling') {
-    renderModuleSelector(data);
+    const editModule = params.editSession?.modules?.[0];
+    if (editModule) {
+      const s = data.sessions.find(x => x.id === 'dribbling');
+      const moduleIdx = Math.max(0, s?.modules?.findIndex(m => m.id === editModule.id) ?? 0);
+      _selectedModule = editModule;
+      _steps = buildSteps('dribbling', data, { moduleIdx });
+      _idx = 0; renderStep();
+    } else {
+      renderModuleSelector(data);
+    }
   } else {
     _steps = buildSteps(type, data, params);
     if (!_steps.length) {

@@ -52,20 +52,26 @@ function renderTodayPlan(container) {
     `;
   } else {
     todayItems.forEach(item => {
-      const type  = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
-      const done  = doneIds.has(item.id);
-      const row   = document.createElement('div');
+      const type    = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
+      const done    = doneIds.has(item.id);
+      const session = done ? state.sessions.find(s => s.plannerId === item.id) : null;
+      const row     = document.createElement('div');
       row.className = 'plan-item-card';
       row.innerHTML = `
         <span class="plan-dot" style="background:${type.color};"></span>
         <span class="plan-item-icon">${type.icon}</span>
         <span class="plan-item-name" style="${done ? 'text-decoration:line-through;color:var(--color-text-muted);' : ''}">${type.label}</span>
         ${done
-          ? `<span class="plan-item-done-check">✅</span>`
+          ? `<span class="plan-item-done-check" style="cursor:pointer;">✅</span>`
           : `<button class="btn btn-sm btn-secondary log-plan-btn" data-id="${item.id}" data-type="${item.type}" data-date="${item.date}">Log it →</button>`
         }
       `;
-      if (!done) {
+      if (done && session) {
+        row.style.cursor = 'pointer';
+        row.addEventListener('click', () => {
+          navigate('log', { editSession: session });
+        });
+      } else if (!done) {
         row.querySelector('.log-plan-btn').addEventListener('click', () => {
           navigate('log', { type: item.type, plannerId: item.id, date: item.date });
         });
