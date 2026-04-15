@@ -160,14 +160,21 @@ function renderDayCard(container, dateKey, plannerItems, sessions, onChanged) {
     bodyHtml = `<p class="day-empty">😴 Rest day</p>`;
   } else {
     bodyHtml = items.map(item => {
-      const type = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
-      const done = doneIds.has(item.id) || item.done;
+      const type    = SESSION_TYPES.find(t => t.id === item.type) || SESSION_TYPES[0];
+      const done    = doneIds.has(item.id) || item.done;
+      const session = done ? (sessions.find(s => s.plannerId === item.id) ?? (item.sessionId ? sessions.find(s => s.id === item.sessionId) : null)) : null;
+      const moduleSub = session?.modules?.length
+        ? `<div class="pill-subtitle">${session.modules.map(m => m.label).join(' · ')}</div>`
+        : '';
       return `
         <div class="session-pill${done ? ' done' : ''}"
              style="--pill-color:${type.color};"
              data-item-id="${item.id}">
           <span class="pill-icon">${type.icon}</span>
-          <span class="pill-name">${type.label}</span>
+          <div class="pill-text">
+            <span class="pill-name">${type.label}</span>
+            ${moduleSub}
+          </div>
           ${done ? '<span class="pill-check">✅</span>' : ''}
         </div>
       `;

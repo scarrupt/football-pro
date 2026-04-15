@@ -770,12 +770,13 @@ textarea {
 
 .pill-icon { font-size: 1.1rem; }
 
+.pill-text { flex: 1; min-width: 0; }
 .pill-name {
-  flex: 1;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--color-text);
 }
+.pill-subtitle { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 1px; }
 
 .pill-check {
   font-size: 1rem;
@@ -1252,6 +1253,7 @@ textarea {
 
 .session-list-info { flex: 1; min-width: 0; }
 .session-list-name { font-size: 0.9rem; font-weight: 700; color: var(--color-text); }
+.session-list-subtitle { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 1px; }
 .session-list-meta {
   font-size: 0.75rem;
   color: var(--color-text-muted);
@@ -1291,7 +1293,9 @@ textarea {
 }
 
 .plan-item-icon { font-size: 1.3rem; }
-.plan-item-name { flex: 1; font-size: 0.92rem; font-weight: 600; color: var(--color-text); }
+.plan-item-text { flex: 1; min-width: 0; }
+.plan-item-name { font-size: 0.92rem; font-weight: 600; color: var(--color-text); }
+.plan-item-subtitle { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 1px; }
 .plan-item-done-check { font-size: 1.3rem; }
 
 /* ============================================================

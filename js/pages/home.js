@@ -57,10 +57,16 @@ function renderTodayPlan(container) {
       const session = done ? state.sessions.find(s => s.plannerId === item.id) : null;
       const row     = document.createElement('div');
       row.className = 'plan-item-card';
+      const moduleSubtitle = done && session?.modules?.length
+        ? `<div class="plan-item-subtitle">${session.modules.map(m => m.label).join(' · ')}</div>`
+        : '';
       row.innerHTML = `
         <span class="plan-dot" style="background:${type.color};"></span>
         <span class="plan-item-icon">${type.icon}</span>
-        <span class="plan-item-name" style="${done ? 'text-decoration:line-through;color:var(--color-text-muted);' : ''}">${type.label}</span>
+        <div class="plan-item-text">
+          <span class="plan-item-name" style="${done ? 'text-decoration:line-through;color:var(--color-text-muted);' : ''}">${type.label}</span>
+          ${moduleSubtitle}
+        </div>
         ${done
           ? `<span class="plan-item-done-check" style="cursor:pointer;">✅</span>`
           : `<button class="btn btn-sm btn-secondary log-plan-btn" data-id="${item.id}" data-type="${item.type}" data-date="${item.date}">Log it →</button>`

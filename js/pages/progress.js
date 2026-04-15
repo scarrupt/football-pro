@@ -447,6 +447,7 @@ function renderRecentSessions(container) {
       <div class="session-list-icon" style="background:${type.color}20;">${type.icon}</div>
       <div class="session-list-info">
         <div class="session-list-name">${type.label}</div>
+        ${session.modules?.length ? `<div class="session-list-subtitle">${session.modules.map(m => m.label).join(' · ')}</div>` : ''}
         <div class="session-list-meta">
           <span>⏱️ ${formatDuration(session.duration)}</span>
           ${stars ? `<span>${stars}</span>` : ''}
