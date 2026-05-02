@@ -119,6 +119,18 @@ function buildSteps(type, data, opts = {}) {
       return steps;
     }
 
+    case 'ball_mastery': {
+      const s   = sess.find(x => x.id === 'ball_mastery');
+      if (!s) return [];
+      const mod = s.modules?.[opts.moduleIdx ?? 0];
+      if (!mod) return [];
+      return [
+        ...(mod.drills || []).map(d => ({ type: 'drill', drill: d })),
+        ...(mod.tests  || []).map(t => ({ type: 'test',  test:  t })),
+        { type: 'done', title: s.title, duration: s.duration_min },
+      ];
+    }
+
     case 'match_watch': {
       const s = sess.find(x => x.id === 'football_intelligence');
       if (!s) return [];
@@ -186,6 +198,12 @@ function htmlDrill(step, stepIdx) {
     ${d.tempo_description ? `<div class="player-tempo">⏱ <strong>${d.tempo}</strong> — ${d.tempo_description}</div>` : ''}
     ${d.muscles?.length ? `<div class="player-muscles">💪 ${d.muscles.join(' · ')}</div>` : ''}
     ${d.beat_pattern ? `<div class="player-beat">🎵 ${d.beat_pattern}${d.bpm ? ` @ ${d.bpm} BPM` : ''}</div>` : ''}
+    ${d.execution ? `<p class="player-hint">${d.execution}</p>` : ''}
+    ${d.rules?.length ? `
+      <div class="player-cues-label">Rules:</div>
+      <ul class="player-cues">
+        ${d.rules.map(r => `<li>${r}</li>`).join('')}
+      </ul>` : ''}
     ${d.variations?.length ? `
       <div class="player-cues-label">Rotate through all ${d.variations.length}:</div>
       <ol class="player-cues">
@@ -229,27 +247,30 @@ function htmlTest(step, testAttempts) {
   const svg = t.diagram?.svg || '';
   const numAttempts = t.attempts || 3;
   const existing    = testAttempts?.[t.name]?.values || [];
+  const isCount     = t.type === 'max_count';
+  const unit        = isCount ? 'reps' : 's';
+  const unitLabel   = isCount ? 'reps' : 's';
 
   const attemptRows = Array.from({ length: numAttempts }, (_, i) => `
     <div class="test-attempt-row">
       <span class="test-attempt-label">Attempt ${i + 1}</span>
       <input class="test-attempt-input" type="number" inputmode="decimal"
-        data-test="${t.name}" data-idx="${i}"
-        min="0" step="0.01" placeholder="—"
+        data-test="${t.name}" data-unit="${unit}" data-idx="${i}"
+        min="0" step="${isCount ? '1' : '0.01'}" placeholder="—"
         value="${(existing[i] != null && existing[i] > 0) ? existing[i] : ''}">
-      <span class="test-attempt-unit">s</span>
+      <span class="test-attempt-unit">${unitLabel}</span>
     </div>`).join('');
 
   return `
-    <div class="player-tag">🧪 Timed Test</div>
+    <div class="player-tag">${isCount ? '🧮 Count Test' : '🧪 Timed Test'}</div>
     <h2 class="player-title">${t.name}</h2>
     ${t.description ? `<p class="player-hint">${t.description}</p>` : ''}
     ${svg ? `<div class="player-diagram">${svg}</div>` : ''}
     ${t.cues?.length ? `<ul class="player-cues">${t.cues.map(c => `<li>${c}</li>`).join('')}</ul>` : ''}
     <div class="test-attempts-section">
-      <div class="test-attempts-label">⏱ Record your attempts</div>
+      <div class="test-attempts-label">${isCount ? '🔢 Record your attempts' : '⏱ Record your attempts'}</div>
       ${attemptRows}
-      <div class="player-note">🏆 Best time saved automatically when you log the session</div>
+      <div class="player-note">🏆 ${isCount ? 'Best count' : 'Best time'} saved automatically when you log the session</div>
     </div>`;
 }
 
@@ -470,7 +491,7 @@ function renderStep() {
       card.querySelectorAll('.test-attempt-input').forEach(inp => {
         inp.addEventListener('input', () => {
           const testName = inp.dataset.test;
-          if (!_testAttempts[testName]) _testAttempts[testName] = { unit: 's', values: [] };
+          if (!_testAttempts[testName]) _testAttempts[testName] = { unit: inp.dataset.unit || 's', values: [] };
           const idx = +inp.dataset.idx;
           const val = parseFloat(inp.value);
           _testAttempts[testName].values[idx] = (val > 0) ? val : null;
@@ -555,10 +576,11 @@ function renderLevelSelector(type, data) {
   });
 }
 
-function renderModuleSelector(data) {
-  const s = data.sessions.find(x => x.id === 'dribbling');
+function renderModuleSelector(data, type) {
+  const sessionId = type === 'dribbling' ? 'dribbling' : type;
+  const s = data.sessions.find(x => x.id === sessionId);
   if (!s?.modules?.length) {
-    _steps = buildSteps('dribbling', data, {}); _idx = 0; renderStep(); return;
+    _steps = buildSteps(type, data, {}); _idx = 0; renderStep(); return;
   }
   _container.innerHTML = `
     <div class="player-selector">
@@ -575,7 +597,7 @@ function renderModuleSelector(data) {
   _container.querySelectorAll('.player-module-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       _selectedModule = { id: btn.dataset.id, label: btn.dataset.label };
-      _steps = buildSteps('dribbling', data, { moduleIdx: +btn.dataset.idx });
+      _steps = buildSteps(type, data, { moduleIdx: +btn.dataset.idx });
       _idx = 0; renderStep();
     });
   });
@@ -642,16 +664,17 @@ export async function renderPlayer(container, params = {}) {
     } else {
       renderLevelSelector(type, data);
     }
-  } else if (type === 'dribbling') {
+  } else if (type === 'dribbling' || type === 'ball_mastery') {
+    const sessionId  = type === 'dribbling' ? 'dribbling' : 'ball_mastery';
     const editModule = params.editSession?.modules?.[0];
     if (editModule) {
-      const s = data.sessions.find(x => x.id === 'dribbling');
+      const s = data.sessions.find(x => x.id === sessionId);
       const moduleIdx = Math.max(0, s?.modules?.findIndex(m => m.id === editModule.id) ?? 0);
       _selectedModule = editModule;
-      _steps = buildSteps('dribbling', data, { moduleIdx });
+      _steps = buildSteps(type, data, { moduleIdx });
       _idx = 0; renderStep();
     } else {
-      renderModuleSelector(data);
+      renderModuleSelector(data, type);
     }
   } else {
     _steps = buildSteps(type, data, params);

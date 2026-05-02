@@ -2,11 +2,11 @@ import { BADGE_DEFINITIONS } from './constants.js';
 import { getWeekId } from './utils.js';
 
 /**
- * The 9 core training types required for the 'all_types' badge
+ * The 10 core training types required for the 'all_types' badge
  */
 const ALL_TRAINING_TYPE_IDS = [
   'dribbling', 'passing', 'shooting', 'speed',
-  'upper_body', 'lower_body', 'rhythmic', 'fifa11', 'match_watch',
+  'upper_body', 'lower_body', 'rhythmic', 'fifa11', 'match_watch', 'ball_mastery',
 ];
 
 /**

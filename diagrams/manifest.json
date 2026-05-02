@@ -286,5 +286,26 @@
   },
   "football_intelligence__D": {
     "label": "Focal point D \u2014 transitions (3 seconds after possession change)"
+  },
+  "ball_mastery__drill_1": {
+    "label": "Two-foot juggling \u2014 individual, laces contact"
+  },
+  "ball_mastery__drill_2": {
+    "label": "Thigh and foot juggling \u2014 flat thigh platform"
+  },
+  "ball_mastery__drill_3": {
+    "label": "Heading juggling \u2014 forehead contact, eyes open"
+  },
+  "ball_mastery__drill_4": {
+    "label": "Moving juggling \u2014 walk 20m while keeping ball up"
+  },
+  "ball_mastery__drill_5": {
+    "label": "Altinha \u2014 2\u20134 players, keep ball in air, no hands"
+  },
+  "ball_mastery__drill_6": {
+    "label": "Altinha \u2014 target score challenge, track attempts per set"
+  },
+  "ball_mastery__test_1": {
+    "label": "Alternating feet test \u2014 L \u2192 R \u2192 L \u2192 R, max count"
   }
 }

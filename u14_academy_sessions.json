@@ -3158,6 +3158,305 @@
         "Any Champions League women's quarter-final or semi-final",
         "Any Lamine Yamal match (dribbling rhythm and tempo change)"
       ]
+    },
+    {
+      "id": "ball_mastery",
+      "title": "Ball Mastery — Juggling & Altinha",
+      "category": "technical",
+      "duration_min": 30,
+      "duration_max": 45,
+      "equipment": [
+        "ball",
+        "open space (no cones needed)"
+      ],
+      "note": "This session builds first-touch softness, aerial control, and feel for the ball. No cones required. Can be done anywhere — garden, park, court, indoors.",
+      "modules": [
+        {
+          "id": "juggling",
+          "label": "Juggling",
+          "drills": [
+            {
+              "id": "drill_1",
+              "number": 1,
+              "name": "Two-foot juggling",
+              "type": "juggling",
+              "requires_partner": false,
+              "sets": 5,
+              "target_reps": null,
+              "reps_unit": "max consecutive touches",
+              "rest_seconds": 30,
+              "feet": "both",
+              "variations": [
+                "Dominant foot only — find rhythm before switching",
+                "Non-dominant foot only — slow and deliberate",
+                "Alternate feet — L then R then L…",
+                "Two touches per foot before switching",
+                "Random — no pattern, react to the ball"
+              ],
+              "execution": "Drop the ball from your hands onto your stronger foot. Juggle continuously. Count total touches without the ball hitting the ground. Rest 30s between sets.",
+              "cues": [
+                "Keep the ball below head height — control, not height",
+                "Strike the ball with the laces (top of the foot), not the toe",
+                "Ankle locked firm on every contact — floppy ankle = no control",
+                "Eyes on the ball all the time — no looking away",
+                "Lean slightly forward — weight over the ball, not back",
+                "Small controlled touches — you choose where the ball goes",
+                "Arms out for balance — they are your stabilisers"
+              ],
+              "progression": "Start with dominant foot only. Once you reach 20 consecutive touches on one foot, switch to alternating feet.",
+              "diagram": {
+                "label": "Two-foot juggling — individual, laces contact",
+                "view": "side",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 140\"\n   version=\"1.1\"\n   id=\"svg11\"\n   sodipodi:docname=\"ball_mastery__drill_1.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview11\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"69.875\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg11\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Side view</text>\n  <line\n     x1=\"10\"\n     y1=\"125\"\n     x2=\"210\"\n     y2=\"125\"\n     stroke=\"#aaa\"\n     stroke-width=\"0.6\"\n     id=\"line1\" />\n  <circle\n     cx=\"110\"\n     cy=\"34\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#1D9E75\"\n     stroke-width=\"1.2\"\n     id=\"circle1\" />\n  <line\n     x1=\"110\"\n     y1=\"43\"\n     x2=\"110\"\n     y2=\"72\"\n     stroke=\"#333\"\n     stroke-width=\"3\"\n     stroke-linecap=\"round\"\n     id=\"line2\" />\n  <line\n     x1=\"110\"\n     y1=\"58\"\n     x2=\"90\"\n     y2=\"52\"\n     stroke=\"#333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line3\" />\n  <line\n     x1=\"110\"\n     y1=\"58\"\n     x2=\"130\"\n     y2=\"52\"\n     stroke=\"#333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line4\" />\n  <line\n     x1=\"110\"\n     y1=\"72\"\n     x2=\"94\"\n     y2=\"100\"\n     stroke=\"#333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line5\" />\n  <line\n     x1=\"110\"\n     y1=\"72\"\n     x2=\"126\"\n     y2=\"100\"\n     stroke=\"#D85A30\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line6\" />\n  <ellipse\n     cx=\"130\"\n     cy=\"104\"\n     rx=\"8\"\n     ry=\"5\"\n     fill=\"none\"\n     stroke=\"#D85A30\"\n     stroke-width=\"1.5\"\n     id=\"ellipse6\" />\n  <circle\n     cx=\"132\"\n     cy=\"90\"\n     r=\"7\"\n     fill=\"none\"\n     stroke=\"#888\"\n     stroke-width=\"1.2\"\n     id=\"circle6\" />\n  <circle\n     cx=\"132\"\n     cy=\"90\"\n     r=\"2.5\"\n     fill=\"#888\"\n     id=\"circle7\" />\n  <path\n     d=\"M132,83 Q132,70 110,60\"\n     fill=\"none\"\n     stroke=\"#3B8BD4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3 2\"\n     marker-end=\"url(#arr)\"\n     id=\"path7\" />\n  <text\n     x=\"155\"\n     y=\"89\"\n     font-size=\"7\"\n     fill=\"#3B8BD4\"\n     id=\"text7\">ball path</text>\n  <text\n     x=\"155\"\n     y=\"99\"\n     font-size=\"7\"\n     fill=\"#3B8BD4\"\n     id=\"text8\">up + toward</text>\n  <text\n     x=\"155\"\n     y=\"109\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text9\">laces contact</text>\n  <text\n     x=\"70\"\n     y=\"108\"\n     font-size=\"6\"\n     fill=\"#D85A30\"\n     id=\"text10\">ankle locked</text>\n  <line\n     x1=\"94.580276\"\n     y1=\"100.95515\"\n     x2=\"86.419724\"\n     y2=\"101.54485\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line10\" />\n  <text\n     x=\"65\"\n     y=\"136\"\n     font-size=\"6\"\n     fill=\"#aaa\"\n     id=\"text11\">L foot on ground · R foot striking</text>\n</svg>\n"
+              }
+            },
+            {
+              "id": "drill_2",
+              "number": 2,
+              "name": "Thigh and foot juggling",
+              "type": "juggling",
+              "requires_partner": false,
+              "sets": 5,
+              "target_reps": null,
+              "reps_unit": "max consecutive touches",
+              "rest_seconds": 30,
+              "feet": "both",
+              "surfaces": [
+                "thigh",
+                "foot"
+              ],
+              "variations": [
+                "Thigh only — find the flat surface at the top of the thigh",
+                "Foot only — dominant, then non-dominant",
+                "Thigh → foot → thigh → foot (alternate surfaces)",
+                "Two thighs → two feet → repeat",
+                "Three feet → one thigh → three feet…"
+              ],
+              "execution": "Juggle using both thigh and foot contacts in combination. The thigh is a platform — keep it level and horizontal on contact.",
+              "cues": [
+                "Thigh contact: lift the knee so the thigh is flat and horizontal — like a table",
+                "Do not angle the thigh — a sloped surface sends the ball sideways",
+                "Foot contact after thigh: the ball will be lower — bend the knee to meet it",
+                "Keep a continuous rhythm — thigh contacts are slower, foot contacts are quicker",
+                "Breathe — juggling tightens the body; stay loose"
+              ],
+              "progression": "Once you can do 10 consecutive thigh-foot alternates, try: thigh → foot → thigh without letting the ball bounce.",
+              "diagram": {
+                "label": "Thigh and foot juggling — flat thigh platform",
+                "view": "side",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 145\"\n   version=\"1.1\"\n   id=\"svg12\"\n   sodipodi:docname=\"ball_mastery__drill_2.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview12\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"72.375\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg12\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Side view · thigh must be flat and horizontal</text>\n  <line\n     x1=\"10\"\n     y1=\"130\"\n     x2=\"210\"\n     y2=\"130\"\n     stroke=\"#aaa\"\n     stroke-width=\"0.6\"\n     id=\"line1\" />\n  <circle\n     cx=\"65\"\n     cy=\"34\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#1D9E75\"\n     stroke-width=\"1.2\"\n     id=\"circle1\" />\n  <line\n     x1=\"65\"\n     y1=\"43\"\n     x2=\"65\"\n     y2=\"72\"\n     stroke=\"#333\"\n     stroke-width=\"3\"\n     stroke-linecap=\"round\"\n     id=\"line2\" />\n  <line\n     x1=\"65\"\n     y1=\"58\"\n     x2=\"45\"\n     y2=\"52\"\n     stroke=\"#333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line3\" />\n  <line\n     x1=\"65\"\n     y1=\"58\"\n     x2=\"85\"\n     y2=\"52\"\n     stroke=\"#333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line4\" />\n  <line\n     x1=\"65\"\n     y1=\"72\"\n     x2=\"48\"\n     y2=\"105\"\n     stroke=\"#333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line5\" />\n  <line\n     x1=\"65\"\n     y1=\"72\"\n     x2=\"90\"\n     y2=\"72\"\n     stroke=\"#F2A623\"\n     stroke-width=\"3.5\"\n     stroke-linecap=\"round\"\n     id=\"line6\" />\n  <text\n     x=\"88\"\n     y=\"68\"\n     font-size=\"6\"\n     fill=\"#F2A623\"\n     id=\"text6\">flat thigh</text>\n  <circle\n     cx=\"78\"\n     cy=\"64\"\n     r=\"7\"\n     fill=\"none\"\n     stroke=\"#888\"\n     stroke-width=\"1.2\"\n     id=\"circle6\" />\n  <circle\n     cx=\"78\"\n     cy=\"64\"\n     r=\"2.5\"\n     fill=\"#888\"\n     id=\"circle7\" />\n  <path\n     d=\"M78,57 Q78,42 65,38\"\n     fill=\"none\"\n     stroke=\"#F2A623\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3 2\"\n     marker-end=\"url(#arr)\"\n     id=\"path7\" />\n  <circle\n     cx=\"155\"\n     cy=\"75\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#1D9E75\"\n     stroke-width=\"1.2\"\n     stroke-dasharray=\"2 1\"\n     id=\"circle8\" />\n  <line\n     x1=\"155\"\n     y1=\"84\"\n     x2=\"155\"\n     y2=\"110\"\n     stroke=\"#333\"\n     stroke-width=\"3\"\n     stroke-linecap=\"round\"\n     id=\"line8\" />\n  <line\n     x1=\"155\"\n     y1=\"110\"\n     x2=\"138\"\n     y2=\"130\"\n     stroke=\"#333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line9\" />\n  <line\n     x1=\"155\"\n     y1=\"110\"\n     x2=\"170\"\n     y2=\"130\"\n     stroke=\"#D85A30\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line10\" />\n  <ellipse\n     cx=\"174\"\n     cy=\"133\"\n     rx=\"8\"\n     ry=\"5\"\n     fill=\"none\"\n     stroke=\"#D85A30\"\n     stroke-width=\"1.5\"\n     id=\"ellipse10\" />\n  <circle\n     cx=\"175\"\n     cy=\"118\"\n     r=\"7\"\n     fill=\"none\"\n     stroke=\"#888\"\n     stroke-width=\"1.2\"\n     id=\"circle10\" />\n  <circle\n     cx=\"175\"\n     cy=\"118\"\n     r=\"2.5\"\n     fill=\"#888\"\n     id=\"circle11\" />\n  <path\n     d=\"M175,111 Q175,96 155,90\"\n     fill=\"none\"\n     stroke=\"#3B8BD4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3 2\"\n     marker-end=\"url(#arr)\"\n     id=\"path11\" />\n  <text\n     x=\"100\"\n     y=\"80\"\n     font-size=\"7\"\n     fill=\"#888\"\n     id=\"text11\">→ then foot</text>\n  <text\n     x=\"20\"\n     y=\"35\"\n     font-size=\"7\"\n     fill=\"#F2A623\"\n     id=\"text12\">thigh first</text>\n  <line\n     x1=\"89.777092\"\n     y1=\"74.407928\"\n     x2=\"89.722908\"\n     y2=\"98.092072\"\n     stroke=\"#f2a623\"\n     stroke-width=\"3.40665\"\n     stroke-linecap=\"round\"\n     id=\"line12\" />\n</svg>\n"
+              }
+            },
+            {
+              "id": "drill_3",
+              "number": 3,
+              "name": "Heading juggling",
+              "type": "juggling",
+              "requires_partner": false,
+              "sets": 3,
+              "target_reps": null,
+              "reps_unit": "max consecutive touches",
+              "rest_seconds": 45,
+              "surfaces": [
+                "head",
+                "foot",
+                "thigh"
+              ],
+              "variations": [
+                "Heading only — keep the ball close, use forehead",
+                "Head → foot → head → foot",
+                "Head → thigh → foot → head → thigh → foot (3-surface cycle)",
+                "Free combination — use all three surfaces, no fixed order"
+              ],
+              "execution": "Use the forehead (flat, firm surface) for heading contacts. Keep the ball close and controlled rather than heading it high.",
+              "cues": [
+                "Contact point: the centre of the forehead — not the hairline, not the top of the head",
+                "Eyes open at the moment of contact — always",
+                "Neck firm on heading contact — a loose neck gives no power or direction",
+                "Head the ball slightly forward and downward — this keeps it close",
+                "After a head contact the ball drops fast — position your foot or thigh immediately"
+              ],
+              "progression": "Start with heading only (3 sets). Add foot contacts once you can do 5 consecutive clean head touches.",
+              "diagram": {
+                "label": "Heading juggling — forehead contact, eyes open",
+                "view": "side",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 135\"\n   version=\"1.1\"\n   id=\"svg14\"\n   sodipodi:docname=\"ball_mastery__drill_3.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview14\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"67.375\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg14\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Side view · forehead = flat centre area</text>\n  <line\n     x1=\"10\"\n     y1=\"122\"\n     x2=\"210\"\n     y2=\"122\"\n     stroke=\"#aaa\"\n     stroke-width=\"0.6\"\n     id=\"line1\" />\n  <circle\n     cx=\"110\"\n     cy=\"48\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#1d9e75\"\n     stroke-width=\"1.2\"\n     id=\"circle1\" />\n  <line\n     x1=\"105\"\n     y1=\"40\"\n     x2=\"105\"\n     y2=\"36\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.2\"\n     id=\"line2\" />\n  <line\n     x1=\"110\"\n     y1=\"39\"\n     x2=\"110\"\n     y2=\"35\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.2\"\n     id=\"line3\" />\n  <line\n     x1=\"115\"\n     y1=\"40\"\n     x2=\"115\"\n     y2=\"36\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.2\"\n     id=\"line4\" />\n  <text\n     x=\"128\"\n     y=\"40\"\n     font-size=\"6px\"\n     fill=\"#d85a30\"\n     id=\"text4\">forehead</text>\n  <circle\n     cx=\"110\"\n     cy=\"27\"\n     r=\"7\"\n     fill=\"none\"\n     stroke=\"#888888\"\n     stroke-width=\"1.2\"\n     id=\"circle4\" />\n  <circle\n     cx=\"110\"\n     cy=\"27\"\n     r=\"2.5\"\n     fill=\"#888888\"\n     id=\"circle5\" />\n  <path\n     d=\"m 110,18 q 0,-6 0,0\"\n     fill=\"none\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     id=\"path5\" />\n  <line\n     x1=\"110\"\n     y1=\"57\"\n     x2=\"110\"\n     y2=\"86\"\n     stroke=\"#333333\"\n     stroke-width=\"3\"\n     stroke-linecap=\"round\"\n     id=\"line5\" />\n  <line\n     x1=\"110\"\n     y1=\"72\"\n     x2=\"90\"\n     y2=\"66\"\n     stroke=\"#333333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line6\" />\n  <line\n     x1=\"110\"\n     y1=\"72\"\n     x2=\"130\"\n     y2=\"66\"\n     stroke=\"#333333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line7\" />\n  <line\n     x1=\"110\"\n     y1=\"86\"\n     x2=\"94\"\n     y2=\"119\"\n     stroke=\"#333333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line8\" />\n  <line\n     x1=\"110\"\n     y1=\"86\"\n     x2=\"126\"\n     y2=\"119\"\n     stroke=\"#333333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line9\" />\n  <path\n     d=\"M 104,20 Q 85,26 92,40\"\n     fill=\"none\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"path9\" />\n  <text\n     x=\"27.5\"\n     y=\"27.75\"\n     font-size=\"7px\"\n     fill=\"#3b8bd4\"\n     id=\"text9\">head ball</text>\n  <text\n     x=\"27.5\"\n     y=\"37.75\"\n     font-size=\"7px\"\n     fill=\"#3b8bd4\"\n     id=\"text10\">forward+down</text>\n  <text\n     x=\"27.5\"\n     y=\"62.75\"\n     font-size=\"6px\"\n     fill=\"#aaaaaa\"\n     id=\"text11\">eyes OPEN</text>\n  <text\n     x=\"27.5\"\n     y=\"72.75\"\n     font-size=\"6px\"\n     fill=\"#aaaaaa\"\n     id=\"text12\">at contact</text>\n  <rect\n     x=\"21.5\"\n     y=\"51.75\"\n     width=\"42\"\n     height=\"24\"\n     rx=\"3\"\n     fill=\"none\"\n     stroke=\"#d85a30\"\n     stroke-width=\"0.8\"\n     stroke-dasharray=\"2, 2\"\n     id=\"rect12\" />\n  <text\n     x=\"155\"\n     y=\"104\"\n     font-size=\"7px\"\n     fill=\"#aaaaaa\"\n     id=\"text13\">head → foot</text>\n  <text\n     x=\"155\"\n     y=\"114\"\n     font-size=\"7px\"\n     fill=\"#aaaaaa\"\n     id=\"text14\">cycle</text>\n</svg>\n"
+              }
+            },
+            {
+              "id": "drill_4",
+              "number": 4,
+              "name": "Moving juggling",
+              "type": "juggling",
+              "requires_partner": false,
+              "sets": 4,
+              "distance_m": 20,
+              "reps_unit": "length without drop",
+              "rest_seconds": 45,
+              "feet": "both",
+              "variations": [
+                "Walk forward — one touch per step",
+                "Walk forward — two touches between steps",
+                "Jog slowly — feet stay closer to the ground",
+                "Walk in a large circle — 10m diameter",
+                "Walk backward — harder, great for body awareness"
+              ],
+              "execution": "Juggle while moving across 20m. The ball must not hit the ground. Count lengths completed without a drop.",
+              "cues": [
+                "Take smaller touches when moving — keep the ball close",
+                "Do not rush the walk — the ball controls your pace, not the other way",
+                "Look ahead occasionally while juggling — train eyes-up awareness",
+                "If the ball gets ahead of you, slow down — do not lunge",
+                "Each touch redirects the ball slightly in your direction of travel"
+              ],
+              "progression": "Start walking. Progress to slow jog only when 2 consecutive 20m lengths are completed without a drop.",
+              "diagram": {
+                "label": "Moving juggling — walk 20m while keeping ball up",
+                "view": "side",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 105\"\n   version=\"1.1\"\n   id=\"svg10\"\n   sodipodi:docname=\"ball_mastery__drill_4.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview10\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"52.375\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg10\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Side view · walk while juggling · 20m</text>\n  <line\n     x1=\"10\"\n     y1=\"82\"\n     x2=\"210\"\n     y2=\"82\"\n     stroke=\"#aaaaaa\"\n     stroke-width=\"0.6\"\n     id=\"line1\" />\n  <polygon\n     points=\"20,78 14,90 26,90 \"\n     fill=\"#1d9e75\"\n     id=\"polygon1\"\n     transform=\"translate(0,-8)\" />\n  <text\n     x=\"20\"\n     y=\"68\"\n     text-anchor=\"middle\"\n     font-size=\"6px\"\n     fill=\"#1d9e75\"\n     id=\"text2\">start</text>\n  <polygon\n     points=\"200,78 194,90 206,90 \"\n     fill=\"#d85a30\"\n     id=\"polygon2\"\n     transform=\"translate(0,-8)\" />\n  <text\n     x=\"200\"\n     y=\"68\"\n     text-anchor=\"middle\"\n     font-size=\"6px\"\n     fill=\"#d85a30\"\n     id=\"text3\">20m</text>\n  <circle\n     cx=\"60\"\n     cy=\"42\"\n     r=\"8\"\n     fill=\"none\"\n     stroke=\"#1d9e75\"\n     stroke-width=\"1.2\"\n     id=\"circle3\" />\n  <line\n     x1=\"60\"\n     y1=\"50\"\n     x2=\"60\"\n     y2=\"67\"\n     stroke=\"#333333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     id=\"line3\" />\n  <line\n     x1=\"60\"\n     y1=\"67\"\n     x2=\"50\"\n     y2=\"82\"\n     stroke=\"#333333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line4\" />\n  <line\n     x1=\"60\"\n     y1=\"67\"\n     x2=\"72\"\n     y2=\"82\"\n     stroke=\"#d85a30\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     id=\"line5\" />\n  <ellipse\n     cx=\"74\"\n     cy=\"83\"\n     rx=\"7\"\n     ry=\"4\"\n     fill=\"none\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.2\"\n     id=\"ellipse5\" />\n  <circle\n     cx=\"74\"\n     cy=\"72\"\n     r=\"6\"\n     fill=\"none\"\n     stroke=\"#888888\"\n     stroke-width=\"1\"\n     id=\"circle5\" />\n  <circle\n     cx=\"74\"\n     cy=\"72\"\n     r=\"2\"\n     fill=\"#888888\"\n     id=\"circle6\" />\n  <path\n     d=\"M 68,72 Q 60,60 60,50\"\n     fill=\"none\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.2\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"path6\" />\n  <circle\n     cx=\"130\"\n     cy=\"42\"\n     r=\"8\"\n     fill=\"none\"\n     stroke=\"#1d9e75\"\n     stroke-width=\"1.2\"\n     opacity=\"0.4\"\n     id=\"circle7\" />\n  <line\n     x1=\"130\"\n     y1=\"50\"\n     x2=\"130\"\n     y2=\"67\"\n     stroke=\"#333333\"\n     stroke-width=\"2.5\"\n     stroke-linecap=\"round\"\n     opacity=\"0.4\"\n     id=\"line7\" />\n  <line\n     x1=\"130\"\n     y1=\"67\"\n     x2=\"118\"\n     y2=\"82\"\n     stroke=\"#333333\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     opacity=\"0.4\"\n     id=\"line8\" />\n  <line\n     x1=\"130\"\n     y1=\"67\"\n     x2=\"142\"\n     y2=\"82\"\n     stroke=\"#d85a30\"\n     stroke-width=\"2\"\n     stroke-linecap=\"round\"\n     opacity=\"0.4\"\n     id=\"line9\" />\n  <line\n     x1=\"30\"\n     y1=\"82\"\n     x2=\"190\"\n     y2=\"82\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1\"\n     stroke-dasharray=\"8, 4\"\n     id=\"line10\" />\n  <text\n     x=\"110\"\n     y=\"100\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text10\">Small touches · ball controls your pace</text>\n</svg>\n"
+              }
+            }
+          ],
+          "tests": [
+            {
+              "id": "test_1",
+              "number": 1,
+              "name": "Alternating feet juggling — max count",
+              "type": "max_count",
+              "description": "How many consecutive juggles can you do strictly alternating left foot then right foot then left foot — no two touches on the same foot in a row, no other surfaces.",
+              "attempts": 3,
+              "scoring": "Record the best of 3 attempts. Count only clean alternating touches — if the same foot touches twice in a row, the count stops.",
+              "rules": [
+                "Strictly L → R → L → R — no exceptions",
+                "Foot contact only — no thigh, no head",
+                "The ball must not touch the ground",
+                "Ankle locked on every touch",
+                "Count only if the touch is deliberate — no accidental deflections"
+              ],
+              "benchmarks": {
+                "beginner": "1–10 touches",
+                "developing": "11–25 touches",
+                "competent": "26–50 touches",
+                "advanced": "51–100 touches",
+                "elite": "100+ touches"
+              },
+              "cues": [
+                "Start slow — rushing leads to loss of control within 5 touches",
+                "Keep the ball at knee height — low ball is easier to alternate feet cleanly",
+                "Think of it as a rhythm: L · R · L · R — find the beat",
+                "Body stays central — do not lean to favour one foot",
+                "After 20 touches, the mental challenge begins — stay focused"
+              ],
+              "tracking": "Record score at every session. The improvement curve is steep early — expect to double your count within 2–3 weeks of regular practice.",
+              "diagram": {
+                "label": "Alternating feet test — L → R → L → R, max count",
+                "view": "front",
+                "svg": "<svg width='100%' viewBox='0 0 220 145' xmlns='http://www.w3.org/2000/svg'>\n<defs><marker id='arr' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='5' markerHeight='5' orient='auto-start-reverse'><path d='M2 1L8 5L2 9' fill='none' stroke='context-stroke' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></marker></defs>\n<text x='110' y='11' text-anchor='middle' font-size='7' fill='#aaa'>Front view · strict alternation only</text>\n<line x1='10' y1='125' x2='210' y2='125' stroke='#aaa' stroke-width='0.6'/>\n<circle cx='110' cy='32' r='9' fill='none' stroke='#1D9E75' stroke-width='1.2'/>\n<line x1='110' y1='41' x2='110' y2='68' stroke='#333' stroke-width='3' stroke-linecap='round'/>\n<line x1='110' y1='55' x2='90' y2='50' stroke='#333' stroke-width='2' stroke-linecap='round'/>\n<line x1='110' y1='55' x2='130' y2='50' stroke='#333' stroke-width='2' stroke-linecap='round'/>\n<line x1='110' y1='68' x2='88' y2='100' stroke='#3B8BD4' stroke-width='2.5' stroke-linecap='round'/>\n<line x1='110' y1='68' x2='132' y2='100' stroke='#D85A30' stroke-width='2.5' stroke-linecap='round'/>\n<ellipse cx='86' cy='105' rx='10' ry='5' fill='none' stroke='#3B8BD4' stroke-width='1.8'/>\n<ellipse cx='134' cy='105' rx='10' ry='5' fill='none' stroke='#D85A30' stroke-width='1.8'/>\n<circle cx='86' cy='88' r='7' fill='none' stroke='#888' stroke-width='1.2'/>\n<circle cx='86' cy='88' r='2.5' fill='#888'/>\n<text x='60' y='87' font-size='7' fill='#3B8BD4'>L</text>\n<text x='150' y='87' font-size='7' fill='#D85A30'>R</text>\n<text x='60' y='113' font-size='7' fill='#3B8BD4'>1</text>\n<text x='150' y='113' font-size='7' fill='#D85A30'>2</text>\n<text x='60' y='123' font-size='6' fill='#3B8BD4'>L foot</text>\n<text x='145' y='123' font-size='6' fill='#D85A30'>R foot</text>\n<text x='110' y='136' text-anchor='middle' font-size='7' fill='#aaa'>3 attempts · best count recorded · L→R→L→R strict</text>\n<rect x='158' y='20' width='54' height='40' rx='4' fill='none' stroke='#1D9E75' stroke-width='1.2' stroke-dasharray='3 2'/>\n<text x='185' y='33' text-anchor='middle' font-size='7' fill='#1D9E75' font-weight='bold'>Record</text>\n<text x='185' y='43' text-anchor='middle' font-size='7' fill='#1D9E75'>____ touches</text>\n<text x='185' y='55' text-anchor='middle' font-size='6' fill='#aaa'>date: ______</text>\n</svg>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "altinha",
+          "label": "Altinha",
+          "drills": [
+            {
+              "id": "drill_5",
+              "number": 5,
+              "name": "Altinha — basic keep-up (2–4 players)",
+              "type": "altinha",
+              "requires_partner": true,
+              "min_players": 2,
+              "max_players": 4,
+              "sets": null,
+              "duration_min": 10,
+              "rest_seconds": null,
+              "reps_unit": "max consecutive team touches",
+              "surfaces_allowed": [
+                "foot",
+                "thigh",
+                "head",
+                "shoulder",
+                "chest"
+              ],
+              "surfaces_not_allowed": [
+                "hands",
+                "arms"
+              ],
+              "execution": "Players stand in a circle or line 2–3m apart. Keep the ball in the air using any surface except hands and arms. Count team touches without the ball hitting the ground. When the ball drops, restart from zero.",
+              "rules": [
+                "No hands or arms at any time",
+                "Any other surface is allowed — foot, thigh, head, shoulder, chest",
+                "One touch per player per sequence is preferred but not required",
+                "Count aloud together — the count is shared",
+                "If the ball goes too high or too wide, the person who played it must apologise and restart"
+              ],
+              "cues": [
+                "Play the ball to where your partner can reach it — not where it is easiest for you",
+                "Communicate — call the ball or say your partner's name before playing",
+                "Keep the ball at a reachable height — below head level is ideal",
+                "React early — move to where the ball will be, not where it is",
+                "Soft touches — Altinha is about feel, not power"
+              ],
+              "scoring": {
+                "beginner": "Target: 10 consecutive team touches",
+                "developing": "Target: 25 consecutive team touches",
+                "advanced": "Target: 50+ consecutive team touches"
+              },
+              "variations": [
+                "Foot only — hardest, most game-relevant",
+                "No thigh — forces players to use foot or head",
+                "One touch only — no player may touch the ball twice in a row",
+                "Silence — no talking allowed (forces eye contact and reading)",
+                "Moving — players walk or jog freely in open space during the rally"
+              ],
+              "diagram": {
+                "label": "Altinha — 2–4 players, keep ball in air, no hands",
+                "view": "top_down",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 160\"\n   version=\"1.1\"\n   id=\"svg10\"\n   sodipodi:docname=\"ball_mastery__drill_5.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview10\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"79.875\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg10\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Top-down view · 2–4 players · 2–3m apart</text>\n  <circle\n     cx=\"110\"\n     cy=\"32\"\n     r=\"10\"\n     fill=\"none\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.5\"\n     id=\"circle1\" />\n  <text\n     x=\"110\"\n     y=\"36\"\n     text-anchor=\"middle\"\n     font-size=\"8px\"\n     fill=\"#d85a30\"\n     id=\"text2\">P1</text>\n  <circle\n     cx=\"60\"\n     cy=\"110\"\n     r=\"10\"\n     fill=\"none\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.5\"\n     id=\"circle2\" />\n  <text\n     x=\"60\"\n     y=\"114\"\n     text-anchor=\"middle\"\n     font-size=\"8px\"\n     fill=\"#3b8bd4\"\n     id=\"text3\">P2</text>\n  <circle\n     cx=\"160\"\n     cy=\"110\"\n     r=\"10\"\n     fill=\"none\"\n     stroke=\"#1d9e75\"\n     stroke-width=\"1.5\"\n     id=\"circle3\" />\n  <text\n     x=\"160\"\n     y=\"114\"\n     text-anchor=\"middle\"\n     font-size=\"8px\"\n     fill=\"#1d9e75\"\n     id=\"text4\">P3</text>\n  <circle\n     cx=\"110\"\n     cy=\"75\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#888888\"\n     stroke-width=\"1.2\"\n     id=\"circle4\" />\n  <circle\n     cx=\"110\"\n     cy=\"75\"\n     r=\"3\"\n     fill=\"#888888\"\n     id=\"circle5\" />\n  <text\n     x=\"122\"\n     y=\"72\"\n     font-size=\"6px\"\n     fill=\"#888888\"\n     id=\"text5\">ball</text>\n  <line\n     x1=\"110\"\n     y1=\"42\"\n     x2=\"110\"\n     y2=\"66\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"line5\" />\n  <line\n     x1=\"104\"\n     y1=\"84\"\n     x2=\"70\"\n     y2=\"102\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"line6\" />\n  <line\n     x1=\"116\"\n     y1=\"84\"\n     x2=\"150\"\n     y2=\"102\"\n     stroke=\"#1d9e75\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"line7\" />\n  <text\n     x=\"60\"\n     y=\"129\"\n     text-anchor=\"middle\"\n     font-size=\"6px\"\n     fill=\"#aaaaaa\"\n     id=\"text7\">2–3m</text>\n  <line\n     x1=\"70\"\n     y1=\"110\"\n     x2=\"150\"\n     y2=\"110\"\n     stroke=\"#aaaaaa\"\n     stroke-width=\"0.5\"\n     id=\"line8\" />\n  <line\n     x1=\"70\"\n     y1=\"107\"\n     x2=\"70\"\n     y2=\"113\"\n     stroke=\"#aaaaaa\"\n     stroke-width=\"0.5\"\n     id=\"line9\" />\n  <line\n     x1=\"150\"\n     y1=\"107\"\n     x2=\"150\"\n     y2=\"113\"\n     stroke=\"#aaaaaa\"\n     stroke-width=\"0.5\"\n     id=\"line10\" />\n  <rect\n     x=\"10\"\n     y=\"136\"\n     width=\"200\"\n     height=\"18\"\n     rx=\"3\"\n     fill=\"none\"\n     stroke=\"#D85A30\"\n     stroke-width=\"0.8\"\n     stroke-dasharray=\"3 2\"\n     id=\"rect10\" />\n  <text\n     x=\"110\"\n     y=\"148\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#D85A30\"\n     id=\"text10\">No hands or arms · all other surfaces allowed</text>\n</svg>\n"
+              }
+            },
+            {
+              "id": "drill_6",
+              "number": 6,
+              "name": "Altinha — target score challenge",
+              "type": "altinha",
+              "requires_partner": true,
+              "min_players": 2,
+              "max_players": 4,
+              "sets": 5,
+              "duration_min": null,
+              "reps_unit": "rally attempts to reach target score",
+              "rest_seconds": 30,
+              "execution": "Set a team target score before each set (e.g. 15 touches). Play until target is reached or ball drops. Record how many attempts it took to reach the target. Goal: reach the target in fewer attempts each set.",
+              "rules": [
+                "Same rules as basic Altinha — no hands or arms",
+                "Agree on the target score before the set starts",
+                "If the ball drops, count the attempt and restart",
+                "Track: attempts needed to hit target each set"
+              ],
+              "cues": [
+                "As the score gets higher, stay calm — anxiety causes rushed touches",
+                "Celebrate a new personal best — record it",
+                "If one player keeps causing drops, give them easier surfaces (thigh, head) to rebuild confidence",
+                "The last few touches before a record are the hardest — breathe"
+              ],
+              "suggested_targets": {
+                "session_1": 10,
+                "session_2": 15,
+                "session_3": 20,
+                "session_4": 25,
+                "ongoing": "Add 5 touches per session until 50 is reached, then increase by 10"
+              },
+              "diagram": {
+                "label": "Altinha — target score challenge, track attempts per set",
+                "view": "top_down",
+                "svg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   width=\"100%\"\n   viewBox=\"0 0 220 155\"\n   version=\"1.1\"\n   id=\"svg14\"\n   sodipodi:docname=\"ball_mastery__drill_6.svg\"\n   inkscape:version=\"1.4.3 (0d15f75, 2025-12-25)\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview14\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#000000\"\n     borderopacity=\"0.25\"\n     inkscape:showpageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:deskcolor=\"#d1d1d1\"\n     inkscape:zoom=\"4\"\n     inkscape:cx=\"110\"\n     inkscape:cy=\"77.375\"\n     inkscape:window-width=\"2560\"\n     inkscape:window-height=\"1382\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"30\"\n     inkscape:window-maximized=\"1\"\n     inkscape:current-layer=\"svg14\" />\n  <defs\n     id=\"defs1\">\n    <marker\n       id=\"arr\"\n       viewBox=\"0 0 10 10\"\n       refX=\"8\"\n       refY=\"5\"\n       markerWidth=\"5\"\n       markerHeight=\"5\"\n       orient=\"auto-start-reverse\">\n      <path\n         d=\"M2 1L8 5L2 9\"\n         fill=\"none\"\n         stroke=\"context-stroke\"\n         stroke-width=\"1.5\"\n         stroke-linecap=\"round\"\n         stroke-linejoin=\"round\"\n         id=\"path1\" />\n    </marker>\n  </defs>\n  <text\n     x=\"110\"\n     y=\"11\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text1\">Top-down view · count touches · reach target</text>\n  <circle\n     cx=\"80\"\n     cy=\"41\"\n     r=\"10\"\n     fill=\"none\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.5\"\n     id=\"circle1\" />\n  <text\n     x=\"80\"\n     y=\"45\"\n     text-anchor=\"middle\"\n     font-size=\"8px\"\n     fill=\"#d85a30\"\n     id=\"text2\">P1</text>\n  <circle\n     cx=\"140\"\n     cy=\"41\"\n     r=\"10\"\n     fill=\"none\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.5\"\n     id=\"circle2\" />\n  <text\n     x=\"140\"\n     y=\"45\"\n     text-anchor=\"middle\"\n     font-size=\"8px\"\n     fill=\"#3b8bd4\"\n     id=\"text3\">P2</text>\n  <circle\n     cx=\"110\"\n     cy=\"56\"\n     r=\"9\"\n     fill=\"none\"\n     stroke=\"#888888\"\n     stroke-width=\"1.2\"\n     id=\"circle3\" />\n  <circle\n     cx=\"110\"\n     cy=\"56\"\n     r=\"3\"\n     fill=\"#888888\"\n     id=\"circle4\" />\n  <line\n     x1=\"90\"\n     y1=\"46\"\n     x2=\"103\"\n     y2=\"53\"\n     stroke=\"#d85a30\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"line4\" />\n  <line\n     x1=\"117\"\n     y1=\"53\"\n     x2=\"130\"\n     y2=\"46\"\n     stroke=\"#3b8bd4\"\n     stroke-width=\"1.4\"\n     stroke-dasharray=\"3, 2\"\n     marker-end=\"url(#arr)\"\n     id=\"line5\" />\n  <rect\n     x=\"60\"\n     y=\"90\"\n     width=\"100\"\n     height=\"40\"\n     rx=\"5\"\n     fill=\"none\"\n     stroke=\"#1D9E75\"\n     stroke-width=\"1.5\"\n     id=\"rect5\" />\n  <text\n     x=\"110\"\n     y=\"106\"\n     text-anchor=\"middle\"\n     font-size=\"11\"\n     fill=\"#1D9E75\"\n     font-weight=\"bold\"\n     id=\"text5\">TARGET</text>\n  <text\n     x=\"110\"\n     y=\"120\"\n     text-anchor=\"middle\"\n     font-size=\"10\"\n     fill=\"#1D9E75\"\n     id=\"text6\">15 touches</text>\n  <text\n     x=\"14\"\n     y=\"65\"\n     font-size=\"7px\"\n     fill=\"#aaaaaa\"\n     id=\"text7\">Set 1</text>\n  <text\n     x=\"14\"\n     y=\"75\"\n     font-size=\"7px\"\n     fill=\"#aaaaaa\"\n     id=\"text8\">Set 2</text>\n  <text\n     x=\"14\"\n     y=\"85\"\n     font-size=\"7px\"\n     fill=\"#aaaaaa\"\n     id=\"text9\">Set 3</text>\n  <text\n     x=\"36\"\n     y=\"65\"\n     font-size=\"7px\"\n     fill=\"#d85a30\"\n     id=\"text10\">3 tries</text>\n  <text\n     x=\"36\"\n     y=\"75\"\n     font-size=\"7px\"\n     fill=\"#f2a623\"\n     id=\"text11\">2 tries</text>\n  <text\n     x=\"36\"\n     y=\"85\"\n     font-size=\"7px\"\n     fill=\"#1d9e75\"\n     id=\"text12\">1 try ✓</text>\n  <text\n     x=\"110\"\n     y=\"144\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#aaa\"\n     id=\"text13\">Count attempts to hit target each set</text>\n  <text\n     x=\"110\"\n     y=\"153\"\n     text-anchor=\"middle\"\n     font-size=\"7\"\n     fill=\"#1D9E75\"\n     id=\"text14\">Goal: fewer attempts each set</text>\n</svg>\n"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
