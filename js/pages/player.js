@@ -153,13 +153,14 @@ function fmtReps(d) {
   const sets = d.sets ? `${d.sets} sets` : '';
   let reps   = '';
   if      (d.reps)              reps = `${d.reps} ${d.reps_unit || 'reps'}`;
+  else if (d.reps_scheme)       reps = `${d.reps_scheme} reps`;
   else if (d.reps_range)        reps = `${d.reps_range[0]}–${d.reps_range[1]} reps`;
   else if (d.duration_sec)      reps = `${d.duration_sec}s hold`;
   else if (d.duration_work_sec) reps = `${d.duration_work_sec}s on / ${d.duration_rest_sec}s rest`;
 
   const tags = [
-    d.each_side && 'each side',
-    d.per_leg   && 'per leg',
+    d.each_side                      && 'each side',
+    (d.per_leg || d.reps_per_leg)    && 'per leg',
     (d.feet && d.feet !== 'both') && `${d.feet} foot`,
   ].filter(Boolean).join(', ');
 

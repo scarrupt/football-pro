@@ -35,10 +35,10 @@ function renderTeamExtras(form, state) {
   sec.className = 'form-section extra-section';
   sec.innerHTML = `
     <div class="extra-section-title">👥 Team Training Details</div>
-    <label class="form-label">Position played</label>
+    <label class="form-label">Position(s) played</label>
     <div class="position-row" id="pos-row">
       ${POSITIONS.map(p => `
-        <button class="position-btn${state.position === p ? ' selected' : ''}" data-pos="${p}">${p}</button>
+        <button class="position-btn${(state.positions || []).includes(p) ? ' selected' : ''}" data-pos="${p}">${p}</button>
       `).join('')}
     </div>
     <label class="form-label" style="margin-top:12px;">Coach feedback (optional)</label>
@@ -55,9 +55,8 @@ function renderTeamExtras(form, state) {
 
   sec.querySelectorAll('.position-btn').forEach(b => {
     b.addEventListener('click', () => {
-      sec.querySelectorAll('.position-btn').forEach(x => x.classList.remove('selected'));
-      b.classList.add('selected');
-      state.position = b.dataset.pos;
+      b.classList.toggle('selected');
+      state.positions = [...sec.querySelectorAll('.position-btn.selected')].map(x => x.dataset.pos);
     });
   });
   sec.querySelectorAll('.focus-chip').forEach(b => {
@@ -101,12 +100,15 @@ function renderMatchExtras(form, state) {
       <span class="stepper-val" id="goals-val">${state.goalsScored ?? 0}</span>
       <button class="stepper-btn" id="goals-plus">+</button>
     </div>
-    <label class="form-label" style="margin-top:12px;">Position played</label>
+    <label class="form-label" style="margin-top:12px;">Position(s) played</label>
     <div class="position-row" id="match-pos-row">
       ${POSITIONS.map(p => `
-        <button class="position-btn${state.position === p ? ' selected' : ''}" data-pos="${p}">${p}</button>
+        <button class="position-btn${(state.positions || []).includes(p) ? ' selected' : ''}" data-pos="${p}">${p}</button>
       `).join('')}
     </div>
+    <label class="form-label" style="margin-top:12px;">Coach feedback (optional)</label>
+    <textarea id="coach-feedback" class="form-textarea" rows="2"
+      placeholder="What did the coach say?">${state.coachFeedback || ''}</textarea>
   `;
   form.appendChild(sec);
 
@@ -130,11 +132,11 @@ function renderMatchExtras(form, state) {
   });
   sec.querySelectorAll('.position-btn').forEach(b => {
     b.addEventListener('click', () => {
-      sec.querySelectorAll('.position-btn').forEach(x => x.classList.remove('selected'));
-      b.classList.add('selected');
-      state.position = b.dataset.pos;
+      b.classList.toggle('selected');
+      state.positions = [...sec.querySelectorAll('.position-btn.selected')].map(x => x.dataset.pos);
     });
   });
+  sec.querySelector('#coach-feedback').addEventListener('input', e => { state.coachFeedback = e.target.value.trim(); });
 }
 
 // ─── Step 2: Details form ─────────────────────────────────────────────────
@@ -165,7 +167,7 @@ function renderDetailsForm(container, params) {
 
   // Extra-field state objects (mutated by extra-field renderers)
   const teamState  = {
-    position:     editSession?.position     || null,
+    positions:    editSession?.positions    || (editSession?.position ? [editSession.position] : []),
     coachFeedback:editSession?.coachFeedback|| '',
     drillsFocus:  editSession?.drillsFocus  || [],
   };
@@ -175,7 +177,8 @@ function renderDetailsForm(container, params) {
     scoreFor:     editSession?.scoreFor     ?? null,
     scoreAgainst: editSession?.scoreAgainst ?? null,
     goalsScored:  editSession?.goalsScored  ?? 0,
-    position:     editSession?.position     || null,
+    positions:    editSession?.positions    || (editSession?.position ? [editSession.position] : []),
+    coachFeedback:editSession?.coachFeedback|| '',
   };
 
   const form = document.createElement('div');
@@ -303,7 +306,7 @@ function renderDetailsForm(container, params) {
   notesSec.innerHTML = `
     <label class="form-label">📝 Notes (optional)</label>
     <textarea id="session-notes" class="form-textarea" rows="3"
-      placeholder="What went well? What to improve? Coach feedback…">${editSession?.notes || ''}</textarea>`;
+      placeholder="${(typeId === 'team_training' || typeId === 'match') ? 'What went well? What to improve?' : 'What went well? What to improve? Coach feedback…'}">${editSession?.notes || ''}</textarea>`;
   form.appendChild(notesSec);
 
   // ── Mark as Complete (edit mode, unlinked planner item) ──────────────
@@ -422,17 +425,18 @@ function renderDetailsForm(container, params) {
       plannerId:  editSession?.plannerId || params.plannerId || null,
       // extras
       ...(typeId === 'team_training' && {
-        position:     teamState.position,
-        coachFeedback: teamState.coachFeedback,
+        positions:    teamState.positions,
+        coachFeedback:teamState.coachFeedback,
         drillsFocus:  teamState.drillsFocus,
       }),
       ...(typeId === 'match' && {
-        opponent:    matchState.opponent,
-        result:      matchState.result,
-        scoreFor:    matchState.scoreFor,
-        scoreAgainst:matchState.scoreAgainst,
-        goalsScored: matchState.goalsScored,
-        position:    matchState.position,
+        opponent:     matchState.opponent,
+        result:       matchState.result,
+        scoreFor:     matchState.scoreFor,
+        scoreAgainst: matchState.scoreAgainst,
+        goalsScored:  matchState.goalsScored,
+        positions:    matchState.positions,
+        coachFeedback:matchState.coachFeedback,
       }),
       ...(modulesToSave?.length      && { modules:     modulesToSave     }),
       ...(finalTestResults.length    && { testResults: finalTestResults  }),
